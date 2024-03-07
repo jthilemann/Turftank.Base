@@ -1,0 +1,16 @@
+{
+    "name": "Turftank",
+    "description": "Turftank ruleset",
+    "rules": [
+        {
+            "id": "AA0072",
+            "action": "None",
+            "justification": "No nice fix for this"
+        },
+        {
+            "id": "AA0215",
+            "action": "None",
+            "justification": "We define our own filenames"
+        }
+    ]
+}

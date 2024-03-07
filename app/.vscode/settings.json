@@ -1,0 +1,19 @@
+{
+    "al.codeAnalyzers": [
+        "${CodeCop}",
+        "${UICop}",
+        "${PerTenantExtensionCop}"
+    ],
+    "al.ruleSetPath": ".vscode/Turftank.ruleset.json",
+    "al.enableCodeAnalysis": true,
+    "CRS.ObjectNamePrefix": "TURF",
+    "CRS.RemovePrefixFromFilename": true,
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectType>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectType>Ext.al",
+    "CRS.OnSaveAlFileAction": "Rename",
+    "CRS.DisableDefaultAlSnippets": true,
+    "CRS.AlSubFolderName": "src",
+    "al.defaultLaunchConfigurationName": "Docker",
+    "xliffSync.baseFile": "Turftank.Hubspot.ERP.g.xlf"
+}
