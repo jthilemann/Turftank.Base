@@ -1,7 +1,8 @@
 table 70301 "TURFOrder Type"
 {
     DataClassification = CustomerContent;
-
+    LookupPageId = "TURFOrder Types";
+    DrillDownPageId = "TURFOrder Types";
     fields
     {
         field(1; "Code"; Code[20])
