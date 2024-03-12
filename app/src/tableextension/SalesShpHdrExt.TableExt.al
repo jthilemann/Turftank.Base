@@ -6,6 +6,7 @@ tableextension 70303 "TURFSales Shp. Hdr Ext" extends "Sales Shipment Header"
         {
             Caption = 'Order Type';
             DataClassification = ToBeClassified;
+            tablerelation = "TURFOrder Type".Code;
         }
     }
 }

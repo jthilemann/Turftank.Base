@@ -6,6 +6,7 @@ tableextension 70301 "TURFSales Hdr Ext" extends "Sales Header"
         {
             Caption = 'Order Type';
             DataClassification = ToBeClassified;
+            tablerelation = "TURFOrder Type".Code;
         }
     }
 }

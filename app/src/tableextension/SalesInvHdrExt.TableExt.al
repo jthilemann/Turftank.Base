@@ -6,6 +6,7 @@ tableextension 70302 "TURFSales Inv. Hdr Ext" extends "Sales Invoice Header"
         {
             Caption = 'Order Type';
             DataClassification = ToBeClassified;
+            tablerelation = "TURFOrder Type".Code;
         }
     }
 }
