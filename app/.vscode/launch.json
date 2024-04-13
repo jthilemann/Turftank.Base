@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Sandbox_230124",
+            "name": "Test_070424",
             "type": "al",
             "request": "launch",
             "environmentType": "Sandbox",
-            "environmentName": "Sandbox_230124",
+            "environmentName": "Test_070424",
             "startupObjectId": 22,
             "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
             "breakOnError": "All",
@@ -21,7 +21,23 @@
             "numberOfSqlStatements": 10,
             "schemaUpdateMode": "ForceSync"
         },
-
+        {
+            "name": "US_Test_04042024",
+            "type": "al",
+            "request": "launch",
+            "environmentType": "Sandbox",
+            "environmentName": "US_Test_04042024",
+            "startupObjectId": 22,
+            "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
+            "breakOnError": "All",
+            "breakOnRecordWrite": "None",
+            "launchBrowser": true,
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10,
+            "schemaUpdateMode": "ForceSync"
+        },
         {
             "name": "TurfDocker",
             "request": "launch",

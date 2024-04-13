@@ -1,0 +1,8 @@
+*.app
+*.g.xlf
+**/launch.json
+**/Thumbs.db
+**/.alcache
+**/.altemplates
+**/rad.json
+!**/symbols/*
