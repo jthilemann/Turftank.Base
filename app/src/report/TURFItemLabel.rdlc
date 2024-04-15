@@ -510,14 +510,8 @@ End Function
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
-        <Field Name="ItemCpt">
-          <DataField>ItemCpt</DataField>
-        </Field>
-        <Field Name="ItemNo">
-          <DataField>ItemNo</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
+        <Field Name="LabelContent">
+          <DataField>LabelContent</DataField>
         </Field>
       </Fields>
       <Query>
