@@ -510,35 +510,14 @@ End Function
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
-        <Field Name="Style">
-          <DataField>Style</DataField>
+        <Field Name="ItemCpt">
+          <DataField>ItemCpt</DataField>
         </Field>
-        <Field Name="Quality">
-          <DataField>Quality</DataField>
+        <Field Name="ItemNo">
+          <DataField>ItemNo</DataField>
         </Field>
-        <Field Name="Description2">
-          <DataField>Description2</DataField>
-        </Field>
-        <Field Name="Color">
-          <DataField>Color</DataField>
-        </Field>
-        <Field Name="Size">
-          <DataField>Size</DataField>
-        </Field>
-        <Field Name="Length">
-          <DataField>Length</DataField>
-        </Field>
-        <Field Name="Barcode">
-          <DataField>Barcode</DataField>
-        </Field>
-        <Field Name="Number">
-          <DataField>Number</DataField>
-        </Field>
-        <Field Name="ShowLength">
-          <DataField>ShowLength</DataField>
-        </Field>
-        <Field Name="SortBy">
-          <DataField>SortBy</DataField>
+        <Field Name="Description">
+          <DataField>Description</DataField>
         </Field>
       </Fields>
       <Query>
