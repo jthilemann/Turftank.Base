@@ -22,4 +22,26 @@ pageextension 70311 "TURF R. Prod. Ord. Card Ext" extends "Released Production O
             }
         }
     }
+    actions
+    {
+        addlast(reporting)
+        {
+            action(TURFPrintJobCard)
+            {
+                Caption = 'Print Turf Job Card';
+                Image = PrintDocument;
+                ToolTip = 'Executes the Print Turf Job Card action.';
+                ApplicationArea = all;
+                trigger OnAction()
+                var
+                    ProductionOrder: Record "Production Order";
+                    ProdOrderJobCard: Report "TURFProd. Order - Job Card";
+                begin
+                    CurrPage.SetSelectionFilter(ProductionOrder);
+                    ProdOrderJobCard.SetTableView(ProductionOrder);
+                    ProdOrderJobCard.Run();
+                end;
+            }
+        }
+    }
 }

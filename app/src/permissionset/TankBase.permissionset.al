@@ -5,5 +5,9 @@ permissionset 70301 TURFTankBase
         table "TURFOrder Type" = X,
         codeunit "TURFReport Management" = X,
         codeunit "TURFSales Management" = X,
-        page "TURFOrder Types" = X;
+        page "TURFOrder Types" = X,
+        tabledata "TURFOperation Location" = RIMD,
+        table "TURFOperation Location" = X,
+        report "TURFProd. Order - Job Card" = X,
+        page "TURFOperation Locations" = X;
 }
