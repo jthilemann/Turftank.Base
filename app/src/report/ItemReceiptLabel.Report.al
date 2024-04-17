@@ -1,4 +1,4 @@
-Report 70301 "TURFItem Receipt Label"
+Report 70302 "TURFItem Receipt Label"
 {
     ApplicationArea = all;
     UsageCategory = ReportsAndAnalysis;
