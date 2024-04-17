@@ -1,4 +1,4 @@
-pageextension 70311 "TURFPost.Purch. Rcpt Sub Ext" extends "Posted Purchase Rcpt. Subform"
+pageextension 70312 "TURFPost.Purch. Rcpt Sub Ext" extends "Posted Purchase Rcpt. Subform"
 {
     layout
     {
