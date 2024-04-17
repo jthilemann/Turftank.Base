@@ -4,17 +4,17 @@ tableextension 70305 "TURFProd. Order Ext" extends "Production Order"
     {
         field(70301; "TURF Production Start"; Date)
         {
-            Caption = 'TURF Production Start';
+            Caption = 'Production Start';
             DataClassification = ToBeClassified;
         }
         field(70302; "TURF Production End"; Date)
         {
-            Caption = 'TURF Production End';
+            Caption = 'Production End';
             DataClassification = ToBeClassified;
         }
         field(70303; TURFComment; Text[50])
         {
-            Caption = 'TURF Comment';
+            Caption = 'Comment';
             DataClassification = ToBeClassified;
         }
 
