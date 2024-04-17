@@ -55,6 +55,8 @@ report 70301 "TURFProd. Order - Job Card"
                 column(ItemNo; Item."No.") { }
                 column(DescriptionLbl; Item.FieldCaption(Description)) { }
                 column(Description; Item.Description) { }
+                column(QuantityLbl; FieldCaption(Quantity)) { }
+                column(Quantity; Quantity) { }
                 trigger OnAfterGetRecord()
                 var
                     WorkCenter: Record "Work Center";
