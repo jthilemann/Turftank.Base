@@ -1,4 +1,4 @@
-pageextension 70314 "TURFG/L Account Card Ext" extends "G/L Account Card"
+pageextension 70315 "TURFG/L Account Card Ext" extends "G/L Account Card"
 {
     layout
     {
