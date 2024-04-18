@@ -9,5 +9,7 @@ permissionset 70301 TURFTankBase
         tabledata "TURFOperation Location" = RIMD,
         table "TURFOperation Location" = X,
         report "TURFProd. Order - Job Card" = X,
-        page "TURFOperation Locations" = X;
+        page "TURFOperation Locations" = X,
+        tabledata "TURFEmployee Group" = RIMD,
+        table "TURFEmployee Group" = X;
 }
