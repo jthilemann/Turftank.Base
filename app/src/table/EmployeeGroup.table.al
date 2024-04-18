@@ -1,7 +1,8 @@
 table 70303 "TURFEmployee Group"
 {
     DataClassification = ToBeClassified;
-
+    DrillDownPageId = "TURFEmployee Groups";
+    LookupPageId = "TURFEmployee Groups";
     fields
     {
         field(1; "Code"; Code[20])
