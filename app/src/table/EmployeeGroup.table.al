@@ -7,7 +7,7 @@ table 70303 "TURFEmployee Group"
     {
         field(1; "Code"; Code[20])
         {
-            Caption = 'Order Type';
+            Caption = 'Employee Group';
             DataClassification = ToBeClassified;
         }
         field(2; Description; Text[50])
@@ -15,7 +15,11 @@ table 70303 "TURFEmployee Group"
             Caption = 'Description';
             DataClassification = ToBeClassified;
         }
-
+        field(10; "G/L Account Filter"; text[250])
+        {
+            Caption = 'G/L Account Filter';
+            DataClassification = ToBeClassified;
+        }
     }
 
     keys
