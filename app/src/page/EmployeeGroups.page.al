@@ -31,7 +31,7 @@ page 70303 "TURFEmployee Groups"
                         ChartofAccounts.LookupMode := true;
                         if ChartofAccounts.RunModal() = Action::LookupOK then begin
                             ChartofAccounts.GetRecord(GLAccount);
-                            Text += GLAccount."No.";
+                            Rec."G/L Account Filter" := Text + GLAccount."No.";
                         end;
                     end;
                 }
