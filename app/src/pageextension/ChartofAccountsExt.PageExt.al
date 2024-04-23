@@ -20,8 +20,8 @@ pageextension 70317 "TURFChart of Accounts Ext" extends "Chart of Accounts"
                     UserSetup: Record "User Setup";
                 //TURFEmployeeGroup: Record "TURFEmployee Group";
                 begin
-                    if Rec.GetFilter("No.") <> '' then
-                        Rec.SetRange("No.")
+                    if Rec.GetFilter("TURFEmployee Groups Filter") <> '' then
+                        Rec.SetRange("TURFEmployee Groups Filter")
                     else begin
                         UserSetup.Get(UserId);
                         UserSetup.TestField("TURFEmployee Group");
@@ -42,8 +42,8 @@ pageextension 70317 "TURFChart of Accounts Ext" extends "Chart of Accounts"
                     TURFEmployeeGroup: Record "TURFEmployee Group";
                     TURFEmployeeGroups: Page "TURFEmployee Groups";
                 begin
-                    if Rec.GetFilter("No.") <> '' then
-                        Rec.SetRange("No.")
+                    if Rec.GetFilter("TURFEmployee Groups Filter") <> '' then
+                        Rec.SetRange("TURFEmployee Groups Filter")
                     else begin
                         TURFEmployeeGroups.LookupMode := true;
                         if TURFEmployeeGroups.RunModal() = Action::LookupOK then begin
