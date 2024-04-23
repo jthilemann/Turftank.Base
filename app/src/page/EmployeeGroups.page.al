@@ -20,21 +20,6 @@ page 70303 "TURFEmployee Groups"
                 {
                     ToolTip = 'Specifies the value of the Description field.';
                 }
-                field("G/L Account Filter"; Rec."G/L Account Filter")
-                {
-                    ToolTip = 'Specifies the value of the G/L Account Filter field.';
-                    trigger OnLookup(var Text: Text): Boolean
-                    var
-                        GLAccount: Record "G/L Account";
-                        ChartofAccounts: Page "Chart of Accounts";
-                    begin
-                        ChartofAccounts.LookupMode := true;
-                        if ChartofAccounts.RunModal() = Action::LookupOK then begin
-                            ChartofAccounts.GetRecord(GLAccount);
-                            Rec."G/L Account Filter" := Text + GLAccount."No.";
-                        end;
-                    end;
-                }
             }
         }
     }
