@@ -15,11 +15,6 @@ table 70303 "TURFEmployee Group"
             Caption = 'Description';
             DataClassification = ToBeClassified;
         }
-        field(10; "G/L Account Filter"; text[250])
-        {
-            Caption = 'G/L Account Filter';
-            DataClassification = ToBeClassified;
-        }
     }
 
     keys
