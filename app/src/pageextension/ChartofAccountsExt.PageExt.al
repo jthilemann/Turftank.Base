@@ -26,7 +26,7 @@ pageextension 70317 "TURFChart of Accounts Ext" extends "Chart of Accounts"
                         UserSetup.Get(UserId);
                         UserSetup.TestField("TURFEmployee Group");
                         //TURFEmployeeGroup.Get(UserSetup."TURFEmployee Group");
-                        Rec.SetFilter("TURFEmployee Groups Filter", '@*%1*', UserSetup."TURFEmployee Group");
+                        Rec.SetFilter("TURFEmployee Groups Filter", StrSubstNo('@*%1*', UserSetup."TURFEmployee Group"));
                         //Rec.SetFilter("No.", TURFEmployeeGroup."G/L Account Filter");
                     end;
                 end;
@@ -48,7 +48,7 @@ pageextension 70317 "TURFChart of Accounts Ext" extends "Chart of Accounts"
                         TURFEmployeeGroups.LookupMode := true;
                         if TURFEmployeeGroups.RunModal() = Action::LookupOK then begin
                             TURFEmployeeGroups.GetRecord(TURFEmployeeGroup);
-                            Rec.SetFilter("TURFEmployee Groups Filter", '@*%1*', TURFEmployeeGroup.Code);
+                            Rec.SetFilter("TURFEmployee Groups Filter", StrSubstNo('@*%1*', TURFEmployeeGroup.Code));
                             //Rec.SetFilter("No.", TURFEmployeeGroup."G/L Account Filter");
                         end;
                     end;
