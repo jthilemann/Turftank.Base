@@ -2,7 +2,7 @@ pageextension 70312 "TURF R. Prod. Orders" extends "Released Production Orders"
 {
     layout
     {
-        addlast(content)
+        addlast(Control1)
         {
             field("TURF Production Start"; Rec."TURF Production Start")
             {
