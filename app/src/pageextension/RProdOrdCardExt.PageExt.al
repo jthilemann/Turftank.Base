@@ -1,8 +1,8 @@
-pageextension 70312 "TURF R. Prod. Orders" extends "Released Production Orders"
+pageextension 70311 "TURF R. Prod. Ord. Card Ext" extends "Released Production Order"
 {
     layout
     {
-        addlast(Control1)
+        addlast(General)
         {
             field("TURF Production Start"; Rec."TURF Production Start")
             {
@@ -18,6 +18,17 @@ pageextension 70312 "TURF R. Prod. Orders" extends "Released Production Orders"
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Comment field.';
+                MultiLine = true;
+            }
+            field(TURFShipping; Rec.TURFShipping)
+            {
+                ApplicationArea = all;
+                ToolTip = 'Specifies the value of the TURFShipping field.';
+            }
+            field("TURFWarehouse/Production"; Rec."TURFWarehouse/Production")
+            {
+                ApplicationArea = all;
+                ToolTip = 'Specifies the value of the TURFWarehouse/Production field.';
             }
         }
     }
