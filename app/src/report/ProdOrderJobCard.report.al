@@ -27,7 +27,10 @@ report 70301 "TURFProd. Order - Job Card"
             column(TurfEndLbl; "Production Order".FieldCaption("TURF Production End")) { }
             column(Comment; TURFComment) { }
             column(CommentLbl; FieldCaption(TURFComment)) { }
-
+            column(TURFShipping; TURFShipping) { }
+            column(TURFWarehouse_Production; "TURFWarehouse/Production") { }
+            column(TURFShippingLbl; FieldCaption(TURFShipping)) { }
+            column(TURFWarehouse_ProductionLbl; FieldCaption("TURFWarehouse/Production")) { }
             column(TodayFormatted; Format(Today, 0, 4)) { }
             column(CompanyName; COMPANYPROPERTY.DisplayName()) { }
             column(ProdOrderTableCaptionFilt; FiltersLbl + "Production Order".TableCaption + ':' + ProdOrderFilter) { }
