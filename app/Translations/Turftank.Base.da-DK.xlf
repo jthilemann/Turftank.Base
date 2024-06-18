@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="da-DK" original="Turftank.Base">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 3290144236 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Group</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFEmployee Group - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3290144236 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Beskrivelse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFEmployee Group - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 810204895 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Kode</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFOperation Location - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 810204895 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Beskrivelse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFOperation Location - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 587860805 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Type</source>
+          <target state="translated">Ordretype</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFOrder Type - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 587860805 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Beskrivelse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFOrder Type - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1202516429 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Groups</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFEmployee Groups - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1202516429 - Control 3004954119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFEmployee Groups - Control Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1202516429 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Description field.</source>
+          <target state="translated">Angiver værdien for feltet.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFEmployee Groups - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3164616778 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operation Locations</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFOperation Locations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3164616778 - Control 3004954119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Code field.</source>
+          <target state="translated">Angiver værdien for feltet.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFOperation Locations - Control Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3164616778 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Description field.</source>
+          <target state="translated">Angiver værdien for feltet.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFOperation Locations - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 484432572 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Types</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFOrder Types - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 484432572 - Control 3004954119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFOrder Types - Control Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 484432572 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Description field.</source>
+          <target state="translated">Angiver værdien for feltet.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFOrder Types - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3022596390 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TURF Prod. Order - Job Card</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TURFProd. Order - Job Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3022596390 - Property 3863440606" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TURF production order - job card,work order job card</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TURFProd. Order - Job Card - Property AdditionalSearchTerms</note>
+        </trans-unit>
+        <trans-unit id="Report 3022596390 - NamedType 684809554" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target state="translated">Side</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TURFProd. Order - Job Card - NamedType CurrReportPageNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3022596390 - NamedType 3399967359" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time Needed Per Item</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TURFProd. Order - Job Card - NamedType ExpPerItemLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3022596390 - NamedType 131153979" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filters: </source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TURFProd. Order - Job Card - NamedType FiltersLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3022596390 - NamedType 2363186620" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Precalc. Times</source>
+          <target state="translated">Forkalkuleret tid</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TURFProd. Order - Job Card - NamedType PrecalcTimesCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3022596390 - NamedType 4028231548" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prod. Order - Job Card</source>
+          <target state="translated">Prod.ordre - jobkort</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TURFProd. Order - Job Card - NamedType ProdOrderJobCardCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3022596390 - NamedType 2899232312" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Production Order No.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TURFProd. Order - Job Card - NamedType ProdOrderNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3022596390 - NamedType 2935871553" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <target state="translated">Varenr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TURFProd. Order - Job Card - NamedType ProdOrderSourceNoCaptLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3022596390 - NamedType 2007957674" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time Needed</source>
+          <target state="translated">Nødvendig tid</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TURFProd. Order - Job Card - NamedType ProdOrdRtngLnExpcCapNdCptLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2333955448 - Action 324074545 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3698582500">
+          <source>Executes the Print Turf Job Card action.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Ord. Card Ext - Action TURFPrintJobCard - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2333955448 - Action 324074545 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3698582500">
+          <source>Print Turf Job Card</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Ord. Card Ext - Action TURFPrintJobCard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2333955448 - Control 3262592459 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3698582500">
+          <source>Specifies the value of the TURF Production End field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Ord. Card Ext - Control TURF Production End - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2333955448 - Control 3055684650 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3698582500">
+          <source>Specifies the value of the TURF Production Start field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Ord. Card Ext - Control TURF Production Start - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2333955448 - Control 1196406466 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3698582500">
+          <source>Specifies the value of the Comment field.</source>
+          <target state="translated">Angiver værdien for feltet.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Ord. Card Ext - Control TURFComment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2333955448 - Control 1879784393 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3698582500">
+          <source>Specifies the value of the TURFShipping field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Ord. Card Ext - Control TURFShipping - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2333955448 - Control 3280032936 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3698582500">
+          <source>Specifies the value of the TURFWarehouse/Production field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Ord. Card Ext - Control TURFWarehouse/Production - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2455560541 - Action 324074545 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2972308613">
+          <source>Executes the Print Turf Job Card action.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Orders - Action TURFPrintJobCard - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2455560541 - Action 324074545 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2972308613">
+          <source>Print Turf Job Card</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Orders - Action TURFPrintJobCard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2455560541 - Control 3262592459 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2972308613">
+          <source>Specifies the value of the TURF Production End field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Orders - Control TURF Production End - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2455560541 - Control 3055684650 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2972308613">
+          <source>Specifies the value of the TURF Production Start field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Orders - Control TURF Production Start - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2455560541 - Control 1196406466 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2972308613">
+          <source>Specifies the value of the Comment field.</source>
+          <target state="translated">Angiver værdien for feltet.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Orders - Control TURFComment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2455560541 - Control 1879784393 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2972308613">
+          <source>Specifies the value of the TURFShipping field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Orders - Control TURFShipping - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2455560541 - Control 3280032936 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2972308613">
+          <source>Specifies the value of the TURFWarehouse/Production field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Orders - Control TURFWarehouse/Production - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1313395940 - Control 810204895 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Specifies the value of the Production Location field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFBase Item Card Ext - Control TURFOperation Location - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 242157356 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2259427799">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFBlanket Ord. Ext - Control TURFOrder Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3711603494 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3925560610">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFBlanket Orders Ext - Control TURFOrder Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1292771565 - Action 1368738470 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105459369">
+          <source>Executes the Set/Remove Emp. Grp. Filter action.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFChart of Accounts Ext - Action TURFSetEmpGrpFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1292771565 - Action 1368738470 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105459369">
+          <source>Set/Remove Emp. Grp. Filter</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFChart of Accounts Ext - Action TURFSetEmpGrpFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1292771565 - Action 810461253 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105459369">
+          <source>Executes the Set/Remove My Account Filter action.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFChart of Accounts Ext - Action TURFSetMyFilter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1292771565 - Action 810461253 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105459369">
+          <source>Set/Remove My Account Filter</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFChart of Accounts Ext - Action TURFSetMyFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2891099559 - Control 1617522013 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4219821699">
+          <source>Specifies the value of the Description field.</source>
+          <target state="translated">Angiver værdien for feltet.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFG/L Account Card Ext - Control TURFDescription - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2891099559 - Control 4061503029 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4219821699">
+          <source>Specifies the value of the Employee Groups Filter field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFG/L Account Card Ext - Control TURFEmployee Groups Filter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1260888470 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3434938165">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFPost. S. Inv. List Ext - Control TURFOrder Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 598369900 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFPost. S. Shp. List Ext - Control TURFOrder Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 41986038 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFPosted Sales Inv. Ext - Control TURFOrder Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 389947650 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Inv. Ext - Control TURFOrder Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 779130182 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 561208485">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Invoice List Ext - Control TURFOrder Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 657562906 - Action 2431417824 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Executes the Print Customs Invoice action.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Ord. Ext - Action TURFCustomsInvoice - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 657562906 - Action 2431417824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Print Customs Invoice</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Ord. Ext - Action TURFCustomsInvoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 657562906 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Ord. Ext - Control TURFOrder Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3707627855 - Action 2431417824 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Executes the Print Customs Invoice action.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Order List Ext - Action TURFCustomsInvoice - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3707627855 - Action 2431417824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Print Customs Invoice</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Order List Ext - Action TURFCustomsInvoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3707627855 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Order List Ext - Control TURFOrder Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2378688664 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
+          <source>Specifies the value of the Order Type field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Shp. Ext - Control TURFOrder Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2489994566 - Control 3290144236 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 337631938">
+          <source>Specifies the value of the Employee Group field.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFUser Setup Extension - Control TURFEmployee Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3292964219 - Field 1617522013 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4274826855">
+          <source>Description</source>
+          <target state="translated">Beskrivelse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFG/L Account Ext - Field TURFDescription - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3292964219 - Field 4061503029 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4274826855">
+          <source>Employee Groups Filter</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFG/L Account Ext - Field TURFEmployee Groups Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 543928307 - Field 810204895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Production Location</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFItem Ext - Field TURFOperation Location - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3267346127 - Field 3262592459 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2308244223">
+          <source>Production End</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFProd. Order Ext - Field TURF Production End - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3267346127 - Field 3055684650 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2308244223">
+          <source>Production Start</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFProd. Order Ext - Field TURF Production Start - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3267346127 - Field 1196406466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2308244223">
+          <source>Comment</source>
+          <target state="translated">Bemærkning</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFProd. Order Ext - Field TURFComment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3267346127 - Field 1879784393 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2308244223">
+          <source>Shipping</source>
+          <target state="translated">Levering</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFProd. Order Ext - Field TURFShipping - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3267346127 - Field 3280032936 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2308244223">
+          <source>Warehouse/Production</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFProd. Order Ext - Field TURFWarehouse/Production - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3448924654 - Field 587860805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Order Type</source>
+          <target state="translated">Ordretype</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Hdr Ext - Field TURFOrder Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1251985023 - Field 587860805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Order Type</source>
+          <target state="translated">Ordretype</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Inv. Hdr Ext - Field TURFOrder Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3667100985 - Field 587860805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
+          <source>Order Type</source>
+          <target state="translated">Ordretype</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Shp. Hdr Ext - Field TURFOrder Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2489994566 - Field 3290144236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Employee Group</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFUser Setup Extension - Field TURFEmployee Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 829749292 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 1</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1165071844 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 10</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 10 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 527375227 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 11</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 11 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2440465078 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 12</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 12 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1802768461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 13</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 13 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2909252672 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 14</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 14 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2271556055 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 15</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 15 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 4184645906 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 16</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 16 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3546949289 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 17</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 17 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 358466204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 18</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 18 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 4015736883 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 19</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 19 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1467445909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 2</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1441604117 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 20</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 20 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2079300734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 21</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 21 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 166210883 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 22</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 22 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 803907500 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 23</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 23 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3185784945 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 24</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 24 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3823481562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 25</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 25 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2105142526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 3</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1936233503 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 4</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2573930120 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 5</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 5 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3211626737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 6</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3849323354 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 7</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 998658315 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 8</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 8 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1636354932 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Container US 9</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Container US 9 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3408831980 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 1</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2867288484 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 10</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 10 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2229591867 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 11</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 11 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 4142681718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 12</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 12 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3504985101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 13</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 13 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 316502016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 14</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 14 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3973772695 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 15</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 15 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1591895250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 16</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 16 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 954198633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 17</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 17 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2060682844 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 18</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 18 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1422986227 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 19</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 19 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 4046528597 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 2</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3143820757 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 20</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 20 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3781517374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 21</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 21 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1868427523 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 22</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 22 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2506124140 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 23</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 23 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 593034289 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 24</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 24 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1230730906 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 25</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 25 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3612608351 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 26</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 26 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 4250304968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 27</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 27 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3950426397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 28</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 28 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 293155718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 29</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 29 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 389257918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 3</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2331019942 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 30</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 30 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1693323325 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 31</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 31 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1055626708 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 32</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 32 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 417930091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 33</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 33 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 4075200770 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 34</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 34 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3437504153 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 35</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 35 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2799807536 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 36</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 36 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2162110919 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 37</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 37 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1524414302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 38</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 38 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 886717685 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 39</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 39 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 220348895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 4</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 436870735 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 40</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 40 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1074567352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 41</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 41 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1712263969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 42</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 42 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2349960586 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 43</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 43 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2987657203 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 44</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 44 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3625353820 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 45</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 45 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 4263050437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 46</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 46 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 605779758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 47</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 47 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1243476375 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 48</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 48 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1881172992 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 49</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 49 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 858045512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 5</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 5 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3939825568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 50</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 50 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3302128951 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 51</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 51 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 920251506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 52</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 52 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 1495742129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 6</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 2133438746 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 7</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 3577741003 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 8</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 8 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 4215437620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fly US Week 9</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue Fly US Week 9 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1879784393 - EnumValue 180922009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TT DK</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFShipping - EnumValue TT DK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 9285389 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFWarehouse Production - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 9285389 - EnumValue 1265700090 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Max/Min DK</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFWarehouse Production - EnumValue Max/Min DK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 9285389 - EnumValue 3801596449 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Max/Min US</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFWarehouse Production - EnumValue Max/Min US - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 9285389 - EnumValue 561869675 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PO US</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFWarehouse Production - EnumValue PO US - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 9285389 - EnumValue 1766447614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stock Up Robot Production</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum TURFWarehouse Production - EnumValue Stock Up Robot Production - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1838973421 - NamedType 2903726711" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 1838973421">
+          <source>Account Name: </source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension TURFStd Sales Prof. Inv Ext - NamedType BankAccLbl</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1838973421 - NamedType 2838545272" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 1838973421">
+          <source>Interest will be changed on overdue payment pursuant to applicable law.</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension TURFStd Sales Prof. Inv Ext - NamedType InterestLbl</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1838973421 - NamedType 2950375729" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 1838973421">
+          <source>Please transfer amount to our bank: %1</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Bank Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension TURFStd Sales Prof. Inv Ext - NamedType PleaseTransferLbl</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1838973421 - NamedType 2039684796" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 1838973421">
+          <source>Ship-to Address</source>
+          <target state="translated">Leveringsadresse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension TURFStd Sales Prof. Inv Ext - NamedType ShiptoAddrLbl</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1838973421 - NamedType 3300329912" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 1838973421">
+          <source>Terms of payment: %1 - Final payment date %2</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%1 = Payment Description; %2 = Due data</note>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension TURFStd Sales Prof. Inv Ext - NamedType TermsOfPaymentLbl</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1838973421 - NamedType 1920249978" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 1838973421">
+          <source>When paying by bank transfer, please state %1</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension TURFStd Sales Prof. Inv Ext - NamedType WhenPayingLbl</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

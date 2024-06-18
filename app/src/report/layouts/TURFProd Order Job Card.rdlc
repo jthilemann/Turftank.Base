@@ -10,151 +10,6 @@
       <rd:DataSourceID>1250fe30-5a80-439d-82f1-cd5ac1eb8880</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Status_ProdOrder">
-          <DataField>Status_ProdOrder</DataField>
-        </Field>
-        <Field Name="No_ProdOrder">
-          <DataField>No_ProdOrder</DataField>
-        </Field>
-        <Field Name="No_ProdOrderLbl">
-          <DataField>No_ProdOrderLbl</DataField>
-        </Field>
-        <Field Name="ItemOperationLocation">
-          <DataField>ItemOperationLocation</DataField>
-        </Field>
-        <Field Name="ItemOperationLocationLbl">
-          <DataField>ItemOperationLocationLbl</DataField>
-        </Field>
-        <Field Name="ProdOrderLocation">
-          <DataField>ProdOrderLocation</DataField>
-        </Field>
-        <Field Name="ProdOrderLocationLbl">
-          <DataField>ProdOrderLocationLbl</DataField>
-        </Field>
-        <Field Name="TurfStart">
-          <DataField>TurfStart</DataField>
-        </Field>
-        <Field Name="TurfEnd">
-          <DataField>TurfEnd</DataField>
-        </Field>
-        <Field Name="TurfStartLbl">
-          <DataField>TurfStartLbl</DataField>
-        </Field>
-        <Field Name="TurfEndLbl">
-          <DataField>TurfEndLbl</DataField>
-        </Field>
-        <Field Name="Comment">
-          <DataField>Comment</DataField>
-        </Field>
-        <Field Name="CommentLbl">
-          <DataField>CommentLbl</DataField>
-        </Field>
-        <Field Name="TURFShipping">
-          <DataField>TURFShipping</DataField>
-        </Field>
-        <Field Name="TURFWarehouse_Production">
-          <DataField>TURFWarehouse_Production</DataField>
-        </Field>
-        <Field Name="TURFShippingLbl">
-          <DataField>TURFShippingLbl</DataField>
-        </Field>
-        <Field Name="TURFWarehouse_ProductionLbl">
-          <DataField>TURFWarehouse_ProductionLbl</DataField>
-        </Field>
-        <Field Name="TodayFormatted">
-          <DataField>TodayFormatted</DataField>
-        </Field>
-        <Field Name="CompanyName">
-          <DataField>CompanyName</DataField>
-        </Field>
-        <Field Name="ProdOrderTableCaptionFilt">
-          <DataField>ProdOrderTableCaptionFilt</DataField>
-        </Field>
-        <Field Name="ProdOrderFilter">
-          <DataField>ProdOrderFilter</DataField>
-        </Field>
-        <Field Name="CurrReportPageNoCaption">
-          <DataField>CurrReportPageNoCaption</DataField>
-        </Field>
-        <Field Name="ProdOrderJobCardCaption">
-          <DataField>ProdOrderJobCardCaption</DataField>
-        </Field>
-        <Field Name="ProdOrdRtngLnExpcCapNdCptLbl">
-          <DataField>ProdOrdRtngLnExpcCapNdCptLbl</DataField>
-        </Field>
-        <Field Name="PrecalcTimesCaption">
-          <DataField>PrecalcTimesCaption</DataField>
-        </Field>
-        <Field Name="ProdOrdRtngLnExpcCapNdCpt">
-          <DataField>ProdOrdRtngLnExpcCapNdCpt</DataField>
-        </Field>
-        <Field Name="PrdOrdNo_ProdOrderRtngLineCaption">
-          <DataField>PrdOrdNo_ProdOrderRtngLineCaption</DataField>
-        </Field>
-        <Field Name="ProdOrderSourceNoCapt">
-          <DataField>ProdOrderSourceNoCapt</DataField>
-        </Field>
-        <Field Name="ExpPerItemLbl">
-          <DataField>ExpPerItemLbl</DataField>
-        </Field>
-        <Field Name="RoutingNo">
-          <DataField>RoutingNo</DataField>
-        </Field>
-        <Field Name="LineNo">
-          <DataField>LineNo</DataField>
-        </Field>
-        <Field Name="ItemPicture">
-          <DataField>ItemPicture</DataField>
-        </Field>
-        <Field Name="ProdOrderBarcode">
-          <DataField>ProdOrderBarcode</DataField>
-        </Field>
-        <Field Name="ItemBarcode">
-          <DataField>ItemBarcode</DataField>
-        </Field>
-        <Field Name="CapacityUoM">
-          <DataField>CapacityUoM</DataField>
-        </Field>
-        <Field Name="ExpCapNeed">
-          <DataField>ExpCapNeed</DataField>
-        </Field>
-        <Field Name="ExpCapNeedFormat">
-          <DataField>ExpCapNeedFormat</DataField>
-        </Field>
-        <Field Name="ExpCapNeededPerItem">
-          <DataField>ExpCapNeededPerItem</DataField>
-        </Field>
-        <Field Name="ExpCapNeededPerItemFormat">
-          <DataField>ExpCapNeededPerItemFormat</DataField>
-        </Field>
-        <Field Name="ItemNo">
-          <DataField>ItemNo</DataField>
-        </Field>
-        <Field Name="DescriptionLbl">
-          <DataField>DescriptionLbl</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="QuantityLbl">
-          <DataField>QuantityLbl</DataField>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-        </Field>
-        <Field Name="QuantityFormat">
-          <DataField>QuantityFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2639,12 +2494,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -2684,4 +2533,149 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>13de2607-912a-4929-81d3-50ba20a68559</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Status_ProdOrder">
+          <DataField>Status_ProdOrder</DataField>
+        </Field>
+        <Field Name="No_ProdOrder">
+          <DataField>No_ProdOrder</DataField>
+        </Field>
+        <Field Name="No_ProdOrderLbl">
+          <DataField>No_ProdOrderLbl</DataField>
+        </Field>
+        <Field Name="ItemOperationLocation">
+          <DataField>ItemOperationLocation</DataField>
+        </Field>
+        <Field Name="ItemOperationLocationLbl">
+          <DataField>ItemOperationLocationLbl</DataField>
+        </Field>
+        <Field Name="ProdOrderLocation">
+          <DataField>ProdOrderLocation</DataField>
+        </Field>
+        <Field Name="ProdOrderLocationLbl">
+          <DataField>ProdOrderLocationLbl</DataField>
+        </Field>
+        <Field Name="TurfStart">
+          <DataField>TurfStart</DataField>
+        </Field>
+        <Field Name="TurfEnd">
+          <DataField>TurfEnd</DataField>
+        </Field>
+        <Field Name="TurfStartLbl">
+          <DataField>TurfStartLbl</DataField>
+        </Field>
+        <Field Name="TurfEndLbl">
+          <DataField>TurfEndLbl</DataField>
+        </Field>
+        <Field Name="Comment">
+          <DataField>Comment</DataField>
+        </Field>
+        <Field Name="CommentLbl">
+          <DataField>CommentLbl</DataField>
+        </Field>
+        <Field Name="TURFShipping">
+          <DataField>TURFShipping</DataField>
+        </Field>
+        <Field Name="TURFWarehouse_Production">
+          <DataField>TURFWarehouse_Production</DataField>
+        </Field>
+        <Field Name="TURFShippingLbl">
+          <DataField>TURFShippingLbl</DataField>
+        </Field>
+        <Field Name="TURFWarehouse_ProductionLbl">
+          <DataField>TURFWarehouse_ProductionLbl</DataField>
+        </Field>
+        <Field Name="TodayFormatted">
+          <DataField>TodayFormatted</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="ProdOrderTableCaptionFilt">
+          <DataField>ProdOrderTableCaptionFilt</DataField>
+        </Field>
+        <Field Name="ProdOrderFilter">
+          <DataField>ProdOrderFilter</DataField>
+        </Field>
+        <Field Name="CurrReportPageNoCaption">
+          <DataField>CurrReportPageNoCaption</DataField>
+        </Field>
+        <Field Name="ProdOrderJobCardCaption">
+          <DataField>ProdOrderJobCardCaption</DataField>
+        </Field>
+        <Field Name="ProdOrdRtngLnExpcCapNdCptLbl">
+          <DataField>ProdOrdRtngLnExpcCapNdCptLbl</DataField>
+        </Field>
+        <Field Name="PrecalcTimesCaption">
+          <DataField>PrecalcTimesCaption</DataField>
+        </Field>
+        <Field Name="ProdOrdRtngLnExpcCapNdCpt">
+          <DataField>ProdOrdRtngLnExpcCapNdCpt</DataField>
+        </Field>
+        <Field Name="PrdOrdNo_ProdOrderRtngLineCaption">
+          <DataField>PrdOrdNo_ProdOrderRtngLineCaption</DataField>
+        </Field>
+        <Field Name="ProdOrderSourceNoCapt">
+          <DataField>ProdOrderSourceNoCapt</DataField>
+        </Field>
+        <Field Name="ExpPerItemLbl">
+          <DataField>ExpPerItemLbl</DataField>
+        </Field>
+        <Field Name="RoutingNo">
+          <DataField>RoutingNo</DataField>
+        </Field>
+        <Field Name="LineNo">
+          <DataField>LineNo</DataField>
+        </Field>
+        <Field Name="ItemPicture">
+          <DataField>ItemPicture</DataField>
+        </Field>
+        <Field Name="ProdOrderBarcode">
+          <DataField>ProdOrderBarcode</DataField>
+        </Field>
+        <Field Name="ItemBarcode">
+          <DataField>ItemBarcode</DataField>
+        </Field>
+        <Field Name="CapacityUoM">
+          <DataField>CapacityUoM</DataField>
+        </Field>
+        <Field Name="ExpCapNeed">
+          <DataField>ExpCapNeed</DataField>
+        </Field>
+        <Field Name="ExpCapNeedFormat">
+          <DataField>ExpCapNeedFormat</DataField>
+        </Field>
+        <Field Name="ExpCapNeededPerItem">
+          <DataField>ExpCapNeededPerItem</DataField>
+        </Field>
+        <Field Name="ExpCapNeededPerItemFormat">
+          <DataField>ExpCapNeededPerItemFormat</DataField>
+        </Field>
+        <Field Name="ItemNo">
+          <DataField>ItemNo</DataField>
+        </Field>
+        <Field Name="DescriptionLbl">
+          <DataField>DescriptionLbl</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="QuantityLbl">
+          <DataField>QuantityLbl</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="QuantityFormat">
+          <DataField>QuantityFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
