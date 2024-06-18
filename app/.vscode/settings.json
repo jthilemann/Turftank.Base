@@ -15,5 +15,5 @@
     "CRS.DisableDefaultAlSnippets": true,
     "CRS.AlSubFolderName": "src",
     "al.defaultLaunchConfigurationName": "Docker",
-    "xliffSync.baseFile": "Turftank.Hubspot.ERP.g.xlf"
+    "xliffSync.baseFile": "Turftank.Base.g.xlf"
 }

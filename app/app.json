@@ -2,7 +2,7 @@
   "id": "fa17329a-1c58-4bf0-a202-ebea2c480903",
   "name": "Turftank.Base",
   "publisher": "TurfTank ApS",
-  "version": "1.0.20240603.1",
+  "version": "1.0.20240618.1",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -10,7 +10,20 @@
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "id": "c6be44c2-e0ba-4e63-b367-97267f04c6fd",
+      "name": "Turf Tank Core",
+      "version": "1.0.0.0",
+      "publisher": "NAV-Vision"
+    },
+    {
+      "id": "5cac8eac-a5fb-455a-b901-154a64966522",
+      "name": "Turftank.Hubspot.ERP",
+      "publisher": "TurfTank ApS",
+      "version": "1.0.0.0"
+    }
+  ],
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "23.0.0.0",
