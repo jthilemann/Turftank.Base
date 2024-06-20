@@ -899,7 +899,7 @@
         </trans-unit>
         <trans-unit id="Report 792194901 - NamedType 2838545272" size-unit="char" translate="yes" xml:space="preserve">
           <source>Interest will be changed on overdue payment pursuant to applicable law.</source>
-          <target state="needs-translation"/>
+          <target state="translated">Ränta kommer att debiteras på försenad betalning enligt tillämplig lag.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType InterestLbl</note>
         </trans-unit>
@@ -917,7 +917,7 @@
         </trans-unit>
         <trans-unit id="Report 792194901 - NamedType 2950375729" size-unit="char" translate="yes" xml:space="preserve">
           <source>Please transfer amount to our bank: %1</source>
-          <target state="needs-translation"/>
+          <target state="translated">Vänligen överför beloppet till vår bank: %1</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType PleaseTransferLbl</note>
         </trans-unit>
@@ -1018,8 +1018,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType VATPercentCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 792194901 - NamedType 1920249978" size-unit="char" translate="yes" xml:space="preserve">
-          <source>When paying by bank transfer, please state Invoice No.</source>
-          <target state="needs-translation"/>
+          <source>When paying by bank transfer, please state Invoice No. %1</source>
+          <target state="translated">Vid betalning via banköverföring, vänligen ange %1</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType WhenPayingLbl</note>
         </trans-unit>
@@ -1427,7 +1427,7 @@
         </trans-unit>
         <trans-unit id="Report 4276367207 - NamedType 3205618164" size-unit="char" translate="yes" xml:space="preserve">
           <source>DELIVERY NOTE</source>
-          <target state="needs-translation"/>
+          <target state="translated">FÖRSÄLJNINGSUTLEVERANS</target>/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFSales Shipment - NamedType DeliveryNoteCaptionLbl</note>
         </trans-unit>
@@ -1499,7 +1499,7 @@
         </trans-unit>
         <trans-unit id="Report 4276367207 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delivery Note:</source>
-          <target state="needs-translation"/>
+          <target state="translated">Försäljningsutleverans</target>/>
           <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFSales Shipment - NamedType Text002</note>
         </trans-unit>
@@ -1733,7 +1733,7 @@
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 2838545272" size-unit="char" translate="yes" xml:space="preserve">
           <source>Interest will be changed on overdue payment pursuant to applicable law.</source>
-          <target state="needs-translation"/>
+          <target state="translated">Ränta kommer att debiteras på försenad betalning enligt tillämplig lag.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType InterestLbl</note>
         </trans-unit>
@@ -1823,7 +1823,7 @@
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 2950375729" size-unit="char" translate="yes" xml:space="preserve">
           <source>Please transfer amount to our bank: %1</source>
-          <target state="needs-translation"/>
+          <target state="translated">Vänligen överför beloppet till vår bank: %1</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType PleaseTransferLbl</note>
         </trans-unit>
@@ -1931,7 +1931,7 @@
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 3300329912" size-unit="char" translate="yes" xml:space="preserve">
           <source>Terms of payment: %1 - Final payment date %2</source>
-          <target state="needs-translation"/>
+          <target state="translated">Betalningsvillkor: %1 - Sista betalningsdag %2</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType TermsOfPaymentLbl</note>
         </trans-unit>
@@ -2003,7 +2003,7 @@
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 1920249978" size-unit="char" translate="yes" xml:space="preserve">
           <source>When paying by bank transfer, please state %1</source>
-          <target state="needs-translation"/>
+          <target state="translated">Vid betalning via banköverföring, vänligen ange %1</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType WhenPayingLbl</note>
         </trans-unit>
@@ -2873,13 +2873,13 @@
         </trans-unit>
         <trans-unit id="ReportExtension 1838973421 - NamedType 2838545272" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 1838973421">
           <source>Interest will be changed on overdue payment pursuant to applicable law.</source>
-          <target state="needs-translation"/>
+          <target state="translated">Ränta kommer att debiteras på försenad betalning enligt tillämplig lag.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension TURFStd Sales Prof. Inv Ext - NamedType InterestLbl</note>
         </trans-unit>
         <trans-unit id="ReportExtension 1838973421 - NamedType 2950375729" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 1838973421">
           <source>Please transfer amount to our bank: %1</source>
-          <target state="needs-translation"/>
+          <target state="translated">Vänligen överför beloppet till vår bank: %1</target>
           <note from="Developer" annotates="general" priority="2">%1 = Bank Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension TURFStd Sales Prof. Inv Ext - NamedType PleaseTransferLbl</note>
         </trans-unit>
@@ -2891,13 +2891,13 @@
         </trans-unit>
         <trans-unit id="ReportExtension 1838973421 - NamedType 3300329912" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 1838973421">
           <source>Terms of payment: %1 - Final payment date %2</source>
-          <target state="needs-translation"/>
+          <target state="translated">Betalningsvillkor: %1 - Sista betalningsdag %2</target>
           <note from="Developer" annotates="general" priority="2">%1 = Payment Description; %2 = Due data</note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension TURFStd Sales Prof. Inv Ext - NamedType TermsOfPaymentLbl</note>
         </trans-unit>
         <trans-unit id="ReportExtension 1838973421 - NamedType 1920249978" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 1838973421">
           <source>When paying by bank transfer, please state %1</source>
-          <target state="needs-translation"/>
+          <target state="translated">Vid betalning via banköverföring, vänligen ange %1</target>
           <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension TURFStd Sales Prof. Inv Ext - NamedType WhenPayingLbl</note>
         </trans-unit>

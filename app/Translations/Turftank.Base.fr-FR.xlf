@@ -1018,7 +1018,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType VATPercentCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 792194901 - NamedType 1920249978" size-unit="char" translate="yes" xml:space="preserve">
-          <source>When paying by bank transfer, please state Invoice No.</source>
+          <source>When paying by bank transfer, please state Invoice No. %1</source>
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType WhenPayingLbl</note>
@@ -1427,7 +1427,7 @@
         </trans-unit>
         <trans-unit id="Report 4276367207 - NamedType 3205618164" size-unit="char" translate="yes" xml:space="preserve">
           <source>DELIVERY NOTE</source>
-          <target state="needs-translation"/>
+          <target state="translated">BON DE LIVRAISON</target>/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFSales Shipment - NamedType DeliveryNoteCaptionLbl</note>
         </trans-unit>
@@ -1499,7 +1499,7 @@
         </trans-unit>
         <trans-unit id="Report 4276367207 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delivery Note:</source>
-          <target state="needs-translation"/>
+          <target state="translated">Bon de Livraison</target>/>
           <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFSales Shipment - NamedType Text002</note>
         </trans-unit>

@@ -890,7 +890,7 @@ report 70303 "TURFReminder"
         TotalRemAmt: Decimal;
         ShowMIRLines: Boolean;
         PleaseTransferLbl: label 'Please transfer amount to our bank: %1';
-        WhenPayingLbl: label 'When paying by bank transfer, please state Invoice No.';
+        WhenPayingLbl: label 'When paying by bank transfer, please state Invoice No. %1';
         InterestLbl: label 'Interest will be changed on overdue payment pursuant to applicable law.';
         BottomText: array[4] of text[100];
         BankAccCpn: label 'Account Name: ';

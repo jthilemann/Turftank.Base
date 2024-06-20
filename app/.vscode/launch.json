@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Test_070424",
+            "name": "Test-environment",
             "type": "al",
             "request": "launch",
             "environmentType": "Sandbox",
