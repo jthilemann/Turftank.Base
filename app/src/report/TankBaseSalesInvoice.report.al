@@ -1667,11 +1667,20 @@ report 70306 "TURFTank Base Sales Invoice"
 
     local procedure FormatAddressFields(var SalesInvoiceHeader: Record "Sales Invoice Header")
     var
+        TURFFormatReport: Codeunit "TURFFormat Report";
         RecRef: RecordRef;
     begin
         FormatAddr.GetCompanyAddr(SalesInvoiceHeader."Responsibility Center", RespCenter, CompanyInfo, CompanyAddr);
         FormatAddr.SalesInvBillTo(CustAddr, SalesInvoiceHeader);
+
+        SalesInvoiceHeader."Ship-to Contact" := TURFFormatReport.FormatShipToContact(SalesInvoiceHeader."Ship-to Contact", SalesInvoiceHeader."TURF Ship-to Phone No.");
         ShowShippingAddr := FormatAddr.SalesInvShipTo(ShipToAddr, CustAddr, SalesInvoiceHeader);
+
+        if ShipToAddr[8] = '' then begin
+            ShipToAddr[8] := SalesInvoiceHeader."TURF Ship-To E-Mail";
+            CompressArray(ShipToAddr);
+        end;
+
 
         RecRef.GetTable(RespCenter);
         if RecRef.FieldExist(50000) then

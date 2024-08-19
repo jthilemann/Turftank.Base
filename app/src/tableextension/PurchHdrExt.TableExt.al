@@ -1,13 +1,7 @@
-tableextension 70301 "TURFSales Hdr Ext" extends "Sales Header"
+tableextension 70309 "TURFPurch. Hdr. Ext" extends "Purchase Header"
 {
     fields
     {
-        field(70301; "TURFOrder Type"; Text[20])
-        {
-            Caption = 'Order Type';
-            DataClassification = ToBeClassified;
-            tablerelation = "TURFOrder Type".Code;
-        }
         field(70302; "TURF Ship-to Phone No."; Text[30])
         {
             Caption = 'Ship-To Phone No.';
@@ -19,4 +13,5 @@ tableextension 70301 "TURFSales Hdr Ext" extends "Sales Header"
             ExtendedDatatype = EMail;
         }
     }
+
 }

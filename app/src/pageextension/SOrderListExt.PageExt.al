@@ -23,7 +23,7 @@ pageextension 70307 "TURFS. Order List Ext" extends "Sales Order List"
                 ToolTip = 'Executes the Print Customs Invoice action.';
                 trigger OnAction()
                 var
-                    ReportManagement: Codeunit "TURFReport Management";
+                    ReportManagement: Codeunit "TURFReport Management Man";
                 begin
                     ReportManagement.PrintProformaInvoice(Rec);
                 end;

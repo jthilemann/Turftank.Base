@@ -7,7 +7,9 @@ reportextension 70301 "TURFStd Sales Prof. Inv Ext" extends "Standard Sales - Pr
         {
             trigger OnAfterAfterGetRecord()
             var
+                TURFFormatReport: Codeunit "TURFFormat Report";
                 FormatAddress: Codeunit "Format Address";
+                ReportManagement: Codeunit "TURFReport Management Man";
                 RecRef: RecordRef;
                 CompInfoSortCode: Code[20];
             begin

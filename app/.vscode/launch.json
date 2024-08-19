@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Test-environment",
+            "name": "Sandbox_2024-06-22",
             "type": "al",
             "request": "launch",
             "environmentType": "Sandbox",
-            "environmentName": "Test-environment",
+            "environmentName": "Sandbox_2024-06-22",
             "startupObjectId": 22,
             "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
             "breakOnError": "All",
@@ -19,41 +19,6 @@
             "enableLongRunningSqlStatements": true,
             "longRunningSqlStatementsThreshold": 500,
             "numberOfSqlStatements": 10,
-            "schemaUpdateMode": "ForceSync"
-        },
-        {
-            "name": "US_Test_04042024",
-            "type": "al",
-            "request": "launch",
-            "environmentType": "Sandbox",
-            "environmentName": "US_Test_04042024",
-            "startupObjectId": 22,
-            "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
-            "breakOnError": "All",
-            "breakOnRecordWrite": "None",
-            "launchBrowser": true,
-            "enableSqlInformationDebugger": true,
-            "enableLongRunningSqlStatements": true,
-            "longRunningSqlStatementsThreshold": 500,
-            "numberOfSqlStatements": 10,
-            "schemaUpdateMode": "ForceSync"
-        },
-        {
-            "name": "TurfDocker",
-            "request": "launch",
-            "type": "al",
-            "environmentType": "OnPrem",
-            "server": "http://turf",
-            "serverInstance": "BC",
-            "authentication": "UserPassword",
-            "startupObjectId": 22,
-            "startupObjectType": "Page",
-            "breakOnError": "All",
-            "launchBrowser": true,
-            "enableLongRunningSqlStatements": true,
-            "enableSqlInformationDebugger": true,
-            "tenant": "default",
-            "usePublicURLFromServer": true,
             "schemaUpdateMode": "ForceSync"
         }
     ]

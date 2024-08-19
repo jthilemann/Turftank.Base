@@ -1,16 +1,7 @@
-pageextension 70301 "TURFS. Inv. Ext" extends "Sales invoice"
+pageextension 70318 "TURFPO Ext" extends "Purchase Order"
 {
     layout
     {
-        addlast(General)
-        {
-
-            field("TURFOrder Type"; Rec."TURFOrder Type")
-            {
-                ApplicationArea = All;
-                ToolTip = 'Specifies the value of the Order Type field.';
-            }
-        }
         addafter("Ship-to Contact")
         {
             field("TURF Ship-To E-Mail"; Rec."TURF Ship-To E-Mail")

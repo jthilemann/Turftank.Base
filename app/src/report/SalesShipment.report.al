@@ -769,6 +769,7 @@ report 70305 "TURFSales Shipment"
     var
         Country: Record "Country/Region";
         CountryTranslation: Record "Country/Region Translation";
+        TURFFormatReport: Codeunit "TURFFormat Report";
         i: Integer;
     begin
         FormatAddr.GetCompanyAddr(SalesShipmentHeader."Responsibility Center", RespCenter, CompanyInfo, CompanyAddr);
@@ -785,16 +786,21 @@ report 70305 "TURFSales Shipment"
                 end;
             until (i = 8) or (Country.Code = '');
         end;
+
+        SalesShipmentHeader."Ship-to Contact" := TURFFormatReport.FormatShipToContact(SalesShipmentHeader."Ship-to Contact", SalesShipmentHeader."TURF Ship-to Phone No.");
         FormatAddr.SalesShptShipTo(ShipToAddr, SalesShipmentHeader);
+        if ShipToAddr[8] = '' then begin
+            ShipToAddr[8] := "Sales Shipment Header"."TURF Ship-To E-Mail";
+            CompressArray(ShipToAddr);
+        end;
+
         ShowCustAddr := FormatAddr.SalesShptBillTo(CustAddr, ShipToAddr, SalesShipmentHeader);
     end;
 
     local procedure FormatDocumentFields(SalesShipmentHeader: Record "Sales Shipment Header")
     begin
-        with SalesShipmentHeader do begin
-            FormatDocument.SetSalesPerson(SalesPurchPerson, "Salesperson Code", SalesPersonText);
-            ReferenceText := FormatDocument.SetText("Your Reference" <> '', FieldCaption("Your Reference"));
-        end;
+        FormatDocument.SetSalesPerson(SalesPurchPerson, SalesShipmentHeader."Salesperson Code", SalesPersonText);
+        ReferenceText := FormatDocument.SetText(SalesShipmentHeader."Your Reference" <> '', SalesShipmentHeader.FieldCaption("Your Reference"));
     end;
 
     local procedure GetUnitOfMeasureDescr(UOMCode: Code[10]): Text[50]
