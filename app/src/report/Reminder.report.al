@@ -632,7 +632,9 @@ report 70303 "TURFReminder"
             begin
                 CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
                 DimSetEntry.SetRange("Dimension Set ID", "Dimension Set ID");
-                if not CompanyBankAccount.Get("Issued Reminder Header"."Company Bank Account Code") then CompanyBankAccount.CopyBankFieldsFromCompanyInfo(CompanyInfo);
+                if not CompanyBankAccount.Get("Issued Reminder Header"."Company Bank Account Code") then
+                    CompanyBankAccount.CopyBankFieldsFromCompanyInfo(CompanyInfo);
+
                 FormatAddr.IssuedReminder(CustAddr, "Issued Reminder Header");
                 if "Your Reference" = '' then
                     ReferenceText := ''
@@ -686,11 +688,11 @@ report 70303 "TURFReminder"
                 clear(BottomText);
                 if CompanyInfo."Sort Code" <> '' then begin
                     BottomText[1] := StrSubstNo(PleaseTransferLbl, CompanyInfo."Sort Code");
-                    BottomText[2] := bankacccpn + CompanyInfo.Name + ' - ' + CompanyInfo.FieldCaption("Sort Code") + ': ' + CompanyInfo."Sort Code" + ' - ' + CompanyInfo.FieldCaption("Bank Account No.") + ': ' + CompanyInfo."Bank Account No.";
+                    BottomText[2] := bankacccpn + CompanyInfo.Name + ' - ' + CompanyInfo.FieldCaption("Sort Code") + ': ' + CompanyInfo."Sort Code" + ' - ' + CompanyInfo.FieldCaption("Bank Account No.") + ': ' + CompanyBankAccount."Bank Account No.";
                 end
                 else begin
-                    BottomText[1] := StrSubstNo(PleaseTransferLbl, companyinfo."Bank Name" + ' ' + companyinfo."Bank Branch No." + ' ' + companyinfo."Bank Account No.");
-                    BottomText[2] := CompanyInfo.FieldCaption(IBAN) + ': ' + CompanyInfo.IBAN + ' - ' + CompanyInfo.FieldCaption("SWIFT Code") + ': ' + CompanyInfo."SWIFT Code";
+                    BottomText[1] := StrSubstNo(PleaseTransferLbl, CompanyBankAccount.Name + ' ' + CompanyBankAccount."Bank Branch No." + ' ' + CompanyBankAccount."Bank Account No.");
+                    BottomText[2] := CompanyBankAccount.FieldCaption(IBAN) + ': ' + CompanyBankAccount.IBAN + ' - ' + CompanyBankAccount.FieldCaption("SWIFT Code") + ': ' + CompanyInfo."SWIFT Code";
                 end;
                 BottomText[3] := StrSubstNo(WhenPayingLbl, "Issued Reminder Header"."No.");
                 BottomText[4] := InterestLbl;
@@ -892,7 +894,7 @@ report 70303 "TURFReminder"
         PleaseTransferLbl: label 'Please transfer amount to our bank: %1';
         WhenPayingLbl: label 'When paying by bank transfer, please state Invoice No. %1';
         InterestLbl: label 'Interest will be changed on overdue payment pursuant to applicable law.';
-        BottomText: array[4] of text[100];
+        BottomText: array[4] of text;
         BankAccCpn: label 'Account Name: ';
 
     protected var

@@ -1183,15 +1183,14 @@ report 70306 "TURFTank Base Sales Invoice"
                 if RecRef.FieldExist(50005) then
                     CompInfoSortCode := RecRef.Field(50005).Value;
 
-                CompanyInfo.Get();
                 clear(BottomText);
                 BottomText[1] := StrSubstNo(TermsOfPaymentLbl, paymentterms.Description, header."Due Date");
                 if CompInfoSortCode <> '' then begin
-                    BottomText[2] := bankacccpn + CompanyInfo.Name + ' - ' + RecRef.Field(50005).Caption + ': ' + CompInfoSortCode + ' - ' + CompanyInfo.FieldCaption("Bank Account No.") + ': ' + CompanyInfo."Bank Account No.";
+                    BottomText[2] := bankacccpn + CompanyInfo.Name + ' - ' + RecRef.Field(50005).Caption + ': ' + CompInfoSortCode + ' - ' + CompanyBankAccount.FieldCaption("Bank Account No.") + ': ' + CompanyBankAccount."Bank Account No.";
                     BottomText[3] := StrSubstNo(PleaseTransferLbl, CompInfoSortCode)
                 end else begin
-                    BottomText[2] := StrSubstNo(PleaseTransferLbl, companyinfo."Bank Name" + ' ' + companyinfo."Bank Branch No." + ' ' + companyinfo."Bank Account No.");
-                    BottomText[3] := CompanyInfo.FieldCaption(IBAN) + ': ' + CompanyInfo.IBAN + ' - ' + CompanyInfo.FieldCaption("SWIFT Code") + ': ' + CompanyInfo."SWIFT Code";
+                    BottomText[2] := StrSubstNo(PleaseTransferLbl, CompanyBankAccount.Name + ' ' + CompanyBankAccount."Bank Branch No." + ' ' + CompanyBankAccount."Bank Account No.");
+                    BottomText[3] := CompanyBankAccount.FieldCaption(IBAN) + ': ' + CompanyBankAccount.IBAN + ' - ' + CompanyBankAccount.FieldCaption("SWIFT Code") + ': ' + CompanyBankAccount."SWIFT Code";
                 end;
                 BottomText[4] := StrSubstNo(WhenPayingLbl, header."No.");
                 BottomText[5] := InterestLbl;
@@ -1200,8 +1199,8 @@ report 70306 "TURFTank Base Sales Invoice"
                     bankaccount.setrange("Currency Code", "Company Bank Account Code");
                     bankaccount.setrange("Use as Default for Currency", true);
                     if BankAccount.findfirst() then begin
-                        BottomText[2] := StrSubstNo(PleaseTransferLbl, companyinfo."Bank Name" + ' ' + BankAccount."Bank Branch No." + ' ' + BankAccount."Bank Account No.");
-                        BottomText[3] := CompanyInfo.FieldCaption(IBAN) + ': ' + BankAccount.IBAN + ' - ' + CompanyInfo.FieldCaption("SWIFT Code") + ': ' + BankAccount."SWIFT Code";
+                        BottomText[2] := StrSubstNo(PleaseTransferLbl, CompanyBankAccount.Name + ' ' + BankAccount."Bank Branch No." + ' ' + BankAccount."Bank Account No.");
+                        BottomText[3] := CompanyBankAccount.FieldCaption(IBAN) + ': ' + BankAccount.IBAN + ' - ' + CompanyBankAccount.FieldCaption("SWIFT Code") + ': ' + BankAccount."SWIFT Code";
                     end;
                 end;
 
