@@ -1111,10 +1111,7 @@ report 70306 "TURFTank Base Sales Invoice"
                 PaymentServiceSetup: Record "Payment Service Setup";
                 Currency: Record Currency;
                 GeneralLedgerSetup: Record "General Ledger Setup";
-                CompanyInfo: Record "Company Information";
                 BankAccount: record "Bank Account";
-                RecRef: RecordRef;
-                CompInfoSortCode: Code[20];
             begin
                 CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
 
@@ -1179,15 +1176,11 @@ report 70306 "TURFTank Base Sales Invoice"
                 if ("Order No." = '') and "Prepayment Invoice" then
                     "Order No." := "Prepayment Order No.";
 
-                RecRef.GetTable(CompanyInfo);
-                if RecRef.FieldExist(50005) then
-                    CompInfoSortCode := RecRef.Field(50005).Value;
-
                 clear(BottomText);
                 BottomText[1] := StrSubstNo(TermsOfPaymentLbl, paymentterms.Description, header."Due Date");
-                if CompInfoSortCode <> '' then begin
-                    BottomText[2] := bankacccpn + CompanyInfo.Name + ' - ' + RecRef.Field(50005).Caption + ': ' + CompInfoSortCode + ' - ' + CompanyBankAccount.FieldCaption("Bank Account No.") + ': ' + CompanyBankAccount."Bank Account No.";
-                    BottomText[3] := StrSubstNo(PleaseTransferLbl, CompInfoSortCode)
+                if CompanyInfo."Sort Code" <> '' then begin
+                    BottomText[2] := bankacccpn + CompanyInfo.Name + ' - ' + CompanyInfo.FieldCaption("Sort Code") + ': ' + CompanyInfo."Sort Code" + ' - ' + CompanyBankAccount.FieldCaption("Bank Account No.") + ': ' + CompanyBankAccount."Bank Account No.";
+                    BottomText[3] := StrSubstNo(PleaseTransferLbl, CompanyInfo."Sort Code")
                 end else begin
                     BottomText[2] := StrSubstNo(PleaseTransferLbl, CompanyBankAccount.Name + ' ' + CompanyBankAccount."Bank Branch No." + ' ' + CompanyBankAccount."Bank Account No.");
                     BottomText[3] := CompanyBankAccount.FieldCaption(IBAN) + ': ' + CompanyBankAccount.IBAN + ' - ' + CompanyBankAccount.FieldCaption("SWIFT Code") + ': ' + CompanyBankAccount."SWIFT Code";

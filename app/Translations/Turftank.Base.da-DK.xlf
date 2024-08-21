@@ -1020,7 +1020,6 @@
         <trans-unit id="Report 792194901 - NamedType 1920249978" size-unit="char" translate="yes" xml:space="preserve">
           <source>When paying by bank transfer, please state Invoice No. %1</source>
           <target state="translated">Ved bankoverførsel, venligst angiv %1</target>
-          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType WhenPayingLbl</note>
         </trans-unit>
@@ -2200,6 +2199,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFChart of Accounts Ext - Action TURFSetMyFilter - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1770512528 - Control 801994856 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4081634891">
+          <source>Specifies the bank for reports in this currency</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFCurrencies - Control TURFReport Bank Account - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2891099559 - Control 1617522013 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4219821699">
           <source>Specifies the value of the Description field.</source>
           <target state="translated">Angiver værdien for feltet.</target>
@@ -2211,6 +2216,18 @@
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFG/L Account Card Ext - Control TURFEmployee Groups Filter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1702661725 - Control 1100777514 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Specifies the value of the Ship-To Phone No. field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFPO Ext - Control TURF Phone No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1702661725 - Control 1586479420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Specifies the value of the Ship-to Email field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFPO Ext - Control TURF Ship-To E-Mail - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1260888470 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3434938165">
           <source>Specifies the value of the Order Type field.</source>
@@ -2230,11 +2247,35 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFPosted Sales Inv. Ext - Control TURFOrder Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 41986038 - Control 1100777514 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Specifies the value of the Ship-To Phone No. field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFPosted Sales Inv. Ext - Control TURF Phone No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 41986038 - Control 1586479420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Specifies the value of the Ship-to Email field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFPosted Sales Inv. Ext - Control TURF Ship-To E-Mail - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 389947650 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
           <source>Specifies the value of the Order Type field.</source>
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Inv. Ext - Control TURFOrder Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 389947650 - Control 1100777514 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the value of the Ship-To Phone No. field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Inv. Ext - Control TURF Phone No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 389947650 - Control 1586479420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the value of the Ship-to Email field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Inv. Ext - Control TURF Ship-To E-Mail - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 779130182 - Control 587860805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 561208485">
           <source>Specifies the value of the Order Type field.</source>
@@ -2260,6 +2301,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Ord. Ext - Control TURFOrder Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 657562906 - Control 1100777514 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the value of the Ship-To Phone No. field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Ord. Ext - Control TURF Phone No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 657562906 - Control 1586479420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the value of the Ship-to Email field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Ord. Ext - Control TURF Ship-To E-Mail - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3707627855 - Action 2431417824 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
           <source>Executes the Print Customs Invoice action.</source>
           <target state="needs-translation"/>
@@ -2284,11 +2337,29 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Shp. Ext - Control TURFOrder Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2378688664 - Control 1100777514 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
+          <source>Specifies the value of the Ship-To Phone No. field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Shp. Ext - Control TURF Phone No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2378688664 - Control 1586479420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
+          <source>Specifies the value of the Ship-to Email field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFS. Shp. Ext - Control TURF Ship-To E-Mail - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2489994566 - Control 3290144236 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 337631938">
           <source>Specifies the value of the Employee Group field.</source>
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFUser Setup Extension - Control TURFEmployee Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3767152973 - Field 801994856 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3561154705">
+          <source>Report Bank Information</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFCurrency Ext - Field TURFReport Bank Account - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3292964219 - Field 1617522013 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4274826855">
           <source>Description</source>
@@ -2338,17 +2409,65 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFProd. Order Ext - Field TURFWarehouse/Production - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2183411354 - Field 1586479420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>Ship-to Email</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFPurch. Hdr. Ext - Field TURF Ship-To E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2183411354 - Field 2377305262 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>Ship-To Phone No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFPurch. Hdr. Ext - Field TURF Ship-to Phone No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3448924654 - Field 1586479420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Ship-to Email</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Hdr Ext - Field TURF Ship-To E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3448924654 - Field 2377305262 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Ship-To Phone No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Hdr Ext - Field TURF Ship-to Phone No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3448924654 - Field 587860805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Order Type</source>
           <target state="translated">Ordretype</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Hdr Ext - Field TURFOrder Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1251985023 - Field 1586479420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Ship-to Email</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Inv. Hdr Ext - Field TURF Ship-To E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1251985023 - Field 2377305262 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Ship-To Phone No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Inv. Hdr Ext - Field TURF Ship-to Phone No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1251985023 - Field 587860805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Order Type</source>
           <target state="translated">Ordretype</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Inv. Hdr Ext - Field TURFOrder Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3667100985 - Field 1586479420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
+          <source>Ship-to Email</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Shp. Hdr Ext - Field TURF Ship-To E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3667100985 - Field 2377305262 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
+          <source>Ship-To Phone No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Shp. Hdr Ext - Field TURF Ship-to Phone No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3667100985 - Field 587860805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
           <source>Order Type</source>
