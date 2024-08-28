@@ -1771,7 +1771,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
               <Top>124.74846pt</Top>
               <Left>0.00422cm</Left>
               <Height>11pt</Height>
-              <Width>11.82097cm</Width>
+              <Width>10.52052cm</Width>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -1796,7 +1796,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
               <Top>114.74846pt</Top>
               <Left>0.00422cm</Left>
               <Height>11pt</Height>
-              <Width>11.82097cm</Width>
+              <Width>10.52052cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -1822,7 +1822,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
               <Top>104.74846pt</Top>
               <Left>0.00422cm</Left>
               <Height>11pt</Height>
-              <Width>11.82097cm</Width>
+              <Width>10.52052cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -1848,7 +1848,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
               <Top>94.74846pt</Top>
               <Left>0.00422cm</Left>
               <Height>11pt</Height>
-              <Width>11.82097cm</Width>
+              <Width>10.52052cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -1874,7 +1874,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
               <Top>84.74846pt</Top>
               <Left>0.00422cm</Left>
               <Height>11pt</Height>
-              <Width>11.82097cm</Width>
+              <Width>10.52052cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -1900,7 +1900,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
               <Top>74.74846pt</Top>
               <Left>0.00422cm</Left>
               <Height>11pt</Height>
-              <Width>11.82097cm</Width>
+              <Width>10.52052cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -1926,7 +1926,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
               <Top>64.74846pt</Top>
               <Left>0.00422cm</Left>
               <Height>11pt</Height>
-              <Width>11.82097cm</Width>
+              <Width>10.52052cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -1952,7 +1952,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
               <Top>1.9314cm</Top>
               <Left>0.00422cm</Left>
               <Height>11pt</Height>
-              <Width>11.82097cm</Width>
+              <Width>10.52052cm</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -2006,9 +2006,9 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                 </Paragraph>
               </Paragraphs>
               <Top>152.14857pt</Top>
-              <Left>12.51844cm</Left>
+              <Left>11.32782cm</Left>
               <Height>11pt</Height>
-              <Width>2.59998cm</Width>
+              <Width>3.7906cm</Width>
               <ZIndex>9</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -2034,9 +2034,9 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                 </Paragraph>
               </Paragraphs>
               <Top>142.14857pt</Top>
-              <Left>12.51844cm</Left>
+              <Left>11.32782cm</Left>
               <Height>11pt</Height>
-              <Width>2.59998cm</Width>
+              <Width>3.7906cm</Width>
               <ZIndex>10</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -2062,9 +2062,9 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                 </Paragraph>
               </Paragraphs>
               <Top>132.14857pt</Top>
-              <Left>12.51844cm</Left>
+              <Left>11.32782cm</Left>
               <Height>11pt</Height>
-              <Width>2.59998cm</Width>
+              <Width>3.7906cm</Width>
               <ZIndex>11</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -2090,9 +2090,9 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                 </Paragraph>
               </Paragraphs>
               <Top>98.74848pt</Top>
-              <Left>12.51844cm</Left>
+              <Left>11.32782cm</Left>
               <Height>11pt</Height>
-              <Width>2.59998cm</Width>
+              <Width>3.7906cm</Width>
               <ZIndex>12</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -2118,9 +2118,9 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                 </Paragraph>
               </Paragraphs>
               <Top>109.74846pt</Top>
-              <Left>12.51844cm</Left>
+              <Left>11.32782cm</Left>
               <Height>11pt</Height>
-              <Width>2.59998cm</Width>
+              <Width>3.7906cm</Width>
               <ZIndex>13</ZIndex>
               <Style>
                 <Border />
@@ -2147,9 +2147,9 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                 </Paragraph>
               </Paragraphs>
               <Top>121.04851pt</Top>
-              <Left>12.51844cm</Left>
+              <Left>11.32782cm</Left>
               <Height>11pt</Height>
-              <Width>2.59998cm</Width>
+              <Width>3.7906cm</Width>
               <ZIndex>14</ZIndex>
               <Style>
                 <Border />
@@ -2161,9 +2161,9 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
               <Value>=System.Convert.ToBase64String(Fields!CompanyInfo1Picture.Value)</Value>
               <MIMEType>image/bmp</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Left>12.19347cm</Left>
+              <Left>11.32782cm</Left>
               <Height>31.97667mm</Height>
-              <Width>37.84391mm</Width>
+              <Width>46.83974mm</Width>
               <ZIndex>15</ZIndex>
               <Style>
                 <Border>
@@ -2192,7 +2192,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                   </Paragraphs>
                   <Top>12.69995pt</Top>
                   <Height>11pt</Height>
-                  <Width>11.82067cm</Width>
+                  <Width>10.52458cm</Width>
                   <Style>
                     <VerticalAlign>Middle</VerticalAlign>
                   </Style>
@@ -2216,7 +2216,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                   </Paragraphs>
                   <Top>84.99994pt</Top>
                   <Height>11pt</Height>
-                  <Width>11.82082cm</Width>
+                  <Width>10.52473cm</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -2241,7 +2241,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                   </Paragraphs>
                   <Top>23.29996pt</Top>
                   <Height>11pt</Height>
-                  <Width>11.82067cm</Width>
+                  <Width>10.52458cm</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -2266,7 +2266,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                   </Paragraphs>
                   <Top>33.30001pt</Top>
                   <Height>11pt</Height>
-                  <Width>11.82067cm</Width>
+                  <Width>10.52458cm</Width>
                   <ZIndex>3</ZIndex>
                   <Style>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -2291,7 +2291,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                   </Paragraphs>
                   <Top>44.2pt</Top>
                   <Height>11pt</Height>
-                  <Width>11.82082cm</Width>
+                  <Width>10.52473cm</Width>
                   <ZIndex>4</ZIndex>
                   <Style>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -2316,7 +2316,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                   </Paragraphs>
                   <Top>74.99994pt</Top>
                   <Height>11pt</Height>
-                  <Width>11.82066cm</Width>
+                  <Width>10.52457cm</Width>
                   <ZIndex>5</ZIndex>
                   <Style>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -2342,7 +2342,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                   </Paragraphs>
                   <Top>54.2pt</Top>
                   <Height>11pt</Height>
-                  <Width>11.82082cm</Width>
+                  <Width>10.52473cm</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -2371,7 +2371,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                   <rd:DefaultName>Textbox4</rd:DefaultName>
                   <Top>0.90223in</Top>
                   <Height>11pt</Height>
-                  <Width>4.65387in</Width>
+                  <Width>4.1436in</Width>
                   <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
@@ -2400,7 +2400,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                   <Top>0pt</Top>
                   <Left>0.00016cm</Left>
                   <Height>11pt</Height>
-                  <Width>11.82067cm</Width>
+                  <Width>10.52458cm</Width>
                   <ZIndex>8</ZIndex>
                   <Style>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -2410,7 +2410,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
               <KeepTogether>true</KeepTogether>
               <Top>5.14168cm</Top>
               <Height>3.46702cm</Height>
-              <Width>11.985cm</Width>
+              <Width>10.52474cm</Width>
               <ZIndex>16</ZIndex>
               <Visibility>
                 <Hidden>=iif(Fields!ShowCustAddr.Value = true, false, true)</Hidden>
@@ -2612,9 +2612,9 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                 </Paragraph>
               </Paragraphs>
               <Top>164.14857pt</Top>
-              <Left>12.51844cm</Left>
+              <Left>11.32782cm</Left>
               <Height>11pt</Height>
-              <Width>2.65998cm</Width>
+              <Width>3.8506cm</Width>
               <ZIndex>23</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
