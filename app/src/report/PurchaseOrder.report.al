@@ -1075,11 +1075,6 @@ report 70302 "TURFPurchase Order"
                 until "Purchase Header".Next() = 0;
     end;
 
-    trigger OnPreReport()
-    begin
-        if not CurrReport.UseRequestPage then InitLogInteraction();
-    end;
-
     var
         GLSetup: Record "General Ledger Setup";
         TempPurchLine: Record "Purchase Line" temporary;
@@ -1293,11 +1288,6 @@ report 70302 "TURFPurchase Order"
             VATNoText := FormatDocument.SetText("VAT Registration No." <> '', FieldCaption("VAT Registration No."));
         end;
         OnAfterFormatDocumentFields(PurchaseHeader);
-    end;
-
-    local procedure InitLogInteraction()
-    begin
-        LogInteraction := SegManagement.FindInteractionTemplateCode("Interaction Log Entry Document Type"::"Purch. Ord.") <> '';
     end;
 
     [IntegrationEvent(true, false)]

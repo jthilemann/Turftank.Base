@@ -749,16 +749,7 @@ report 70303 "TURFReminder"
         actions
         {
         }
-        trigger OnInit()
-        begin
-            LogInteractionEnable := true;
-        end;
 
-        trigger OnOpenPage()
-        begin
-            LogInteraction := SegManagement.FindInteractTmplCode(8) <> '';
-            LogInteractionEnable := LogInteraction;
-        end;
     }
     labels
     {

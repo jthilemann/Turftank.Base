@@ -746,7 +746,6 @@ report 70304 "TURFReturn Order"
 
         trigger OnOpenPage()
         begin
-            InitLogInteraction();
             LogInteractionEnable := LogInteraction;
         end;
     }
@@ -769,11 +768,6 @@ report 70304 "TURFReturn Order"
                         SegManagement.LogDocument(22, "Purchase Header"."No.", 0, 0, Database::Contact, "Purchase Header"."Buy-from Contact No.", "Purchase Header"."Purchaser Code", '', "Purchase Header"."Posting Description", '')
                     else
                         SegManagement.LogDocument(22, "Purchase Header"."No.", 0, 0, Database::Vendor, "Purchase Header"."Buy-from Vendor No.", "Purchase Header"."Purchaser Code", '', "Purchase Header"."Posting Description", '') until "Purchase Header".Next() = 0;
-    end;
-
-    trigger OnPreReport()
-    begin
-        if not CurrReport.UseRequestPage then InitLogInteraction();
     end;
 
     var
@@ -872,10 +866,6 @@ report 70304 "TURFReturn Order"
     protected var
         LogInteraction: Boolean;
 
-    local procedure InitLogInteraction()
-    begin
-        LogInteraction := SegManagement.FindInteractionTemplateCode(Enum::"Interaction Log Entry Document Type"::"Purch. Return Ord. Cnfrmn.") <> '';
-    end;
 
     local procedure IsReportInPreviewMode(): Boolean
     var

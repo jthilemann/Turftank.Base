@@ -634,7 +634,6 @@ report 70305 "TURFSales Shipment"
 
         trigger OnOpenPage()
         begin
-            InitLogInteraction();
             LogInteractionEnable := LogInteraction;
         end;
     }
@@ -660,7 +659,6 @@ report 70305 "TURFSales Shipment"
 
     trigger OnPreReport()
     begin
-        if not CurrReport.UseRequestPage then InitLogInteraction();
         AsmHeaderExists := false;
         OnAfterOnPreReport("Sales Shipment Header");
     end;
@@ -742,11 +740,6 @@ report 70305 "TURFSales Shipment"
 
     protected var
         TempTrackingSpecBuffer: Record "Tracking Specification" temporary;
-
-    procedure InitLogInteraction()
-    begin
-        LogInteraction := SegManagement.FindInteractionTemplateCode("Interaction Log Entry Document Type"::"Sales Shpt. Note") <> '';
-    end;
 
     procedure InitializeRequest(NewNoOfCopies: Integer; NewShowInternalInfo: Boolean; NewLogInteraction: Boolean; NewShowCorrectionLines: Boolean; NewShowLotSN: Boolean; DisplayAsmInfo: Boolean)
     begin

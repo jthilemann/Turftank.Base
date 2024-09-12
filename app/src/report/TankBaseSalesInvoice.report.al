@@ -1261,7 +1261,6 @@ report 70306 "TURFTank Base Sales Invoice"
 
         trigger OnOpenPage()
         begin
-            InitLogInteraction();
             LogInteractionEnable := LogInteraction;
         end;
     }
@@ -1299,9 +1298,6 @@ report 70306 "TURFTank Base Sales Invoice"
     begin
         if Header.GetFilters = '' then
             Error(NoFilterSetErr);
-
-        if not CurrReport.UseRequestPage then
-            InitLogInteraction();
 
         CompanyLogoPosition := SalesSetup."Logo Position on Documents";
     end;
@@ -1460,10 +1456,6 @@ report 70306 "TURFTank Base Sales Invoice"
         ShptMethodDescLbl: Label 'Shipment Method';
         ShiptoAddrLbl: Label 'Ship-to Address';
 
-    local procedure InitLogInteraction()
-    begin
-        LogInteraction := SegManagement.FindInteractTmplCode(4) <> '';
-    end;
 
     local procedure InitializeShipmentLine()
     var
