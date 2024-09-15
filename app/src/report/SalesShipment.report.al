@@ -548,7 +548,7 @@ report 70305 "TURFSales Shipment"
             }
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := LanguageRec.GetLanguageIdOrDefault("Language Code");
                 FormatAddr.SetLanguageCode("Language Code");
                 FormatAddressFields("Sales Shipment Header");
                 FormatDocumentFields("Sales Shipment Header");
@@ -677,7 +677,7 @@ report 70305 "TURFSales Shipment"
         PostedAsmLine: Record "Posted Assembly Line";
         RespCenter: Record "Responsibility Center";
         ItemTrackingAppendix: Report "Item Tracking Appendix";
-        Language: Codeunit Language;
+        LanguageRec: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         SegManagement: Codeunit SegManagement;

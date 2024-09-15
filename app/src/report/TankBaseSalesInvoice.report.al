@@ -113,22 +113,22 @@ report 70306 "TURFTank Base Sales Invoice"
             column(CompanyVATRegistrationNo_Lbl; CompanyInfo.GetVATRegistrationNumberLbl())
             {
             }
-            column(CompanyLegalOffice; CompanyInfo.GetLegalOffice())
+            column(CompanyLegalOffice; '')
             {
             }
-            column(CompanyLegalOffice_Lbl; CompanyInfo.GetLegalOfficeLbl())
+            column(CompanyLegalOffice_Lbl; '')
             {
             }
-            column(CompanyCustomGiro; CompanyInfo.GetCustomGiro())
+            column(CompanyCustomGiro; '')
             {
             }
-            column(CompanyCustomGiro_Lbl; CompanyInfo.GetCustomGiroLbl())
+            column(CompanyCustomGiro_Lbl; '')
             {
             }
             column(CompanyLegalStatement; GetLegalStatement())
             {
             }
-            column(DisplayAdditionalFeeNote; DisplayAdditionalFeeNote)
+            column(DisplayAdditionalFeeNote; DisplayTheAdditionalFeeNote)
             {
             }
             column(CustomerAddress1; CustAddr[1])
@@ -956,7 +956,7 @@ report 70306 "TURFTank Base Sales Invoice"
 
                 trigger OnAfterGetRecord()
                 begin
-                    if not DisplayAdditionalFeeNote then
+                    if not DisplayTheAdditionalFeeNote then
                         CurrReport.Break();
 
                     if Number = 1 then begin
@@ -1113,7 +1113,7 @@ report 70306 "TURFTank Base Sales Invoice"
                 GeneralLedgerSetup: Record "General Ledger Setup";
                 BankAccount: record "Bank Account";
             begin
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := LanguageRec.GetLanguageIdOrDefault("Language Code");
 
                 if not IsReportInPreviewMode() then
                     CODEUNIT.Run(CODEUNIT::"Sales Inv.-Printed", Header);
@@ -1221,7 +1221,7 @@ report 70306 "TURFTank Base Sales Invoice"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(LogInteraction; LogInteraction)
+                    field(LogInteraction; LogTheInteraction)
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Log Interaction';
@@ -1234,13 +1234,13 @@ report 70306 "TURFTank Base Sales Invoice"
                         Caption = 'Show Assembly Components';
                         ToolTip = 'Specifies if you want the report to include information about components that were used in linked assembly orders that supplied the item(s) being sold. (Only possible for RDLC report layout.)';
                     }
-                    field(DisplayShipmentInformation; DisplayShipmentInformation)
+                    field(DisplayShipmentInformation; DisplayTheShipmentInformation)
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Show Shipments';
                         ToolTip = 'Specifies that shipments are shown on the document.';
                     }
-                    field(DisplayAdditionalFeeNote; DisplayAdditionalFeeNote)
+                    field(DisplayAdditionalFeeNote; DisplayTheAdditionalFeeNote)
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Show Additional Fee Note';
@@ -1261,7 +1261,7 @@ report 70306 "TURFTank Base Sales Invoice"
 
         trigger OnOpenPage()
         begin
-            LogInteractionEnable := LogInteraction;
+            LogInteractionEnable := LogTheInteraction;
         end;
     }
 
@@ -1280,7 +1280,7 @@ report 70306 "TURFTank Base Sales Invoice"
 
     trigger OnPostReport()
     begin
-        if LogInteraction and not IsReportInPreviewMode() then
+        if LogTheInteraction and not IsReportInPreviewMode() then
             if Header.FindSet() then
                 repeat
                     if Header."Bill-to Contact No." <> '' then
@@ -1317,7 +1317,7 @@ report 70306 "TURFTank Base Sales Invoice"
         TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist." temporary;
         SellToContact: Record Contact;
         BillToContact: Record Contact;
-        Language: Codeunit Language;
+        LanguageRec: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         SegManagement: Codeunit SegManagement;
@@ -1339,7 +1339,7 @@ report 70306 "TURFTank Base Sales Invoice"
         TotalAmountExclInclVATTextValue: Text;
         MoreLines: Boolean;
         ShowWorkDescription: Boolean;
-        LogInteraction: Boolean;
+        LogTheInteraction: Boolean;
         TotalAmount: Decimal;
         TotalAmountInclVAT: Decimal;
         TotalAmountVAT: Decimal;
@@ -1348,7 +1348,6 @@ report 70306 "TURFTank Base Sales Invoice"
         RemainingAmount: Decimal;
         ShipmentDateLbl: label 'Shipment Date';
         TransHeaderAmount: Decimal;
-        [InDataSet]
         LogInteractionEnable: Boolean;
         CompanyLogoPosition: Integer;
         CalculatedExchRate: Decimal;
@@ -1447,8 +1446,8 @@ report 70306 "TURFTank Base Sales Invoice"
         VATBaseLCY: Decimal;
         VATAmountLCY: Decimal;
         DisplayAssemblyInformation: Boolean;
-        DisplayShipmentInformation: Boolean;
-        DisplayAdditionalFeeNote: Boolean;
+        DisplayTheShipmentInformation: Boolean;
+        DisplayTheAdditionalFeeNote: Boolean;
         FirstLineHasBeenOutput: Boolean;
         ShowShippingAddr: Boolean;
 
@@ -1475,7 +1474,7 @@ report 70306 "TURFTank Base Sales Invoice"
         ShipmentLine.SetRange("Line No.", Line."Line No.");
         if ShipmentLine.FindFirst() then begin
             SalesShipmentBuffer2 := ShipmentLine;
-            if not DisplayShipmentInformation then
+            if not DisplayTheShipmentInformation then
                 if ShipmentLine.Next() = 0 then begin
                     ShipmentLine.Get(SalesShipmentBuffer2."Document No.", SalesShipmentBuffer2."Line No.", SalesShipmentBuffer2."Entry No.");
                     ShipmentLine.Delete();
@@ -1501,7 +1500,7 @@ report 70306 "TURFTank Base Sales Invoice"
 
     procedure InitializeRequest(NewLogInteraction: Boolean; DisplayAsmInfo: Boolean)
     begin
-        LogInteraction := NewLogInteraction;
+        LogTheInteraction := NewLogInteraction;
         DisplayAssemblyInformation := DisplayAsmInfo;
     end;
 
@@ -1569,7 +1568,7 @@ report 70306 "TURFTank Base Sales Invoice"
                 TempLineFeeNoteOnReportHist.Insert();
             until LineFeeNoteOnReportHist.Next() = 0
         else begin
-            LineFeeNoteOnReportHist.SetRange("Language Code", Language.GetUserLanguageCode());
+            LineFeeNoteOnReportHist.SetRange("Language Code", LanguageRec.GetUserLanguageCode());
             if LineFeeNoteOnReportHist.FindSet() then
                 repeat
                     TempLineFeeNoteOnReportHist.Init();
@@ -1603,7 +1602,6 @@ report 70306 "TURFTank Base Sales Invoice"
     local procedure FillRightHeader()
     var
         IsHandled: Boolean;
-        CompInfo: Record "Company Information";
     begin
         IsHandled := false;
         OnBeforeFillRightHeader(Header, SalespersonPurchaser, SalesPersonText, RightHeader, IsHandled);
@@ -1677,23 +1675,21 @@ report 70306 "TURFTank Base Sales Invoice"
 
     local procedure FormatDocumentFields(SalesInvoiceHeader: Record "Sales Invoice Header")
     begin
-        with SalesInvoiceHeader do begin
-            FormatDocument.SetTotalLabels(GetCurrencySymbol(), TotalText, TotalInclVATText, TotalExclVATText);
-            FormatDocument.SetSalesPerson(SalespersonPurchaser, "Salesperson Code", SalesPersonText);
-            FormatDocument.SetPaymentTerms(PaymentTerms, "Payment Terms Code", "Language Code");
-            FormatDocument.SetPaymentMethod(PaymentMethod, "Payment Method Code", "Language Code");
-            FormatDocument.SetShipmentMethod(ShipmentMethod, "Shipment Method Code", "Language Code");
+        FormatDocument.SetTotalLabels(SalesInvoiceHeader.GetCurrencySymbol(), TotalText, TotalInclVATText, TotalExclVATText);
+        FormatDocument.SetSalesPerson(SalespersonPurchaser, SalesInvoiceHeader."Salesperson Code", SalesPersonText);
+        FormatDocument.SetPaymentTerms(PaymentTerms, SalesInvoiceHeader."Payment Terms Code", SalesInvoiceHeader."Language Code");
+        FormatDocument.SetPaymentMethod(PaymentMethod, SalesInvoiceHeader."Payment Method Code", SalesInvoiceHeader."Language Code");
+        FormatDocument.SetShipmentMethod(ShipmentMethod, SalesInvoiceHeader."Shipment Method Code", SalesInvoiceHeader."Language Code");
 
-            OnAfterFormatDocumentFields(SalesInvoiceHeader);
-        end;
+        OnAfterFormatDocumentFields(SalesInvoiceHeader);
     end;
 
-    local procedure GetJobTaskDescription(JobNo: Code[20]; JobTaskNo: Code[20]): Text[100]
+    local procedure GetJobTaskDescription(TheJobNo: Code[20]; TheJobTaskNo: Code[20]): Text[100]
     var
         JobTask: Record "Job Task";
     begin
-        JobTask.SetRange("Job No.", JobNo);
-        JobTask.SetRange("Job Task No.", JobTaskNo);
+        JobTask.SetRange("Job No.", TheJobNo);
+        JobTask.SetRange("Job Task No.", TheJobTaskNo);
         if JobTask.FindFirst() then
             exit(JobTask.Description);
 

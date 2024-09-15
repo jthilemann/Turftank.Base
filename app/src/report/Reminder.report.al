@@ -630,7 +630,7 @@ report 70303 "TURFReminder"
                 CustPostingGroup: Record "Customer Posting Group";
                 VATPostingSetup: Record "VAT Posting Setup";
             begin
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := LanguageRec.GetLanguageIdOrDefault("Language Code");
                 DimSetEntry.SetRange("Dimension Set ID", "Dimension Set ID");
                 if not CompanyBankAccount.Get("Issued Reminder Header"."Company Bank Account Code") then
                     CompanyBankAccount.CopyBankFieldsFromCompanyInfo(CompanyInfo);
@@ -724,7 +724,7 @@ report 70303 "TURFReminder"
                         Caption = 'Show Internal Information';
                         ToolTip = 'Specifies if you want the printed report to show information that is only for internal use.';
                     }
-                    field(LogInteraction; LogInteraction)
+                    field(LogInteraction; LogTheInteraction)
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Log Interaction';
@@ -781,7 +781,7 @@ report 70303 "TURFReminder"
 
     trigger OnPostReport()
     begin
-        if LogInteraction and not IsReportInPreviewMode() then
+        if LogTheInteraction and not IsReportInPreviewMode() then
             if "Issued Reminder Header".FindSet() then
                 repeat
                     SegManagement.LogDocument(8, "Issued Reminder Header"."No.", 0, 0, DATABASE::Customer, "Issued Reminder Header"."Customer No.", '', '', "Issued Reminder Header"."Posting Description", '');
@@ -805,7 +805,7 @@ report 70303 "TURFReminder"
         VATClause: Record "VAT Clause";
         DimSetEntry: Record "Dimension Set Entry";
         CurrExchRate: Record "Currency Exchange Rate";
-        Language: Codeunit Language;
+        LanguageRec: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         SegManagement: Codeunit SegManagement;
         CustAddr: array[8] of Text[100];
@@ -889,7 +889,7 @@ report 70303 "TURFReminder"
         BankAccCpn: label 'Account Name: ';
 
     protected var
-        LogInteraction: Boolean;
+        LogTheInteraction: Boolean;
         ShowInternalInfo: Boolean;
         ShowNotDueAmounts: Boolean;
 

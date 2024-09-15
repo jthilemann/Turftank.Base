@@ -116,16 +116,16 @@ report 70302 "TURFPurchase Order"
             column(CompanyVATRegistrationNo_Lbl; CompanyInfo.GetVATRegistrationNumberLbl() + ':')
             {
             }
-            column(CompanyLegalOffice; CompanyInfo.GetLegalOffice())
+            column(CompanyLegalOffice; '')
             {
             }
-            column(CompanyLegalOffice_Lbl; CompanyInfo.GetLegalOfficeLbl())
+            column(CompanyLegalOffice_Lbl; '')
             {
             }
-            column(CompanyCustomGiro; CompanyInfo.GetCustomGiro())
+            column(CompanyCustomGiro; '')
             {
             }
-            column(CompanyCustomGiro_Lbl; CompanyInfo.GetCustomGiroLbl())
+            column(CompanyCustomGiro_Lbl; '')
             {
             }
             column(DocType_PurchHeader; "Document Type")
@@ -992,7 +992,7 @@ report 70302 "TURFPurchase Order"
                 TotalAmountVAT := 0;
                 TotalPaymentDiscountOnVAT := 0;
                 TotalAmountInclVAT := 0;
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := LanguageRec.GetLanguageIdOrDefault("Language Code");
                 FormatAddr.SetLanguageCode("Language Code");
                 if not ShipmentMethod.get("Shipment Method Code") then clear(ShipmentMethod);
                 FormatAddressFields("Purchase Header");
@@ -1001,7 +1001,7 @@ report 70302 "TURFPurchase Order"
                 if PayToContact.Get("Pay-to Contact No.") then;
                 if not IsReportInPreviewMode() then begin
                     CODEUNIT.Run(CODEUNIT::"Purch.Header-Printed", "Purchase Header");
-                    if ArchiveDocument then ArchiveManagement.StorePurchDocument("Purchase Header", LogInteraction);
+                    if ArchiveTheDocument then ArchiveManagement.StorePurchDocument("Purchase Header", LogTheInteraction);
                 end;
                 HeaderLine[1] := HeaderLine1Lbl;
                 HeaderLine[2] := HeaderLine2Lbl;
@@ -1025,13 +1025,13 @@ report 70302 "TURFPurchase Order"
                 {
                     Caption = 'Options';
 
-                    field(ArchiveDocument; ArchiveDocument)
+                    field(ArchiveDocument; ArchiveTheDocument)
                     {
                         ApplicationArea = Suite;
                         Caption = 'Archive Document';
                         ToolTip = 'Specifies whether to archive the order.';
                     }
-                    field(LogInteraction; LogInteraction)
+                    field(LogInteraction; LogTheInteraction)
                     {
                         ApplicationArea = Suite;
                         Caption = 'Log Interaction';
@@ -1047,12 +1047,12 @@ report 70302 "TURFPurchase Order"
         trigger OnInit()
         begin
             LogInteractionEnable := true;
-            ArchiveDocument := PurchSetup."Archive Orders";
+            ArchiveTheDocument := PurchSetup."Archive Orders";
         end;
 
         trigger OnOpenPage()
         begin
-            LogInteractionEnable := LogInteraction;
+            LogInteractionEnable := LogTheInteraction;
         end;
     }
     labels
@@ -1068,7 +1068,7 @@ report 70302 "TURFPurchase Order"
 
     trigger OnPostReport()
     begin
-        if LogInteraction and not IsReportInPreviewMode() then
+        if LogTheInteraction and not IsReportInPreviewMode() then
             if "Purchase Header".FindSet() then
                 repeat
                     SegManagement.LogDocument(13, "Purchase Header"."No.", 0, 0, DATABASE::Vendor, "Purchase Header"."Buy-from Vendor No.", "Purchase Header"."Purchaser Code", '', "Purchase Header"."Posting Description", '');
@@ -1082,7 +1082,7 @@ report 70302 "TURFPurchase Order"
         CurrExchRate: Record "Currency Exchange Rate";
         BuyFromContact: Record Contact;
         PayToContact: Record Contact;
-        Language: Codeunit Language;
+        LanguageRec: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         PurchPost: Codeunit "Purch.-Post";
@@ -1205,7 +1205,6 @@ report 70302 "TURFPurchase Order"
         TotalAmountVAT: Decimal;
         TotalPaymentDiscountOnVAT: Decimal;
         PurchaseLineDescCapLbl: Label 'Description';
-        LineDimensionsCaptionLbl: Label 'Line Dimensions';
         PurchLineVendItemNoCapLbl: Label 'Vendor Item No.';
         ExpectedDateCaptionLbl: Label 'Expected Delivery Date';
         PurchaseLineUOMCaptionLbl: Label 'Unit of Measure';
@@ -1233,14 +1232,14 @@ report 70302 "TURFPurchase Order"
         TotalText: Text[50];
         TotalInclVATText: Text[50];
         TotalExclVATText: Text[50];
-        ArchiveDocument: Boolean;
-        LogInteraction: Boolean;
+        ArchiveTheDocument: Boolean;
+        LogTheInteraction: Boolean;
         [InDataSet]
         LogInteractionEnable: Boolean;
 
     procedure InitializeRequest(LogInteractionParam: Boolean)
     begin
-        LogInteraction := LogInteractionParam;
+        LogTheInteraction := LogInteractionParam;
     end;
 
     local procedure IsReportInPreviewMode(): Boolean

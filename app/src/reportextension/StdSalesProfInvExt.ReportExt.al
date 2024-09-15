@@ -7,9 +7,7 @@ reportextension 70301 "TURFStd Sales Prof. Inv Ext" extends "Standard Sales - Pr
         {
             trigger OnAfterAfterGetRecord()
             var
-                TURFFormatReport: Codeunit "TURFFormat Report";
                 FormatAddress: Codeunit "Format Address";
-                ReportManagement: Codeunit "TURFReport Management Man";
                 RecRef: RecordRef;
                 CompInfoSortCode: Code[20];
             begin
@@ -17,7 +15,7 @@ reportextension 70301 "TURFStd Sales Prof. Inv Ext" extends "Standard Sales - Pr
                 RecRef.GetTable(CompanyInfo);
                 if RecRef.FieldExist(50005) then
                     CompInfoSortCode := RecRef.Field(50005).Value;
-                FormatDocument.SetPaymentTerms(PaymentTerms, "Payment Terms Code", "Language Code");
+                TURFFormatDocument.SetPaymentTerms(PaymentTerms, "Payment Terms Code", "Language Code");
                 clear(BottomText);
                 BottomText[1] := StrSubstNo(TermsOfPaymentLbl, Paymentterms.Description, header."Due Date");
                 if CompInfoSortCode <> '' then begin
@@ -81,7 +79,7 @@ reportextension 70301 "TURFStd Sales Prof. Inv Ext" extends "Standard Sales - Pr
     var
         CompanyInfo: Record "Company Information";
         PaymentTerms: Record "Payment Terms";
-        FormatDocument: Codeunit "Format Document";
+        TURFFormatDocument: Codeunit "Format Document";
         ShowShippingAddr: Boolean;
         ShipToAddr: array[8] of Text[100];
         BottomText: array[5] of Text;

@@ -306,7 +306,7 @@ report 70304 "TURFReturn Order"
 
                         trigger OnPreDataItem()
                         begin
-                            if not ShowInternalInfo then CurrReport.Break();
+                            if not ShowInternalInf then CurrReport.Break();
                         end;
                     }
                     dataitem("Purchase Line"; "Purchase Line")
@@ -478,7 +478,7 @@ report 70304 "TURFReturn Order"
 
                             trigger OnPreDataItem()
                             begin
-                                if not ShowInternalInfo then CurrReport.Break();
+                                if not ShowInternalInf then CurrReport.Break();
                                 DimSetEntry2.SetRange("Dimension Set ID", "Purchase Line"."Dimension Set ID");
                             end;
                         }
@@ -489,7 +489,7 @@ report 70304 "TURFReturn Order"
                             else
                                 TempPurchaseLine.Next();
                             "Purchase Line" := TempPurchaseLine;
-                            if (TempPurchaseLine.Type = TempPurchaseLine.Type::"G/L Account") and (not ShowInternalInfo) then "Purchase Line"."No." := '';
+                            if (TempPurchaseLine.Type = TempPurchaseLine.Type::"G/L Account") and (not ShowInternalInf) then "Purchase Line"."No." := '';
                             TypeInt := "Purchase Line".Type.AsInteger();
                             TotalSubTotal += "Purchase Line"."Line Amount";
                             TotalInvoiceDiscountAmount -= "Purchase Line"."Inv. Discount Amount";
@@ -678,7 +678,7 @@ report 70304 "TURFReturn Order"
 
                 trigger OnPreDataItem()
                 begin
-                    NoOfLoops := Abs(NoOfCopies) + 1;
+                    NoOfLoops := Abs(NoOfCopies2) + 1;
                     CopyText := '';
                     SetRange(Number, 1, NoOfLoops);
                     OutputNo := 1;
@@ -686,8 +686,8 @@ report 70304 "TURFReturn Order"
             }
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := LanguageRec.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := LanguageRec.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
                 FormatAddressFields("Purchase Header");
                 FormatDocumentFields("Purchase Header");
@@ -714,19 +714,19 @@ report 70304 "TURFReturn Order"
                 {
                     Caption = 'Options';
 
-                    field(NoOfCopies; NoOfCopies)
+                    field(NoOfCopies; NoOfCopies2)
                     {
                         ApplicationArea = PurchReturnOrder;
                         Caption = 'No. of Copies';
                         ToolTip = 'Specifies how many copies of the document to print.';
                     }
-                    field(ShowInternalInfo; ShowInternalInfo)
+                    field(ShowInternalInfo; ShowInternalInf)
                     {
                         ApplicationArea = PurchReturnOrder;
                         Caption = 'Show Internal Information';
                         ToolTip = 'Specifies if you want the printed report to show information that is only for internal use.';
                     }
-                    field(LogInteraction; LogInteraction)
+                    field(LogInteraction; LogTheInteraction)
                     {
                         ApplicationArea = PurchReturnOrder;
                         Caption = 'Log Interaction';
@@ -746,7 +746,7 @@ report 70304 "TURFReturn Order"
 
         trigger OnOpenPage()
         begin
-            LogInteractionEnable := LogInteraction;
+            LogInteractionEnable := LogTheInteraction;
         end;
     }
     labels
@@ -761,7 +761,7 @@ report 70304 "TURFReturn Order"
 
     trigger OnPostReport()
     begin
-        if LogInteraction and not IsReportInPreviewMode() then
+        if LogTheInteraction and not IsReportInPreviewMode() then
             if "Purchase Header".FindSet() then
                 repeat
                     if "Purchase Header"."Buy-from Contact No." <> '' then
@@ -780,7 +780,7 @@ report 70304 "TURFReturn Order"
         DimSetEntry2: Record "Dimension Set Entry";
         RespCenter: Record "Responsibility Center";
         CurrExchRate: Record "Currency Exchange Rate";
-        Language: Codeunit Language;
+        LanguageRec: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         PurchPost: Codeunit "Purch.-Post";
@@ -796,12 +796,12 @@ report 70304 "TURFReturn Order"
         TotalInclVATText: Text[50];
         TotalExclVATText: Text[50];
         MoreLines: Boolean;
-        NoOfCopies: Integer;
+        NoOfCopies2: Integer;
         NoOfLoops: Integer;
         CopyText: Text[30];
         DimText: Text[120];
         OldDimText: Text[75];
-        ShowInternalInfo: Boolean;
+        ShowInternalInf: Boolean;
         Continue: Boolean;
         VATAmount: Decimal;
         VATBaseAmount: Decimal;
@@ -864,7 +864,7 @@ report 70304 "TURFReturn Order"
         VendorAuthCaption: Label 'RMA No.';
 
     protected var
-        LogInteraction: Boolean;
+        LogTheInteraction: Boolean;
 
 
     local procedure IsReportInPreviewMode(): Boolean
