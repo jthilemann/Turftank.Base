@@ -924,7 +924,8 @@ report 70302 "TURFPurchase Order"
                     if Number = 1 then begin
                         if not TempPrepaymentInvLineBuffer.Find('-') then CurrReport.Break();
                     end
-                    else if TempPrepaymentInvLineBuffer.Next() = 0 then CurrReport.Break();
+                    else
+                        if TempPrepaymentInvLineBuffer.Next() = 0 then CurrReport.Break();
                     if "Purchase Header"."Prices Including VAT" then
                         PrepmtLineAmount := TempPrepaymentInvLineBuffer."Amount Incl. VAT"
                     else
@@ -1234,7 +1235,6 @@ report 70302 "TURFPurchase Order"
         TotalExclVATText: Text[50];
         ArchiveTheDocument: Boolean;
         LogTheInteraction: Boolean;
-        [InDataSet]
         LogInteractionEnable: Boolean;
 
     procedure InitializeRequest(LogInteractionParam: Boolean)
