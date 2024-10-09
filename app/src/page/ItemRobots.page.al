@@ -2,7 +2,7 @@ page 70305 "TURFItem Robots"
 {
     Caption = 'Item Robot Parts';
     PageType = List;
-    UsageCategory = Lists;
+    UsageCategory = None;
     ApplicationArea = All;
     SourceTable = "TURFItem Robot";
 
