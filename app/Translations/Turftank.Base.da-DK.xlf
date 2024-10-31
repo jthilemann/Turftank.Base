@@ -1871,7 +1871,7 @@
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 1989518965" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice</source>
-          <target state="needs-l10n">Fakturer</target>
+          <target state="translated">Faktura</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType SalesInvoiceLbl</note>
         </trans-unit>
