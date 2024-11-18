@@ -9,7 +9,7 @@
             "type": "al",
             "request": "launch",
             "environmentType": "Sandbox",
-            "environmentName": "Sandbox_2024-06-22",
+            "environmentName": "Sandbox_20241105",
             "startupObjectId": 22,
             "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
             "breakOnError": "All",

@@ -10,6 +10,36 @@ codeunit 70304 "TURFFormat Report"
         end;
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Format Document", 'OnAfterSetTotalLabels', '', false, false)]
+    local procedure FormatDocumentOnAfterSetTotalLabels(CurrencyCode: Code[10]; var TotalExclVATText: Text[50]; var TotalInclVATText: Text[50]; var TotalText: Text[50])
+    var
+        GeneralLedgerSetup: Record "General Ledger Setup";
+        CurrencySymbol: Code[10];
+        TotalTxt: Label 'Total %1', Comment = '%1 = Currency Code';
+        TotalInclVATTxt: Label 'Total %1 Incl. VAT', Comment = '%1 = Currency Code';
+        TotalExclVATTxt: Label 'Total %1 Excl. VAT', Comment = '%1 = Currency Code';
+    begin
+        GeneralLedgerSetup.Get();
+        if CurrencyCode <> '' then
+            exit;
+
+        if GeneralLedgerSetup."Local Currency Symbol" <> '' then
+            if GeneralLedgerSetup."LCY Code" <> GeneralLedgerSetup."Local Currency Symbol" then begin
+                CurrencySymbol := GeneralLedgerSetup.GetCurrencySymbol();
+                TotalText := StrSubstNo(TotalTxt, CurrencySymbol);
+                TotalInclVATText := StrSubstNo(TotalInclVATTxt, CurrencySymbol);
+                TotalExclVATText := StrSubstNo(TotalExclVATTxt, CurrencySymbol);
+            end;
+    end;
+
+    internal procedure GetCurrencySymbol(CurrencyCode: Code[10]): Code[10]
+    var
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+    begin
+        SalesInvoiceHeader."Currency Code" := CurrencyCode;
+        Exit(SalesInvoiceHeader.GetCurrencySymbol());
+    end;
+
     local procedure FormatShipTo(var SalesHeader: Record "Sales Header"; var AddrArray: array[8] of Text[100]; var CustAddr: array[8] of Text[100]; var Handled: Boolean; var Result: Boolean)
     var
         CountryRegion: Record "Country/Region";

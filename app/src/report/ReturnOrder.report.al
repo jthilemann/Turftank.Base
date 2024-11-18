@@ -883,13 +883,15 @@ report 70304 "TURFReturn Order"
     end;
 
     local procedure FormatDocumentFields(PurchaseHeader: Record "Purchase Header")
+    var
+        TURFFormatReport: Codeunit "TURFFormat Report";
     begin
-        with PurchaseHeader do begin
-            FormatDocument.SetTotalLabels("Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
-            FormatDocument.SetPurchaser(SalesPurchPerson, "Purchaser Code", PurchaserText);
-            ReferenceText := FormatDocument.SetText("Your Reference" <> '', FieldCaption("Your Reference"));
-            VATNoText := FormatDocument.SetText("VAT Registration No." <> '', FieldCaption("VAT Registration No."));
-        end;
+        FormatDocument.SetTotalLabels("Purchase Header"."Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
+        FormatDocument.SetPurchaser(SalesPurchPerson, PurchaseHeader."Purchaser Code", PurchaserText);
+#pragma warning disable AA0139
+        ReferenceText := FormatDocument.SetText(PurchaseHeader."Your Reference" <> '', PurchaseHeader.FieldCaption("Your Reference"));
+        VATNoText := FormatDocument.SetText(PurchaseHeader."VAT Registration No." <> '', PurchaseHeader.FieldCaption("VAT Registration No."));
+#pragma warning restore AA0139
     end;
 
     local procedure UpdateTermsTxt(PurchaseHeader: Record "Purchase Header")

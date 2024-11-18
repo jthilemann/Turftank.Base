@@ -629,6 +629,7 @@ report 70303 "TURFReminder"
                 GLAcc: Record "G/L Account";
                 CustPostingGroup: Record "Customer Posting Group";
                 VATPostingSetup: Record "VAT Posting Setup";
+                CurrencySymbol: Code[10];
             begin
                 CurrReport.Language := LanguageRec.GetLanguageIdOrDefault("Language Code");
                 DimSetEntry.SetRange("Dimension Set ID", "Dimension Set ID");
@@ -639,15 +640,20 @@ report 70303 "TURFReminder"
                 if "Your Reference" = '' then
                     ReferenceText := ''
                 else
+#pragma warning disable AA0139
                     ReferenceText := FieldCaption("Your Reference");
+#pragma warning restore AA0139
                 if "Issued Reminder Header".GetCustomerVATRegistrationNumber() = '' then
                     VATNoText := ''
                 else
+#pragma warning disable AA0139
                     VATNoText := "Issued Reminder Header".GetCustomerVATRegistrationNumberLbl();
+#pragma warning restore AA0139
                 if "Currency Code" = '' then begin
                     GLSetup.TestField("LCY Code");
-                    TotalText := StrSubstNo(Text000, GLSetup."LCY Code");
-                    TotalInclVATText := StrSubstNo(Text001, GLSetup."LCY Code");
+                    CurrencySymbol := GLSetup.GetCurrencySymbol();
+                    TotalText := StrSubstNo(Text000, CurrencySymbol);
+                    TotalInclVATText := StrSubstNo(Text001, CurrencySymbol);
                 end
                 else begin
                     TotalText := StrSubstNo(Text000, "Currency Code");

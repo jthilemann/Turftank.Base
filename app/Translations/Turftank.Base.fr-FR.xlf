@@ -15,6 +15,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table TURFEmployee Group - Field Description - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2117213968 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <target state="translated">N° article</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFItem Robot - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2117213968 - Field 2095870013 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Robot Model</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFItem Robot - Field Robot Model - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 810204895 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
           <target state="translated">Code</target>
@@ -39,6 +51,36 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table TURFOrder Type - Field Description - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 747586714 - Field 1695122201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Model</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFRobot Model - Field Model - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 747586714 - Field 2853950796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Model Name</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFRobot Model - Field Model Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3483173436 - Method 2573360152 - NamedType 309314094" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1</source>
+          <target state="translated">Total %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Currency Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TURFFormat Report - Method FormatDocumentOnAfterSetTotalLabels - NamedType TotalTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3483173436 - Method 2573360152 - NamedType 2208508931" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1 Incl. VAT</source>
+          <target state="translated">Total %1 TTC</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Currency Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TURFFormat Report - Method FormatDocumentOnAfterSetTotalLabels - NamedType TotalInclVATTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3483173436 - Method 2573360152 - NamedType 3296721437" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1 Excl. VAT</source>
+          <target state="translated">Total %1 HT</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Currency Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TURFFormat Report - Method FormatDocumentOnAfterSetTotalLabels - NamedType TotalExclVATTxt</note>
+        </trans-unit>
         <trans-unit id="Page 1202516429 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Employee Groups</source>
           <target state="needs-translation"/>
@@ -56,6 +98,18 @@
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page TURFEmployee Groups - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1883738929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Robot Parts</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFItem Robots - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1883738929 - Control 2095870013 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Robot Model field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFItem Robots - Control Robot Model - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3164616778 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Operation Locations</source>
@@ -92,6 +146,36 @@
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page TURFOrder Types - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2271859495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Robot Models</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFRobot Models - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2271859495 - Control 1695122201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Model field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFRobot Models - Control Model - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2271859495 - Control 2853950796 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Model Name field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFRobot Models - Control Model Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2271859495 - Action 331922239 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Update Models action.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFRobot Models - Action UpdateModels - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2271859495 - Action 331922239 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Models</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFRobot Models - Action UpdateModels - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3022596390 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TURF Prod. Order - Job Card</source>
@@ -404,12 +488,6 @@
           <target state="translated">N° tâche projet</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType JobTaskNoLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1584509060 - NamedType 3701122699" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Line Dimensions</source>
-          <target state="translated">Analytique ligne</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType LineDimensionsCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 2134599625" size-unit="char" translate="yes" xml:space="preserve">
           <source>Local Currency</source>
@@ -2157,6 +2235,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Orders - Control TURFWarehouse/Production - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1313395940 - Control 1444878098 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Specifies the value of the Part for number of Robots field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFBase Item Card Ext - Control TURFPart For Robots - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1313395940 - Control 810204895 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Specifies the value of the Production Location field.</source>
           <target state="needs-translation"/>
@@ -2378,6 +2462,12 @@
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFItem Ext - Field TURFOperation Location - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 543928307 - Field 1444878098 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Part for number of Robots</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFItem Ext - Field TURFPart For Robots - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3267346127 - Field 3262592459 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2308244223">
           <source>Production End</source>

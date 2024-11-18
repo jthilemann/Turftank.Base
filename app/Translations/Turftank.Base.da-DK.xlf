@@ -15,6 +15,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table TURFEmployee Group - Field Description - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2117213968 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <target state="translated">Varenr.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFItem Robot - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2117213968 - Field 2095870013 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Robot Model</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFItem Robot - Field Robot Model - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 810204895 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
           <target state="translated">Kode</target>
@@ -39,6 +51,36 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table TURFOrder Type - Field Description - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 747586714 - Field 1695122201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Model</source>
+          <target state="translated">Model</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFRobot Model - Field Model - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 747586714 - Field 2853950796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Model Name</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table TURFRobot Model - Field Model Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3483173436 - Method 2573360152 - NamedType 309314094" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1</source>
+          <target state="translated">I alt %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Currency Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TURFFormat Report - Method FormatDocumentOnAfterSetTotalLabels - NamedType TotalTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3483173436 - Method 2573360152 - NamedType 2208508931" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1 Incl. VAT</source>
+          <target state="translated">I alt %1 inkl. moms</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Currency Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TURFFormat Report - Method FormatDocumentOnAfterSetTotalLabels - NamedType TotalInclVATTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3483173436 - Method 2573360152 - NamedType 3296721437" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1 Excl. VAT</source>
+          <target state="translated">I alt %1 ekskl. moms</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Currency Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TURFFormat Report - Method FormatDocumentOnAfterSetTotalLabels - NamedType TotalExclVATTxt</note>
+        </trans-unit>
         <trans-unit id="Page 1202516429 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Employee Groups</source>
           <target state="needs-translation"/>
@@ -56,6 +98,18 @@
           <target state="translated">Angiver værdien for feltet.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page TURFEmployee Groups - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1883738929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Robot Parts</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFItem Robots - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1883738929 - Control 2095870013 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Robot Model field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFItem Robots - Control Robot Model - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3164616778 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Operation Locations</source>
@@ -92,6 +146,36 @@
           <target state="translated">Angiver værdien for feltet.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page TURFOrder Types - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2271859495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Robot Models</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFRobot Models - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2271859495 - Control 1695122201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Model field.</source>
+          <target state="translated">Angiver værdien for feltet.</target>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFRobot Models - Control Model - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2271859495 - Control 2853950796 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Model Name field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFRobot Models - Control Model Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2271859495 - Action 331922239 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Executes the Update Models action.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFRobot Models - Action UpdateModels - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2271859495 - Action 331922239 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Models</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page TURFRobot Models - Action UpdateModels - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3022596390 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TURF Prod. Order - Job Card</source>
@@ -275,7 +359,7 @@
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 2188076586" size-unit="char" translate="yes" xml:space="preserve">
           <source>Expected Delivery Date</source>
-          <target state="needs-l10n">Modtagelsesdato</target>
+          <target state="translated">Modtagelsesdato</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType ExpectedDateCaptionLbl</note>
         </trans-unit>
@@ -311,13 +395,13 @@
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 497090780" size-unit="char" translate="yes" xml:space="preserve">
           <source>Our Ref.:</source>
-          <target state="needs-l10n">Vor Ref.:</target>
+          <target state="translated">Vor Ref.:</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType HeaderLine3Lbl</note>
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 3012003065" size-unit="char" translate="yes" xml:space="preserve">
           <source>YourRef.:</source>
-          <target state="needs-l10n">Deres Ref.:</target>
+          <target state="translated">Deres Ref.:</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType HeaderLine4Lbl</note>
         </trans-unit>
@@ -389,7 +473,7 @@
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 1072087502" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit Price</source>
-          <target state="needs-l10n">Pris</target>
+          <target state="translated">Pris</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType ItemUnitPriceCaptionLbl</note>
         </trans-unit>
@@ -404,12 +488,6 @@
           <target state="translated">Sagsopgavenr.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType JobTaskNoLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1584509060 - NamedType 3701122699" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Line Dimensions</source>
-          <target state="translated">Linjedimensioner</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType LineDimensionsCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 2134599625" size-unit="char" translate="yes" xml:space="preserve">
           <source>Local Currency</source>
@@ -515,7 +593,7 @@
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 122545475" size-unit="char" translate="yes" xml:space="preserve">
           <source>Promised Receipt Date</source>
-          <target state="needs-l10n">Bekræftet modtagelsesdato</target>
+          <target state="translated">Bekræftet modtagelsesdato</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType PromisedReceiptDateLbl</note>
         </trans-unit>
@@ -527,7 +605,7 @@
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 2406652490" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit of Measure</source>
-          <target state="needs-l10n">Enhed</target>
+          <target state="translated">Enhed</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType PurchaseLineUOMCaptionLbl</note>
         </trans-unit>
@@ -539,19 +617,19 @@
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 3411081103" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount %</source>
-          <target state="needs-l10n">Rabatpct.</target>
+          <target state="translated">Rabatpct.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType PurchLineLineDiscCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 3926225537" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor Item No.</source>
-          <target state="needs-l10n">Lev. varenr.</target>
+          <target state="translated">Lev. varenr.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType PurchLineVendItemNoCapLbl</note>
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 1517777218" size-unit="char" translate="yes" xml:space="preserve">
           <source>PURCHASE ORDER</source>
-          <target state="needs-l10n">INDKØBSORDRE</target>
+          <target state="translated">INDKØBSORDRE</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType PurchOrderCaptionLbl</note>
         </trans-unit>
@@ -581,19 +659,19 @@
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 2291760470" size-unit="char" translate="yes" xml:space="preserve">
           <source>Requested Delivery Date</source>
-          <target state="needs-l10n">Ønsket Leveringsdato</target>
+          <target state="translated">Ønsket Leveringsdato</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType RequestedReceiptDateLbl</note>
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 203962742" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Method</source>
-          <target state="needs-l10n">Leveringsmetode</target>
+          <target state="translated">Leveringsmetode</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType ShipmentMethodDescCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 232471621" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address</source>
-          <target state="needs-l10n">Leveringsadresse</target>
+          <target state="translated">Leveringsadresse</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType ShiptoAddressCaptionLbl</note>
         </trans-unit>
@@ -629,19 +707,19 @@
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 1583171122" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total</source>
-          <target state="needs-l10n">Total</target>
+          <target state="translated">Total</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType TotalCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 1349122805" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Price</source>
-          <target state="needs-l10n">Salgsbeløb</target>
+          <target state="translated">Salgsbeløb</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType TotalPriceCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 2786556803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit Price (LCY)</source>
-          <target state="needs-l10n">Enhedspris (RV)</target>
+          <target state="translated">Enhedspris (RV)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType UnitPriceLbl</note>
         </trans-unit>
@@ -677,7 +755,7 @@
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 1210262078" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT %</source>
-          <target state="needs-l10n">Momspct.</target>
+          <target state="translated">Momspct.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType VATAmtLineVATCaptionLbl</note>
         </trans-unit>
@@ -701,7 +779,7 @@
         </trans-unit>
         <trans-unit id="Report 1584509060 - NamedType 132160432" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor No.</source>
-          <target state="needs-l10n">Kreditornr.</target>
+          <target state="translated">Kreditornr.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - NamedType VendNoCaptionLbl</note>
         </trans-unit>
@@ -743,7 +821,7 @@
         </trans-unit>
         <trans-unit id="Report 1584509060 - Control 3255118903 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Archive Document</source>
-          <target state="needs-l10n">Arkiver dokument</target>
+          <target state="translated">Arkiver dokument</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFPurchase Order - Control ArchiveDocument - Property Caption</note>
         </trans-unit>
@@ -761,7 +839,7 @@
         </trans-unit>
         <trans-unit id="Report 792194901 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reminder</source>
-          <target state="needs-l10n">Rykker</target>
+          <target state="translated">Rykker</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - Property Caption</note>
         </trans-unit>
@@ -821,7 +899,7 @@
         </trans-unit>
         <trans-unit id="Report 792194901 - NamedType 1120550273" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contact Phone No.</source>
-          <target state="needs-l10n">Kontaktens telefonnr.</target>
+          <target state="translated">Kontaktens telefonnr.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType ContactPhoneNoLbl</note>
         </trans-unit>
@@ -845,13 +923,13 @@
         </trans-unit>
         <trans-unit id="Report 792194901 - NamedType 3112881028" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Date</source>
-          <target state="needs-l10n">Bilagsdato</target>
+          <target state="translated">Bilagsdato</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType DocDateCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 792194901 - NamedType 343855514" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Date</source>
-          <target state="needs-l10n">Bilagsdato</target>
+          <target state="translated">Bilagsdato</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType DocumentDateCaption1Lbl</note>
         </trans-unit>
@@ -911,7 +989,7 @@
         </trans-unit>
         <trans-unit id="Report 792194901 - NamedType 1928308579" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone No.</source>
-          <target state="needs-l10n">Telefon</target>
+          <target state="translated">Telefon</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType PhoneNoCaptionLbl</note>
         </trans-unit>
@@ -929,7 +1007,7 @@
         </trans-unit>
         <trans-unit id="Report 792194901 - NamedType 2320187798" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reminder</source>
-          <target state="needs-l10n">Rykker</target>
+          <target state="translated">Rykker</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType ReminderCaptionLbl</note>
         </trans-unit>
@@ -977,7 +1055,7 @@
         </trans-unit>
         <trans-unit id="Report 792194901 - NamedType 1583171122" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total</source>
-          <target state="needs-l10n">Total</target>
+          <target state="translated">Total</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType TotalCaptionLbl</note>
         </trans-unit>
@@ -1013,7 +1091,7 @@
         </trans-unit>
         <trans-unit id="Report 792194901 - NamedType 969467040" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT %</source>
-          <target state="needs-l10n">Momspct.</target>
+          <target state="translated">Momspct.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - NamedType VATPercentCaptionLbl</note>
         </trans-unit>
@@ -1025,7 +1103,7 @@
         </trans-unit>
         <trans-unit id="Report 792194901 - ReportDataItem 1929467888 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reminder</source>
-          <target state="needs-l10n">Rykker</target>
+          <target state="translated">Rykker</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReminder - ReportDataItem Issued Reminder Header - Property RequestFilterHeading</note>
         </trans-unit>
@@ -1085,7 +1163,7 @@
         </trans-unit>
         <trans-unit id="Report 1347462851 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Return Order</source>
-          <target state="needs-l10n">Returvareordre</target>
+          <target state="translated">Returvareordre</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - Property Caption</note>
         </trans-unit>
@@ -1121,13 +1199,13 @@
         </trans-unit>
         <trans-unit id="Report 1347462851 - NamedType 1301502726" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount %</source>
-          <target state="needs-l10n">Rabatpct.</target>
+          <target state="translated">Rabatpct.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - NamedType DiscPercentCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1347462851 - NamedType 2728513993" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Date</source>
-          <target state="needs-l10n">Bilagsdato</target>
+          <target state="translated">Bilagsdato</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - NamedType DocumentDateCaptionLbl</note>
         </trans-unit>
@@ -1181,7 +1259,7 @@
         </trans-unit>
         <trans-unit id="Report 1347462851 - NamedType 3135138297" size-unit="char" translate="yes" xml:space="preserve">
           <source>Our Ref.:</source>
-          <target state="needs-l10n">Vor Ref.:</target>
+          <target state="translated">Vor Ref.:</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - NamedType OurRefCaption</note>
         </trans-unit>
@@ -1193,7 +1271,7 @@
         </trans-unit>
         <trans-unit id="Report 1347462851 - NamedType 1928308579" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone No.</source>
-          <target state="needs-l10n">Telefon</target>
+          <target state="translated">Telefon</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - NamedType PhoneNoCaptionLbl</note>
         </trans-unit>
@@ -1217,7 +1295,7 @@
         </trans-unit>
         <trans-unit id="Report 1347462851 - NamedType 232471621" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address</source>
-          <target state="needs-l10n">Leveringsadresse</target>
+          <target state="translated">Leveringsadresse</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - NamedType ShiptoAddressCaptionLbl</note>
         </trans-unit>
@@ -1259,7 +1337,7 @@
         </trans-unit>
         <trans-unit id="Report 1347462851 - NamedType 2681922569" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total</source>
-          <target state="needs-l10n">Total</target>
+          <target state="translated">Total</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - NamedType TotalCaption1Lbl</note>
         </trans-unit>
@@ -1283,7 +1361,7 @@
         </trans-unit>
         <trans-unit id="Report 1347462851 - NamedType 1401314877" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total</source>
-          <target state="needs-l10n">Total</target>
+          <target state="translated">Total</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - NamedType VATBaseCaption1Lbl</note>
         </trans-unit>
@@ -1319,19 +1397,19 @@
         </trans-unit>
         <trans-unit id="Report 1347462851 - NamedType 865133988" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT %</source>
-          <target state="needs-l10n">Momspct.</target>
+          <target state="translated">Momspct.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - NamedType VATPctCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1347462851 - NamedType 969467040" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT %</source>
-          <target state="needs-l10n">Momspct.</target>
+          <target state="translated">Momspct.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - NamedType VATPercentCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1347462851 - NamedType 1306668226" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Reg. No.</source>
-          <target state="needs-l10n">SE/CVR-nr.</target>
+          <target state="translated">SE/CVR-nr.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - NamedType VATRegNoCaptionLbl</note>
         </trans-unit>
@@ -1349,7 +1427,7 @@
         </trans-unit>
         <trans-unit id="Report 1347462851 - ReportDataItem 2072992664 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Return Order</source>
-          <target state="needs-l10n">Købsreturvareordre</target>
+          <target state="translated">Købsreturvareordre</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFReturn Order - ReportDataItem Purchase Header - Property RequestFilterHeading</note>
         </trans-unit>
@@ -1469,7 +1547,7 @@
         </trans-unit>
         <trans-unit id="Report 4276367207 - NamedType 1477235271" size-unit="char" translate="yes" xml:space="preserve">
           <source>Our Ref.:</source>
-          <target state="needs-l10n">Vor Ref.:</target>
+          <target state="translated">Vor Ref.:</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFSales Shipment - NamedType OurRefCaptionLbl</note>
         </trans-unit>
@@ -1487,13 +1565,13 @@
         </trans-unit>
         <trans-unit id="Report 4276367207 - NamedType 1928308579" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone No.:</source>
-          <target state="needs-l10n">Tlf.:</target>
+          <target state="translated">Tlf.:</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFSales Shipment - NamedType PhoneNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 4276367207 - NamedType 539454529" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipped</source>
-          <target state="needs-l10n">Leveret antal</target>
+          <target state="translated">Leveret antal</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFSales Shipment - NamedType ShippedCaptionLbl</note>
         </trans-unit>
@@ -1505,7 +1583,7 @@
         </trans-unit>
         <trans-unit id="Report 4276367207 - NamedType 1868541419" size-unit="char" translate="yes" xml:space="preserve">
           <source>Units</source>
-          <target state="needs-l10n">Enhed</target>
+          <target state="translated">Enhed</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFSales Shipment - NamedType UnitsCaptionLbl</note>
         </trans-unit>
@@ -1517,7 +1595,7 @@
         </trans-unit>
         <trans-unit id="Report 4276367207 - NamedType 2821610592" size-unit="char" translate="yes" xml:space="preserve">
           <source>YourRef.:</source>
-          <target state="needs-l10n">Deres Ref.:</target>
+          <target state="translated">Deres Ref.:</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFSales Shipment - NamedType YourRefCaptionLbl</note>
         </trans-unit>
@@ -1685,13 +1763,13 @@
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 1970452706" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone No.</source>
-          <target state="needs-l10n">Telefon</target>
+          <target state="translated">Telefon</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType CompanyInfoPhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 3701423681" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy</source>
-          <target state="needs-l10n">Kopier</target>
+          <target state="translated">Kopier</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType CopyLbl</note>
         </trans-unit>
@@ -1865,7 +1943,7 @@
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 2105550444" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount %</source>
-          <target state="needs-l10n">Rabatpct.</target>
+          <target state="translated">Rabatpct.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType SalesInvLineDiscLbl</note>
         </trans-unit>
@@ -1907,19 +1985,19 @@
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 2531235046" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment</source>
-          <target state="needs-l10n">Forsendelse</target>
+          <target state="translated">Forsendelse</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType ShipmentLbl</note>
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 2039684796" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address</source>
-          <target state="needs-l10n">Leveringsadresse</target>
+          <target state="translated">Leveringsadresse</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType ShiptoAddrLbl</note>
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 2175793069" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Method</source>
-          <target state="needs-l10n">Leveringsmetode</target>
+          <target state="translated">Leveringsmetode</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType ShptMethodDescLbl</note>
         </trans-unit>
@@ -1943,7 +2021,7 @@
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 2410138484" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total</source>
-          <target state="needs-l10n">Total</target>
+          <target state="translated">Total</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType TotalLbl</note>
         </trans-unit>
@@ -1997,7 +2075,7 @@
         </trans-unit>
         <trans-unit id="Report 566653291 - NamedType 1532992371" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT %</source>
-          <target state="needs-l10n">Momspct.</target>
+          <target state="translated">Momspct.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report TURFTank Base Sales Invoice - NamedType VATPercentageLbl</note>
         </trans-unit>
@@ -2156,6 +2234,12 @@
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURF R. Prod. Orders - Control TURFWarehouse/Production - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1313395940 - Control 1444878098 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Specifies the value of the Part for number of Robots field.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension TURFBase Item Card Ext - Control TURFPart For Robots - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1313395940 - Control 810204895 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Specifies the value of the Production Location field.</source>
@@ -2379,6 +2463,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFItem Ext - Field TURFOperation Location - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 543928307 - Field 1444878098 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Part for number of Robots</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFItem Ext - Field TURFPart For Robots - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3267346127 - Field 3262592459 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2308244223">
           <source>Production End</source>
           <target state="needs-translation"/>
@@ -2411,7 +2501,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2183411354 - Field 1586479420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
           <source>Ship-to Email</source>
-          <target state="needs-translation"/>
+          <target state="translated">Leveringsmail</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFPurch. Hdr. Ext - Field TURF Ship-To E-Mail - Property Caption</note>
         </trans-unit>
@@ -2423,7 +2513,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3448924654 - Field 1586479420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Ship-to Email</source>
-          <target state="needs-translation"/>
+          <target state="translated">Leveringsmail</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Hdr Ext - Field TURF Ship-To E-Mail - Property Caption</note>
         </trans-unit>
@@ -2441,7 +2531,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1251985023 - Field 1586479420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Ship-to Email</source>
-          <target state="needs-translation"/>
+          <target state="translated">Leveringsmail</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Inv. Hdr Ext - Field TURF Ship-To E-Mail - Property Caption</note>
         </trans-unit>
@@ -2459,7 +2549,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3667100985 - Field 1586479420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
           <source>Ship-to Email</source>
-          <target state="needs-translation"/>
+          <target state="translated">Leveringsmail</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension TURFSales Shp. Hdr Ext - Field TURF Ship-To E-Mail - Property Caption</note>
         </trans-unit>
