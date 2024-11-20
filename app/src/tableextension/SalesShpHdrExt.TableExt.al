@@ -18,5 +18,15 @@ tableextension 70303 "TURFSales Shp. Hdr Ext" extends "Sales Shipment Header"
             Caption = 'Ship-to Email';
             ExtendedDatatype = EMail;
         }
+        field(70304; "TURFBoomi Order"; Boolean)
+        {
+            Caption = 'TURFBoomi Order';
+            DataClassification = ToBeClassified;
+        }
+        field(70305; "TURFZuora ID"; Code[50])
+        {
+            Caption = 'Zuora ID';
+            DataClassification = ToBeClassified;
+        }
     }
 }

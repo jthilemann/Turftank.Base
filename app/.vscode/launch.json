@@ -20,6 +20,23 @@
             "longRunningSqlStatementsThreshold": 500,
             "numberOfSqlStatements": 10,
             "schemaUpdateMode": "ForceSync"
+        },
+        {
+            "name": "US-Sandbox-0826",
+            "type": "al",
+            "request": "launch",
+            "environmentType": "Sandbox",
+            "environmentName": "US-Sandbox-0826",
+            "startupObjectId": 22,
+            "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
+            "breakOnError": "All",
+            "breakOnRecordWrite": "None",
+            "launchBrowser": true,
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10,
+            "schemaUpdateMode": "ForceSync"
         }
     ]
 }
