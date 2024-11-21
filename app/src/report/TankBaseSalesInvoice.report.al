@@ -502,6 +502,9 @@ report 70306 "TURFTank Base Sales Invoice"
                 column(Description_Line; Description)
                 {
                 }
+                column(Description_2; "Description 2")
+                {
+                }
                 column(Description_Line_Lbl; FieldCaption(Description))
                 {
                 }
