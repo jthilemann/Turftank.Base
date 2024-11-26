@@ -106,7 +106,12 @@ page 70306 "TURFOrder API"
         }
     }
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    var
+        TurfTankSetup: Record "TURFTurfTank Setup";
     begin
         Rec."TURFBoomi Order" := true;
+        if TurfTankSetup.Get() then
+            Rec."TURFOrder Type" := TurfTankSetup."TURFBoomi Default Order Type";
+
     end;
 }

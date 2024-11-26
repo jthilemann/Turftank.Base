@@ -20,6 +20,7 @@ page 70310 "TURFBoomi Customer API"
             repeater(General)
             {
                 field(systemId; Rec.SystemId) { }
+                field(no; Rec."No.") { }
                 field(cloudId; Rec."Cloud Id") { }
                 field(name; Rec.Name) { }
                 field(name2; Rec."Name 2") { }

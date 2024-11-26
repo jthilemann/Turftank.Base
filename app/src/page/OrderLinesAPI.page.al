@@ -72,4 +72,24 @@ page 70307 "TURFOrder Lines API"
         }
     }
 
+    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    begin
+        if Rec."Line No." = 0 then
+            Rec."Line No." := GetNextLineNo();
+    end;
+
+    local procedure GetNextLineNo(): Integer;
+    var
+        SalesLine: Record "Sales Line";
+        ModResult: Integer;
+    begin
+        SalesLine.SetRange("Document No.", Rec."Document No.");
+        SalesLine.SetRange("Document Type", Rec."Document Type");
+        if SalesLine.FindLast() then begin
+            ModResult := SalesLine."Line No." mod 10000;
+            Exit(SalesLine."Line No." + 10000 - ModResult);
+        end else
+            Exit(10000);
+    end;
+
 }
