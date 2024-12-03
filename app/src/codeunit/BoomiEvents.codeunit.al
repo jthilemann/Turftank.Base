@@ -6,7 +6,7 @@ codeunit 70305 "TURFBoomi Events"
         Customer: Record Customer;
     begin
         if Customer.get(Rec."Sell-to Customer No.") then
-            if (Customer."TURFZuora ID" <> '') and (Customer."TURFZuora ID" <> Rec."TURFZuora ID") then
-                Rec."TURFZuora ID" := Customer."TURFZuora ID";
+            if (Customer."TURFZuora Account Number" <> '') and (Customer."TURFZuora Account Number" <> Rec."TURFZuora Account Number") then
+                Rec."TURFZuora Account Number" := Customer."TURFZuora Account Number";
     end;
 }

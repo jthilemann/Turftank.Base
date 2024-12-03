@@ -9,6 +9,16 @@ pageextension 70303 "TURFS. Shp. Ext" extends "Posted Sales Shipment"
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Order Type field.';
             }
+            field("TURFZuora Account Number"; Rec."TURFZuora Account Number")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Zuora Account Number field.', Comment = '%';
+            }
+            field("TURFZuora Subscription No."; Rec."TURFZuora Subscription No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Zuora Subscription No. field.', Comment = '%';
+            }
         }
         addafter("Ship-to Contact")
         {

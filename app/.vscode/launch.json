@@ -37,6 +37,21 @@
             "longRunningSqlStatementsThreshold": 500,
             "numberOfSqlStatements": 10,
             "schemaUpdateMode": "ForceSync"
+        },
+        {
+            "name": "Attach: Microsoft cloud sandbox",
+            "type": "al",
+            "request": "attach",
+            "environmentType": "Sandbox",
+            "environmentName": "US-Sandbox-0826",
+            "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
+            "breakOnError": "All",
+            "breakOnRecordWrite": "All",
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10,
+            "breakOnNext": "WebServiceClient"
         }
     ]
 }

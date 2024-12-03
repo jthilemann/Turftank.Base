@@ -1,4 +1,4 @@
-tableextension 70301 "TURFSales Hdr Ext" extends "Sales Header"
+tableextension 70316 "TURFSales Cr. Memo Hdr Ext" extends "Sales Cr.Memo Header"
 {
     fields
     {

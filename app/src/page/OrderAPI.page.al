@@ -87,9 +87,13 @@ page 70306 "TURFOrder API"
                 {
                     Caption = 'Shortcut Dimension 1 Code';
                 }
-                field(zuoraID; Rec."TURFZuora ID")
+                field(zuoraAccountNumber; Rec."TURFZuora Account Number")
                 {
-                    Caption = 'Zuora ID';
+                    Caption = 'Zuora Account Number';
+                }
+                field(zuoraSubscriptionNo; Rec."TURFZuora Subscription No.")
+                {
+                    Caption = 'Zuora Subscription No.';
                 }
                 field(orderType; Rec."TURFOrder Type")
                 {
@@ -107,11 +111,13 @@ page 70306 "TURFOrder API"
     }
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     var
-        TurfTankSetup: Record "TURFTurfTank Setup";
+        BoomiSetup: Record "TURFBoomi Setup";
     begin
         Rec."TURFBoomi Order" := true;
-        if TurfTankSetup.Get() then
-            Rec."TURFOrder Type" := TurfTankSetup."TURFBoomi Default Order Type";
-
+        if BoomiSetup.Get() then begin
+            Rec."TURFOrder Type" := BoomiSetup."TURFBoomi Default Order Type";
+            if BoomiSetup."TURFDef. Boomi Order Location" <> '' then
+                Rec.validate("Location Code", BoomiSetup."TURFDef. Boomi Order Location");
+        end;
     end;
 }

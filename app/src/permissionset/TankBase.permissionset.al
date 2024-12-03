@@ -24,5 +24,21 @@ permissionset 70301 TURFTankBase
         report "TURFTank Base Sales Invoice" = X,
         codeunit "TURFFormat Report" = X,
         codeunit "TURFPurchase Management" = X,
-        page "TURFEmployee Groups" = X;
+        page "TURFEmployee Groups" = X,
+        tabledata "TURFCustomer Zuora Subscr" = RIMD,
+        table "TURFCustomer Zuora Subscr" = X,
+        codeunit "TURFBoomi Events" = X,
+        page "TURFBoomi Customer API" = X,
+        page "TURFDepartment API" = X,
+        page "TURFItem Robots" = X,
+        page "TURFOrder API" = X,
+        page "TURFOrder Lines API" = X,
+        page "TURFOrder Type API" = X,
+        page "TURFReturn Reason API" = X,
+        tabledata "TURFBoomi Setup" = RIMD,
+        table "TURFBoomi Setup" = X,
+        page "TURFBoomi - Customer Payments" = X,
+        page "TURFBoomi Setup" = X,
+        page "TURFBoomi Sucr. List Part" = X,
+        page "TURFCust. Subscriptions API" = X;
 }

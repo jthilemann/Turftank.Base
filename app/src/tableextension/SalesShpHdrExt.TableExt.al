@@ -23,10 +23,14 @@ tableextension 70303 "TURFSales Shp. Hdr Ext" extends "Sales Shipment Header"
             Caption = 'TURFBoomi Order';
             DataClassification = ToBeClassified;
         }
-        field(70305; "TURFZuora ID"; Code[50])
+        field(70305; "TURFZuora Account Number"; Code[50])
         {
-            Caption = 'Zuora ID';
+            Caption = 'Zuora Account Number';
             DataClassification = ToBeClassified;
+        }
+        field(70306; "TURFZuora Subscription No."; Code[50])
+        {
+            Caption = 'Zuora Subscription No.';
         }
     }
 }

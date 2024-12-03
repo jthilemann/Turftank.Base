@@ -42,7 +42,7 @@ page 70310 "TURFBoomi Customer API"
                 field(hubspotCompanyType; Rec."Hubspot Company Type") { }
                 field(hubspotParentCompanyId; Rec."Hubspot Parent Company Id") { }
                 field(hubspotAddress; Rec."TURFHubspot Address") { }
-                field(zuoraID; Rec."TURFZuora ID") { }
+                field(zuoraAccountNumber; Rec."TURFZuora Account Number") { }
             }
         }
     }

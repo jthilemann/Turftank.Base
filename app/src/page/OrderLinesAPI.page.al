@@ -73,9 +73,15 @@ page 70307 "TURFOrder Lines API"
     }
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    var
+        BoomiSetup: Record "TURFBoomi Setup";
     begin
         if Rec."Line No." = 0 then
             Rec."Line No." := GetNextLineNo();
+
+        if BoomiSetup.Get() then
+            if BoomiSetup."TURFDef. Boomi Order Location" <> '' then
+                Rec.validate("Location Code", BoomiSetup."TURFDef. Boomi Order Location");
     end;
 
     local procedure GetNextLineNo(): Integer;
