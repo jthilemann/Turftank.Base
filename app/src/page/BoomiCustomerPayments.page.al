@@ -47,6 +47,9 @@ page 70314 "TURFBoomi - Customer Payments"
                     var
                         SalesInvoiceHeader: Record "Sales Invoice Header";
                     begin
+                        GetSetup();
+                        UpdateRecFields();
+                        Rec.Validate("Account Type", Rec."Account Type"::Customer);
                         SalesInvoiceHeader.SetRange("TURFBoomi Order", true);
                         SalesInvoiceHeader.SetRange("TURFOrder Type", BoomiSetup."TURFBoomi Default Order Type");
                         SalesInvoiceHeader.SetRange("TURFZuora Subscription No.", ZuoraSubscriptionNumber);
@@ -77,18 +80,16 @@ page 70314 "TURFBoomi - Customer Payments"
     }
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
-    var
-        TempGenJournalLine: Record "Gen. Journal Line" temporary;
+    //var
+    //TempGenJournalLine: Record "Gen. Journal Line" temporary;
     begin
-        TempGenJournalLine.Reset();
-        TempGenJournalLine.Copy(Rec);
+        // TempGenJournalLine.Reset();
+        // TempGenJournalLine.Copy(Rec);
 
-        Clear(Rec);
-        LibraryAPIGeneralJournal.InitializeLine(
-          Rec, TempGenJournalLine."Line No.", TempGenJournalLine."Document No.", TempGenJournalLine."External Document No.");
-        TransferGeneratedFieldsFromInitializeLine(TempGenJournalLine);
+        // LibraryAPIGeneralJournal.InitializeLine(
+        //   Rec, TempGenJournalLine."Line No.", TempGenJournalLine."Document No.", TempGenJournalLine."External Document No.");
 
-        GraphMgtCustomerPayments.SetCustomerPaymentsValues(Rec, TempGenJournalLine);
+        // GraphMgtCustomerPayments.SetCustomerPaymentsValues(Rec, TempGenJournalLine);
     end;
 
     trigger OnModifyRecord(): Boolean
@@ -96,19 +97,9 @@ page 70314 "TURFBoomi - Customer Payments"
         Error('Not allowed');
     end;
 
-    trigger OnNewRecord(BelowxRec: Boolean)
-    begin
-        Rec."Document Type" := Rec."Document Type"::Payment;
-        Rec."Account Type" := Rec."Account Type"::Customer;
-        Rec."Applies-to Doc. Type" := Rec."Applies-to Doc. Type"::Invoice;
-        UpdateCustomFields();
-    end;
-
     trigger OnOpenPage()
     begin
-        GetSetup();
-        GraphMgtCustomerPayments.SetCustomerPaymentsFilters(Rec);
-        UpdateCustomFields();
+        SetJournalFilters();
     end;
 
     var
@@ -119,26 +110,43 @@ page 70314 "TURFBoomi - Customer Payments"
         ZuoraSubscriptionNumber: Code[50];
         ZuoraInvoiceNo: Code[35];
 
-    local procedure TransferGeneratedFieldsFromInitializeLine(var GenJournalLine: Record "Gen. Journal Line")
-    begin
-        if GenJournalLine."Document No." = '' then
-            GenJournalLine."Document No." := Rec."Document No.";
-    end;
-
     local procedure GetSetup()
     begin
+        if BoomiSetup."Payment Journal Template Name" <> '' then
+            exit;
         BoomiSetup.GetRecordOnce();
         BoomiSetup.TestField("Payment Journal Template Name");
         BoomiSetup.TestField("Payment Journal Batch Name");
         GenJournalBatch.Get(BoomiSetup."Payment Journal Template Name", BoomiSetup."Payment Journal Batch Name");
     end;
 
-    local procedure UpdateCustomFields()
+    local procedure SetJournalFilters()
     begin
-        Rec."Journal Batch Name" := BoomiSetup."Payment Journal Batch Name";
-        Rec."Journal Batch Id" := GenJournalBatch.SystemId;
         Rec.SetRange("Journal Template Name", BoomiSetup."Payment Journal Template Name");
         Rec.SetRange("Journal Batch Name", BoomiSetup."Payment Journal Batch Name");
+        Rec.SetRange("Document Type", Rec."Document Type"::Payment);
+        Rec.SetRange("Account Type", Rec."Account Type"::Customer);
+        Rec.SetRange("Applies-to Doc. Type", Rec."Applies-to Doc. Type"::Invoice);
+    end;
+
+    local procedure UpdateRecFields()
+    var
+        GenJournalLine: Record "Gen. Journal Line";
+        GeneralLedgerSetup: Record "General Ledger Setup";
+    begin
+        GenJournalLine.SetRange("Journal Template Name", BoomiSetup."Payment Journal Template Name");
+        GenJournalLine.SetRange("Journal Batch Name", BoomiSetup."Payment Journal Batch Name");
+        if GenJournalLine.FindLast() then;
+
+        Rec.validate("Journal Template Name", BoomiSetup."Payment Journal Template Name");
+        Rec.Validate("Journal Batch Name", BoomiSetup."Payment Journal Batch Name");
+        Rec.Validate("Line No.", GenJournalLine."Line No." + 10000);
+        Rec."Journal Batch Id" := GenJournalBatch.SystemId;
+        Rec."Document Type" := Rec."Document Type"::Payment;
+        Rec."Account Type" := Rec."Account Type"::Customer;
+        Rec."Document Date" := Today();
+        Rec."VAT Reporting Date" := GeneralLedgerSetup.GetVATDate(Rec."Posting Date", Rec."Document Date");
+        Rec."Applies-to Doc. Type" := Rec."Applies-to Doc. Type"::Invoice;
     end;
 }
 
