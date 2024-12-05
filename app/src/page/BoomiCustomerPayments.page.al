@@ -79,19 +79,6 @@ page 70314 "TURFBoomi - Customer Payments"
     {
     }
 
-    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
-    //var
-    //TempGenJournalLine: Record "Gen. Journal Line" temporary;
-    begin
-        // TempGenJournalLine.Reset();
-        // TempGenJournalLine.Copy(Rec);
-
-        // LibraryAPIGeneralJournal.InitializeLine(
-        //   Rec, TempGenJournalLine."Line No.", TempGenJournalLine."Document No.", TempGenJournalLine."External Document No.");
-
-        // GraphMgtCustomerPayments.SetCustomerPaymentsValues(Rec, TempGenJournalLine);
-    end;
-
     trigger OnModifyRecord(): Boolean
     begin
         Error('Not allowed');
@@ -105,8 +92,6 @@ page 70314 "TURFBoomi - Customer Payments"
     var
         BoomiSetup: Record "TURFBoomi Setup";
         GenJournalBatch: Record "Gen. Journal Batch";
-        GraphMgtCustomerPayments: Codeunit "Graph Mgt - Customer Payments";
-        LibraryAPIGeneralJournal: Codeunit "Library API - General Journal";
         ZuoraSubscriptionNumber: Code[50];
         ZuoraInvoiceNo: Code[35];
 
@@ -144,6 +129,8 @@ page 70314 "TURFBoomi - Customer Payments"
         Rec."Journal Batch Id" := GenJournalBatch.SystemId;
         Rec."Document Type" := Rec."Document Type"::Payment;
         Rec."Account Type" := Rec."Account Type"::Customer;
+        Rec."Bal. Account Type" := GenJournalBatch."Bal. Account Type";
+        Rec."Bal. Account No." := GenJournalBatch."Bal. Account No.";
         Rec."Document Date" := Today();
         Rec."VAT Reporting Date" := GeneralLedgerSetup.GetVATDate(Rec."Posting Date", Rec."Document Date");
         Rec."Applies-to Doc. Type" := Rec."Applies-to Doc. Type"::Invoice;
