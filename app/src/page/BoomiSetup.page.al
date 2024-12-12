@@ -38,6 +38,14 @@ page 70315 "TURFBoomi Setup"
                     ToolTip = 'Specifies the value of the Payment Journal Batch Name field.', Comment = '%';
                 }
             }
+            group(Tax)
+            {
+
+                field("Default Tax Item"; Rec."Default Tax Item")
+                {
+                    ToolTip = 'Specifies the value of the Default Tax Item field.', Comment = '%';
+                }
+            }
         }
     }
 

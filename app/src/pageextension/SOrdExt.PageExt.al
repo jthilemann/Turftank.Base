@@ -12,11 +12,13 @@ pageextension 70302 "TURFS. Ord. Ext" extends "Sales Order"
             field("TURFZuora Account Number"; Rec."TURFZuora Account Number")
             {
                 ApplicationArea = All;
+                Editable = false;
                 ToolTip = 'Specifies the value of the Zuora Account Number field.', Comment = '%';
             }
             field("TURFZuora Subscription No."; Rec."TURFZuora Subscription No.")
             {
                 ApplicationArea = All;
+                Editable = false;
                 ToolTip = 'Specifies the value of the Zuora Subscription No. field.', Comment = '%';
             }
         }

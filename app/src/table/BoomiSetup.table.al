@@ -32,6 +32,13 @@ table 70307 "TURFBoomi Setup"
             DataClassification = ToBeClassified;
             TableRelation = "Gen. Journal Batch".Name where("Journal Template Name" = field("Payment Journal Template Name"));
         }
+        field(6; "Default Tax Item"; Code[20])
+        {
+            Caption = 'Default Tax Item';
+            DataClassification = ToBeClassified;
+            TableRelation = Item."No.";
+        }
+
 
     }
 
