@@ -1,23 +1,32 @@
-codeunit 70306 "TURFBoomi Tax Mgt"
+codeunit 70306 "TURFBoomi Mgt"
 {
+    var
+        BoomiSetup: Record "TURFBoomi Setup";
+
     internal procedure GetTaxFromZuora(SalesHeader: Record "Sales Header");
     var
+        BC2Boomi: Codeunit TURFBC2Boomi;
         TaxAmount: Decimal;
     begin
-        //GetTaxFromZuora(SalesHeader, TaxAmount);
-        TaxAmount := 999;
-
+        RemoveExistingTaxLine(SalesHeader);
+        BC2Boomi.GetTaxEstimate(SalesHeader, TaxAmount);
         InsertUpdateTaxLine(SalesHeader, TaxAmount);
+    end;
+
+    internal procedure SendInvoiceToBoomi(SalesInvoiceHeader: Record "Sales Invoice Header")
+    var
+        BC2Boomi: Codeunit TURFBC2Boomi;
+    begin
+        SalesInvoiceHeader.TestField("TURFSent to Boomi", 0DT);
+        BC2Boomi.SendInvoiceToBoomi(SalesInvoiceHeader);
     end;
 
     local procedure InsertUpdateTaxLine(SalesHeader: Record "Sales Header"; TaxAmount: Decimal)
     var
-        BoomiSetup: Record "TURFBoomi Setup";
         SalesLine: Record "Sales Line";
         NextLineNo: Integer;
     begin
-        BoomiSetup.GetRecordOnce();
-        BoomiSetup.TestField("Default Tax Item");
+        GetBoomiSetup();
 
         SalesLine.SetRange("Document Type", SalesHeader."Document Type");
         SalesLine.SetRange("Document No.", SalesHeader."No.");
@@ -41,5 +50,24 @@ codeunit 70306 "TURFBoomi Tax Mgt"
         SalesLine.Validate("Quantity", 1);
         SalesLine.Validate("Unit Price", TaxAmount);
         SalesLine.Insert(true);
+    end;
+
+    local procedure RemoveExistingTaxLine(SalesHeader: Record "Sales Header")
+    var
+        SalesLine: Record "Sales Line";
+    begin
+        GetBoomiSetup();
+        SalesLine.SetRange("Document Type", SalesHeader."Document Type");
+        SalesLine.SetRange("Document No.", SalesHeader."No.");
+        SalesLine.SetRange("Type", SalesLine.Type::Item);
+        SalesLine.SetRange("No.", BoomiSetup."Default Tax Item");
+        if not SalesLine.IsEmpty() then
+            SalesLine.DeleteAll(true);
+    end;
+
+    local procedure GetBoomiSetup()
+    begin
+        BoomiSetup.GetRecordOnce();
+        BoomiSetup.TestField("Default Tax Item");
     end;
 }

@@ -59,6 +59,10 @@ page 70314 "TURFBoomi - Customer Payments"
                         Rec.Validate("Applies-to Doc. No.", SalesInvoiceHeader."No.");
                     end;
                 }
+                field(paymentMethodCode; Rec."Payment Method Code")
+                {
+                    Caption = 'Payment Method Code';
+                }
                 field(amount; Rec.Amount)
                 {
                     Caption = 'Amount';
@@ -70,6 +74,16 @@ page 70314 "TURFBoomi - Customer Payments"
                 field(comment; Rec.Comment)
                 {
                     Caption = 'Comment';
+                }
+                field(appliesToDocType; Rec."Applies-to Doc. Type")
+                {
+                    Caption = 'Applies-to Doc. Type';
+                    Editable = false;
+                }
+                field(appliesToDocNo; Rec."Applies-to Doc. No.")
+                {
+                    Caption = 'Applies-to Doc. No.';
+                    Editable = false;
                 }
             }
         }
@@ -97,18 +111,18 @@ page 70314 "TURFBoomi - Customer Payments"
 
     local procedure GetSetup()
     begin
-        if BoomiSetup."Payment Journal Template Name" <> '' then
+        if BoomiSetup."Cash Rcpt. Jnl. Template Name" <> '' then
             exit;
         BoomiSetup.GetRecordOnce();
-        BoomiSetup.TestField("Payment Journal Template Name");
-        BoomiSetup.TestField("Payment Journal Batch Name");
-        GenJournalBatch.Get(BoomiSetup."Payment Journal Template Name", BoomiSetup."Payment Journal Batch Name");
+        BoomiSetup.TestField("Cash Rcpt. Jnl. Template Name");
+        BoomiSetup.TestField("Cash Rcpt. Jnl. Batch Name");
+        GenJournalBatch.Get(BoomiSetup."Cash Rcpt. Jnl. Template Name", BoomiSetup."Cash Rcpt. Jnl. Batch Name");
     end;
 
     local procedure SetJournalFilters()
     begin
-        Rec.SetRange("Journal Template Name", BoomiSetup."Payment Journal Template Name");
-        Rec.SetRange("Journal Batch Name", BoomiSetup."Payment Journal Batch Name");
+        Rec.SetRange("Journal Template Name", BoomiSetup."Cash Rcpt. Jnl. Template Name");
+        Rec.SetRange("Journal Batch Name", BoomiSetup."Cash Rcpt. Jnl. Batch Name");
         Rec.SetRange("Document Type", Rec."Document Type"::Payment);
         Rec.SetRange("Account Type", Rec."Account Type"::Customer);
         Rec.SetRange("Applies-to Doc. Type", Rec."Applies-to Doc. Type"::Invoice);
@@ -119,12 +133,12 @@ page 70314 "TURFBoomi - Customer Payments"
         GenJournalLine: Record "Gen. Journal Line";
         GeneralLedgerSetup: Record "General Ledger Setup";
     begin
-        GenJournalLine.SetRange("Journal Template Name", BoomiSetup."Payment Journal Template Name");
-        GenJournalLine.SetRange("Journal Batch Name", BoomiSetup."Payment Journal Batch Name");
+        GenJournalLine.SetRange("Journal Template Name", BoomiSetup."Cash Rcpt. Jnl. Template Name");
+        GenJournalLine.SetRange("Journal Batch Name", BoomiSetup."Cash Rcpt. Jnl. Batch Name");
         if GenJournalLine.FindLast() then;
 
-        Rec.validate("Journal Template Name", BoomiSetup."Payment Journal Template Name");
-        Rec.Validate("Journal Batch Name", BoomiSetup."Payment Journal Batch Name");
+        Rec.validate("Journal Template Name", BoomiSetup."Cash Rcpt. Jnl. Template Name");
+        Rec.Validate("Journal Batch Name", BoomiSetup."Cash Rcpt. Jnl. Batch Name");
         Rec.Validate("Line No.", GenJournalLine."Line No." + 10000);
         Rec."Journal Batch Id" := GenJournalBatch.SystemId;
         Rec."Document Type" := Rec."Document Type"::Payment;

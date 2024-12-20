@@ -1181,9 +1181,9 @@ report 70306 "TURFTank Base Sales Invoice"
 
                 clear(BottomText);
                 BottomText[1] := StrSubstNo(TermsOfPaymentLbl, paymentterms.Description, header."Due Date");
-                if CompanyInfo."Sort Code" <> '' then begin
-                    BottomText[2] := bankacccpn + CompanyInfo.Name + ' - ' + CompanyInfo.FieldCaption("Sort Code") + ': ' + CompanyInfo."Sort Code" + ' - ' + CompanyBankAccount.FieldCaption("Bank Account No.") + ': ' + CompanyBankAccount."Bank Account No.";
-                    BottomText[3] := StrSubstNo(PleaseTransferLbl, CompanyInfo."Sort Code")
+                if CompanyInfo."TURFSort Code" <> '' then begin
+                    BottomText[2] := bankacccpn + CompanyInfo.Name + ' - ' + CompanyInfo.FieldCaption("TURFSort Code") + ': ' + CompanyInfo."TURFSort Code" + ' - ' + CompanyBankAccount.FieldCaption("Bank Account No.") + ': ' + CompanyBankAccount."Bank Account No.";
+                    BottomText[3] := StrSubstNo(PleaseTransferLbl, CompanyInfo."TURFSort Code")
                 end else begin
                     BottomText[2] := StrSubstNo(PleaseTransferLbl, CompanyBankAccount.Name + ' ' + CompanyBankAccount."Bank Branch No." + ' ' + CompanyBankAccount."Bank Account No.");
                     BottomText[3] := CompanyBankAccount.FieldCaption(IBAN) + ': ' + CompanyBankAccount.IBAN + ' - ' + CompanyBankAccount.FieldCaption("SWIFT Code") + ': ' + CompanyBankAccount."SWIFT Code";

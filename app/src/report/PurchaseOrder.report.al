@@ -47,7 +47,7 @@ report 70302 "TURFPurchase Order"
             column(CompanyEmail_Lbl; EmailIDCaptionLbl)
             {
             }
-            column(CompanyEMail; CompanyInfo."E-Mail (Purchase)")
+            column(CompanyEMail; CompanyInfo."TURFE-Mail (Purchase)")
             {
             }
             column(CompanyPicture; CompanyInfo.Picture)

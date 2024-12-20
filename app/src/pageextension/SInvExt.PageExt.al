@@ -52,7 +52,7 @@ pageextension 70301 "TURFS. Inv. Ext" extends "Sales invoice"
                 ToolTip = 'Get Tax from Zuora, and create a line with the tax amount.';
                 trigger OnAction()
                 var
-                    TURFBoomiTaxMgt: Codeunit "TURFBoomi Tax Mgt";
+                    TURFBoomiTaxMgt: Codeunit "TURFBoomi Mgt";
                 begin
                     TURFBoomiTaxMgt.GetTaxFromZuora(Rec);
                 end;

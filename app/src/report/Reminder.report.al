@@ -692,9 +692,9 @@ report 70303 "TURFReminder"
                 NNC_TotalInclVAT := 0;
                 TotalRemAmt := 0;
                 clear(BottomText);
-                if CompanyInfo."Sort Code" <> '' then begin
-                    BottomText[1] := StrSubstNo(PleaseTransferLbl, CompanyInfo."Sort Code");
-                    BottomText[2] := bankacccpn + CompanyInfo.Name + ' - ' + CompanyInfo.FieldCaption("Sort Code") + ': ' + CompanyInfo."Sort Code" + ' - ' + CompanyInfo.FieldCaption("Bank Account No.") + ': ' + CompanyBankAccount."Bank Account No.";
+                if CompanyInfo."TURFSort Code" <> '' then begin
+                    BottomText[1] := StrSubstNo(PleaseTransferLbl, CompanyInfo."TURFSort Code");
+                    BottomText[2] := bankacccpn + CompanyInfo.Name + ' - ' + CompanyInfo.FieldCaption("TURFSort Code") + ': ' + CompanyInfo."TURFSort Code" + ' - ' + CompanyInfo.FieldCaption("Bank Account No.") + ': ' + CompanyBankAccount."Bank Account No.";
                 end
                 else begin
                     BottomText[1] := StrSubstNo(PleaseTransferLbl, CompanyBankAccount.Name + ' ' + CompanyBankAccount."Bank Branch No." + ' ' + CompanyBankAccount."Bank Account No.");

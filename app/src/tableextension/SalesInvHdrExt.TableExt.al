@@ -32,5 +32,17 @@ tableextension 70302 "TURFSales Inv. Hdr Ext" extends "Sales Invoice Header"
         {
             Caption = 'Zuora Subscription No.';
         }
+        field(70307; "TURFZuora Order No."; Code[50])
+        {
+            Caption = 'TURFZuora Order No.';
+            DataClassification = ToBeClassified;
+        }
+        field(70308; "TURFSent to Boomi"; DateTime)
+        {
+            Caption = 'Created In Boomi';
+            Editable = false;
+            DataClassification = ToBeClassified;
+        }
+
     }
 }

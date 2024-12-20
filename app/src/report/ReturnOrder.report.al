@@ -139,7 +139,7 @@ report 70304 "TURFReturn Order"
                     column(CompanyInfoHomePage; CompanyInfo."Home Page")
                     {
                     }
-                    column(CompanyInfoEmail; CompanyInfo."E-Mail (Purchase)")
+                    column(CompanyInfoEmail; CompanyInfo."TURFE-Mail (Purchase)")
                     {
                     }
                     column(CompanyInfoVATRegNo; CompanyInfo."VAT Registration No.")
