@@ -2,7 +2,14 @@ pageextension 70317 "TURFChart of Accounts Ext" extends "Chart of Accounts"
 {
     layout
     {
-
+        addafter(Name)
+        {
+            field(TURFDescription; Rec.TURFDescription)
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Description field.';
+            }
+        }
     }
 
     actions

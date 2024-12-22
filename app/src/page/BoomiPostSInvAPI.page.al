@@ -3,7 +3,7 @@ page 70316 "TURFBoomi Post.S.Inv API"
     APIPublisher = 'turfTank';
     APIGroup = 'boomi';
     APIVersion = 'v1.0';
-    Caption = 'TURFBoomi Posted Invoice API';
+    Caption = 'Boomi Posted Invoice API';
     DelayedInsert = true;
     EntityName = 'postedSalesInvoice';
     EntitySetName = 'postedSalesInvoices';
@@ -37,7 +37,7 @@ page 70316 "TURFBoomi Post.S.Inv API"
                 }
                 field(zuoraOrderNo; Rec."TURFZuora Order No.")
                 {
-                    Caption = 'TURFZuora Order No.';
+                    Caption = 'Zuora Order No.';
                     Editable = false;
                 }
                 field(zuoraAccountNumber; Rec."TURFZuora Account Number")
@@ -51,7 +51,7 @@ page 70316 "TURFBoomi Post.S.Inv API"
                 }
                 field(boomiOrder; Rec."TURFBoomi Order")
                 {
-                    Caption = 'TURFBoomi Order';
+                    Caption = 'Boomi Order';
                     Editable = false;
                 }
             }

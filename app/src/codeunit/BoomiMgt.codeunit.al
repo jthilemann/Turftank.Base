@@ -21,6 +21,14 @@ codeunit 70306 "TURFBoomi Mgt"
         BC2Boomi.SendInvoiceToBoomi(SalesInvoiceHeader);
     end;
 
+    internal procedure SendCreditMemoToBoomi(SalesCrMemoHeader: Record "Sales Cr.Memo Header")
+    var
+        BC2Boomi: Codeunit TURFBC2Boomi;
+    begin
+        SalesCrMemoHeader.TestField("TURFSent to Boomi", 0DT);
+        BC2Boomi.SendCreditMemoToBoomi(SalesCrMemoHeader);
+    end;
+
     local procedure InsertUpdateTaxLine(SalesHeader: Record "Sales Header"; TaxAmount: Decimal)
     var
         SalesLine: Record "Sales Line";

@@ -20,7 +20,7 @@ tableextension 70301 "TURFSales Hdr Ext" extends "Sales Header"
         }
         field(70304; "TURFBoomi Order"; Boolean)
         {
-            Caption = 'TURFBoomi Order';
+            Caption = 'Boomi Order';
             DataClassification = ToBeClassified;
         }
         field(70305; "TURFZuora Account Number"; Code[50])

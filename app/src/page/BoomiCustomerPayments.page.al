@@ -98,6 +98,14 @@ page 70314 "TURFBoomi - Customer Payments"
         Error('Not allowed');
     end;
 
+    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    var
+        BCDocNoLbl: Label 'BC_%1', Locked = true;
+    begin
+        Rec.TestField("Document No.");
+        Rec."Document No." := StrSubstNo(BCDocNoLbl, Rec."Document No.");
+    end;
+
     trigger OnOpenPage()
     begin
         SetJournalFilters();

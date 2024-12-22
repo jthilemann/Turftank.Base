@@ -20,7 +20,7 @@ tableextension 70302 "TURFSales Inv. Hdr Ext" extends "Sales Invoice Header"
         }
         field(70304; "TURFBoomi Order"; Boolean)
         {
-            Caption = 'TURFBoomi Order';
+            Caption = 'Boomi Order';
             DataClassification = ToBeClassified;
         }
         field(70305; "TURFZuora Account Number"; Code[50])
@@ -34,13 +34,12 @@ tableextension 70302 "TURFSales Inv. Hdr Ext" extends "Sales Invoice Header"
         }
         field(70307; "TURFZuora Order No."; Code[50])
         {
-            Caption = 'TURFZuora Order No.';
+            Caption = 'Zuora Order No.';
             DataClassification = ToBeClassified;
         }
         field(70308; "TURFSent to Boomi"; DateTime)
         {
             Caption = 'Created In Boomi';
-            Editable = false;
             DataClassification = ToBeClassified;
         }
 

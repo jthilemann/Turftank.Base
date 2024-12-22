@@ -1,7 +1,7 @@
 page 70309 "TURFReturn Reason API"
 {
     PageType = API;
-    Caption = 'TurfOrder API';
+    Caption = 'Order API';
     APIPublisher = 'turfTank';
     APIGroup = 'boomi';
     APIVersion = 'v1.0';

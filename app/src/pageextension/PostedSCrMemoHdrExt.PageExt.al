@@ -1,4 +1,4 @@
-pageextension 70304 "TURFPosted Sales Inv. Ext" extends "Posted Sales Invoice"
+pageextension 70324 TURFPostedSCrMemoHdrExt extends "Posted Sales Credit Memo"
 {
     layout
     {
@@ -10,12 +10,16 @@ pageextension 70304 "TURFPosted Sales Inv. Ext" extends "Posted Sales Invoice"
                 ToolTip = 'Specifies the value of the Order Type field.';
             }
         }
-
         addafter(General)
         {
             group(TURFZuora)
             {
                 Caption = 'Zuora';
+                field("TURFZuora Cr. Memo No."; Rec."TURFZuora Cr. Memo No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Zuora Cr. Memo No. field.', Comment = '%';
+                }
                 field("TURFZuora Account Number"; Rec."TURFZuora Account Number")
                 {
                     ApplicationArea = All;
@@ -38,28 +42,10 @@ pageextension 70304 "TURFPosted Sales Inv. Ext" extends "Posted Sales Invoice"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Sent to Boomi field.', Comment = '%';
                 }
-                field("TURFZuora Order No."; Rec."TURFZuora Order No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the TURFZuora Order No. field.', Comment = '%';
-                }
-            }
-        }
-        addafter("Ship-to Contact")
-        {
-            field("TURF Ship-To E-Mail"; Rec."TURF Ship-To E-Mail")
-            {
-                ApplicationArea = All;
-                ToolTip = 'Specifies the value of the Ship-to Email field.', Comment = '%';
-            }
-            field("TURF Phone No."; Rec."TURF Ship-to Phone No.")
-            {
-                ApplicationArea = All;
-                ToolTip = 'Specifies the value of the Ship-To Phone No. field.', Comment = '%';
+
             }
         }
     }
-
     actions
     {
         addlast(processing)
@@ -70,12 +56,12 @@ pageextension 70304 "TURFPosted Sales Inv. Ext" extends "Posted Sales Invoice"
                 Caption = 'Send to Zuora';
                 Image = Download;
                 Promoted = false;
-                ToolTip = 'Send invoice to Zuora, for creation';
+                ToolTip = 'Send Credit Memo to Zuora, for creation';
                 trigger OnAction()
                 var
                     TURFBoomiTaxMgt: Codeunit "TURFBoomi Mgt";
                 begin
-                    TURFBoomiTaxMgt.SendInvoiceToBoomi(Rec);
+                    TURFBoomiTaxMgt.SendCreditMemoToBoomi(Rec);
                 end;
             }
         }

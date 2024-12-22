@@ -3,7 +3,7 @@ page 70310 "TURFBoomi Customer API"
     APIPublisher = 'turfTank';
     APIGroup = 'boomi';
     APIVersion = 'v1.0';
-    Caption = 'turfHubSpotCompanies';
+    Caption = 'HubSpotCompanies';
     DelayedInsert = true;
     EntityName = 'customer';
     EntitySetName = 'customers';

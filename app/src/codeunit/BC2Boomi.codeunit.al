@@ -1,6 +1,7 @@
 codeunit 70308 TURFBC2Boomi
 {
-    Permissions = tabledata "Sales Invoice Header" = M;
+    Permissions = tabledata "Sales Invoice Header" = M, tabledata "Sales Cr.Memo Header" = M;
+
 
     var
         TURFBoomiSetup: Record "TURFBoomi Setup";
@@ -10,33 +11,29 @@ codeunit 70308 TURFBC2Boomi
         Customer: Record Customer;
         SalesLine: Record "Sales Line";
         HdrObj: JsonObject;
-        LineObj: JsonObject;
         LinesArray: JsonArray;
         ResponseTxt: Text;
         BodyContent: Text;
+        UseDate: Date;
         JsonObj: JsonObject;
         JsonTkn: JsonToken;
     begin
         TURFBoomiSetup.GetRecordOnce();
         Customer.Get(SalesHeader."Sell-to Customer No.");
         Customer.TestField("TURFZuora Account Number");
-        HdrObj.Add('type', '1');
-        HdrObj.Add('zuoraAccountNo', Customer."TURFZuora Account Number");
         if SalesHeader."Posting Date" <> 0D then
-            HdrObj.Add('orderDate', Format(SalesHeader."Posting Date", 0, '<year4>-<month,2>-<day,2>'))
+            UseDate := SalesHeader."Posting Date"
         else
-            HdrObj.Add('orderDate', Format(SalesHeader."Document Date", 0, '<year4>-<month,2>-<day,2>'));
+            UseDate := SalesHeader."Document Date";
 
-        HdrObj.Add('documentNumber', SalesHeader."No.");
+        CreateHeader(HdrObj, Customer."TURFZuora Account Number", UseDate, SalesHeader."No.", 1);
+
         SalesLine.SetRange("Document Type", SalesHeader."Document Type");
         SalesLine.SetRange("Document No.", SalesHeader."No.");
         SalesLine.SetRange(Type, SalesLine.Type::Item);
         if SalesLine.FindSet(false) then
             repeat
-                Clear(LineObj);
-                LineObj.Add('subscribeToRatePlans', SalesLine."No.");
-                LineObj.Add('quantity', SalesLine.Quantity);
-                LinesArray.Add(LineObj);
+                AddLineToArray(LinesArray, SalesLine."No.", SalesLine.Quantity, SalesLine."Unit Price", SalesLine."Line Amount");
             until SalesLine.Next() = 0;
         HdrObj.Add('items', LinesArray);
 
@@ -55,7 +52,6 @@ codeunit 70308 TURFBC2Boomi
         Customer: Record Customer;
         SalesInvoiceLine: Record "Sales Invoice Line";
         HdrObj: JsonObject;
-        LineObj: JsonObject;
         LinesArray: JsonArray;
         ResponseTxt: Text;
         BodyContent: Text;
@@ -65,18 +61,13 @@ codeunit 70308 TURFBC2Boomi
         TURFBoomiSetup.GetRecordOnce();
         Customer.Get(SalesInvoiceHeader."Sell-to Customer No.");
         Customer.TestField("TURFZuora Account Number");
-        HdrObj.Add('type', '2');
-        HdrObj.Add('zuoraAccountNo', Customer."TURFZuora Account Number");
-        HdrObj.Add('orderDate', Format(SalesInvoiceHeader."Posting Date", 0, '<year4>-<month,2>-<day,2>'));
-        HdrObj.Add('documentNumber', SalesInvoiceHeader."No.");
+
+        CreateHeader(HdrObj, Customer."TURFZuora Account Number", SalesInvoiceHeader."Posting Date", SalesInvoiceHeader."No.", 2);
         SalesInvoiceLine.SetRange("Document No.", SalesInvoiceHeader."No.");
         SalesInvoiceLine.SetRange(Type, SalesInvoiceLine.Type::Item);
         if SalesInvoiceLine.FindSet(false) then
             repeat
-                Clear(LineObj);
-                LineObj.Add('subscribeToRatePlans', SalesInvoiceLine."No.");
-                LineObj.Add('quantity', SalesInvoiceLine.Quantity);
-                LinesArray.Add(LineObj);
+                AddLineToArray(LinesArray, SalesInvoiceLine."No.", SalesInvoiceLine.Quantity, SalesInvoiceLine."Unit Price", SalesInvoiceLine."Line Amount");
             until SalesInvoiceLine.Next() = 0;
         HdrObj.Add('items', LinesArray);
 
@@ -90,6 +81,42 @@ codeunit 70308 TURFBC2Boomi
             SalesInvoiceHeader."TURFZuora Subscription No." := Copystr(JsonTkn.AsValue().AsText(), 1, MaxStrLen(SalesInvoiceHeader."TURFZuora Subscription No."));
             SalesInvoiceHeader."TURFSent to Boomi" := CurrentDateTime();
             SalesInvoiceHeader.Modify(false)
+        end else
+            Error(ResponseTxt);
+    end;
+
+    internal procedure SendCreditMemoToBoomi(SalesCrMemoHeader: Record "Sales Cr.Memo Header")
+    var
+        Customer: Record Customer;
+        SalesCrMemoLine: Record "Sales Cr.Memo Line";
+        HdrObj: JsonObject;
+        LinesArray: JsonArray;
+        ResponseTxt: Text;
+        BodyContent: Text;
+        JsonObj: JsonObject;
+        JsonTkn: JsonToken;
+    begin
+        TURFBoomiSetup.GetRecordOnce();
+        Customer.Get(SalesCrMemoHeader."Sell-to Customer No.");
+        Customer.TestField("TURFZuora Account Number");
+
+        CreateHeader(HdrObj, Customer."TURFZuora Account Number", SalesCrMemoHeader."Posting Date", SalesCrMemoHeader."No.", 3);
+        SalesCrMemoLine.SetRange("Document No.", SalesCrMemoHeader."No.");
+        SalesCrMemoLine.SetRange(Type, SalesCrMemoLine.Type::Item);
+        if SalesCrMemoLine.FindSet(false) then
+            repeat
+                AddLineToArray(LinesArray, SalesCrMemoLine."No.", SalesCrMemoLine.Quantity, SalesCrMemoLine."Unit Price", SalesCrMemoLine."Line Amount");
+            until SalesCrMemoLine.Next() = 0;
+        HdrObj.Add('items', LinesArray);
+
+        HdrObj.WriteTo(BodyContent);
+
+        if SendRequest(Enum::"Http Method"::POST, TURFBoomiSetup."Tax Estimate URL", BodyContent, ResponseTxt) then begin
+            JsonObj.ReadFrom(ResponseTxt);
+            JsonObj.Get('creditMemoNumber', JsonTkn);
+            SalesCrMemoHeader."TURFZuora Cr. Memo No." := Copystr(JsonTkn.AsValue().AsText(), 1, MaxStrLen(SalesCrMemoHeader."TURFZuora Cr. Memo No."));
+            SalesCrMemoHeader."TURFSent to Boomi" := CurrentDateTime();
+            SalesCrMemoHeader.Modify(false)
         end else
             Error(ResponseTxt);
     end;
@@ -140,5 +167,25 @@ codeunit 70308 TURFBC2Boomi
         AuthString := Base64Convert.ToBase64(AuthString);
         AuthString := StrSubstNo(BasicAuthTemplateLbl, AuthString);
         ClientHeaders.Add('Authorization', AuthString);
+    end;
+
+    local procedure AddLineToArray(var LinesArray: JsonArray; No: Code[20]; Quantity: Decimal; UnitPrice: Decimal; LineAmount: Decimal)
+    var
+        LineObj: JsonObject;
+    begin
+        Clear(LineObj);
+        LineObj.Add('subscribeToRatePlans', No);
+        LineObj.Add('quantity', Quantity);
+        LineObj.Add('unitPrice', UnitPrice);
+        LineObj.Add('amount', LineAmount);
+        LinesArray.Add(LineObj);
+    end;
+
+    local procedure CreateHeader(var HdrObj: JsonObject; ZuoraAccountNumber: Text; orderDate: Date; DocumentNo: Text; Type: Integer)
+    begin
+        HdrObj.Add('type', Format(type));
+        HdrObj.Add('zuoraAccountNo', ZuoraAccountNumber);
+        HdrObj.Add('orderDate', Format(orderDate, 0, '<year4>-<month,2>-<day,2>'));
+        HdrObj.Add('documentNumber', DocumentNo);
     end;
 }
