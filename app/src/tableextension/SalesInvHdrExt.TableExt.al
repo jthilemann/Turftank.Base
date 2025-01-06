@@ -42,6 +42,5 @@ tableextension 70302 "TURFSales Inv. Hdr Ext" extends "Sales Invoice Header"
             Caption = 'Created In Boomi';
             DataClassification = ToBeClassified;
         }
-
     }
 }

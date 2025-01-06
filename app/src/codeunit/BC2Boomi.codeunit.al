@@ -26,7 +26,7 @@ codeunit 70308 TURFBC2Boomi
         else
             UseDate := SalesHeader."Document Date";
 
-        CreateHeader(HdrObj, Customer."TURFZuora Account Number", UseDate, SalesHeader."No.", 1);
+        CreateHeader(HdrObj, Customer."TURFZuora Account Number", UseDate, SalesHeader."No.", '', 1);
 
         SalesLine.SetRange("Document Type", SalesHeader."Document Type");
         SalesLine.SetRange("Document No.", SalesHeader."No.");
@@ -62,9 +62,10 @@ codeunit 70308 TURFBC2Boomi
         Customer.Get(SalesInvoiceHeader."Sell-to Customer No.");
         Customer.TestField("TURFZuora Account Number");
 
-        CreateHeader(HdrObj, Customer."TURFZuora Account Number", SalesInvoiceHeader."Posting Date", SalesInvoiceHeader."No.", 2);
+        CreateHeader(HdrObj, Customer."TURFZuora Account Number", SalesInvoiceHeader."Posting Date", SalesInvoiceHeader."No.", SalesInvoiceHeader."Order No.", 2);
         SalesInvoiceLine.SetRange("Document No.", SalesInvoiceHeader."No.");
         SalesInvoiceLine.SetRange(Type, SalesInvoiceLine.Type::Item);
+        SalesInvoiceLine.SetFilter("No.", '<>%1', TURFBoomiSetup."Default Tax Item");
         if SalesInvoiceLine.FindSet(false) then
             repeat
                 AddLineToArray(LinesArray, SalesInvoiceLine."No.", SalesInvoiceLine.Quantity, SalesInvoiceLine."Unit Price", SalesInvoiceLine."Line Amount");
@@ -99,10 +100,13 @@ codeunit 70308 TURFBC2Boomi
         TURFBoomiSetup.GetRecordOnce();
         Customer.Get(SalesCrMemoHeader."Sell-to Customer No.");
         Customer.TestField("TURFZuora Account Number");
-
-        CreateHeader(HdrObj, Customer."TURFZuora Account Number", SalesCrMemoHeader."Posting Date", SalesCrMemoHeader."No.", 3);
+        if SalesCrMemoHeader."Applies-to Doc. No." <> '' then
+            CreateHeader(HdrObj, Customer."TURFZuora Account Number", SalesCrMemoHeader."Posting Date", SalesCrMemoHeader."No.", SalesCrMemoHeader."Applies-to Doc. No.", 4)
+        else
+            CreateHeader(HdrObj, Customer."TURFZuora Account Number", SalesCrMemoHeader."Posting Date", SalesCrMemoHeader."No.", '', 3);
         SalesCrMemoLine.SetRange("Document No.", SalesCrMemoHeader."No.");
         SalesCrMemoLine.SetRange(Type, SalesCrMemoLine.Type::Item);
+        SalesCrMemoLine.SetFilter("No.", '<>%1', TURFBoomiSetup."Default Tax Item");
         if SalesCrMemoLine.FindSet(false) then
             repeat
                 AddLineToArray(LinesArray, SalesCrMemoLine."No.", SalesCrMemoLine.Quantity, SalesCrMemoLine."Unit Price", SalesCrMemoLine."Line Amount");
@@ -181,11 +185,13 @@ codeunit 70308 TURFBC2Boomi
         LinesArray.Add(LineObj);
     end;
 
-    local procedure CreateHeader(var HdrObj: JsonObject; ZuoraAccountNumber: Text; orderDate: Date; DocumentNo: Text; Type: Integer)
+    local procedure CreateHeader(var HdrObj: JsonObject; ZuoraAccountNumber: Text; orderDate: Date; DocumentNo: Text; ReferenceNo: code[20]; Type: Integer)
     begin
         HdrObj.Add('type', Format(type));
         HdrObj.Add('zuoraAccountNo', ZuoraAccountNumber);
         HdrObj.Add('orderDate', Format(orderDate, 0, '<year4>-<month,2>-<day,2>'));
         HdrObj.Add('documentNumber', DocumentNo);
+        if ReferenceNo <> '' then
+            HdrObj.Add('referenceNumber', ReferenceNo);
     end;
 }
