@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "US-PROD SNA${pathSeparator}",
+            "type": "al",
+            "request": "snapshotInitialize",
+            "environmentType": "Production",
+            "environmentName": "us-production",
+            "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
+            "breakOnNext": "WebClient",
+            "executionContext": "DebugAndProfile",
+            "userId" : "KRIS_ADMIN"
+        },
+        {
             "name": "Sandbox_2024-06-22",
             "type": "al",
             "request": "launch",
@@ -27,6 +38,23 @@
             "request": "launch",
             "environmentType": "Sandbox",
             "environmentName": "US-Sandbox-0826",
+            "startupObjectId": 22,
+            "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
+            "breakOnError": "All",
+            "breakOnRecordWrite": "None",
+            "launchBrowser": true,
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10,
+            "schemaUpdateMode": "ForceSync"
+        },
+        {
+            "name": "USSandbox06022025",
+            "type": "al",
+            "request": "launch",
+            "environmentType": "Sandbox",
+            "environmentName": "USSandbox06022025",
             "startupObjectId": 22,
             "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
             "breakOnError": "All",

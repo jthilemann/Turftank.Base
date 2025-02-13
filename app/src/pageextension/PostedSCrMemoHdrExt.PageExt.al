@@ -15,7 +15,7 @@ pageextension 70324 TURFPostedSCrMemoHdrExt extends "Posted Sales Credit Memo"
             group(TURFZuora)
             {
                 Caption = 'Zuora';
-                field("TURFZuora Cr. Memo No."; Rec."TURFZuora Cr. Memo No.")
+                field("TURFZuora Cr. Memo No."; Rec."TURFZuora Order No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Zuora Cr. Memo No. field.', Comment = '%';
@@ -31,6 +31,18 @@ pageextension 70324 TURFPostedSCrMemoHdrExt extends "Posted Sales Credit Memo"
                     ApplicationArea = All;
                     Editable = false;
                     ToolTip = 'Specifies the value of the Zuora Subscription No. field.', Comment = '%';
+                }
+                field("TURFZuora Invoice No."; Rec."TURFZuora Invoice No.")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                    ToolTip = 'Specifies the value of the Zuora Ext. Doc. No. field.', Comment = '%';
+                }
+                field("TURFZuora Order No."; Rec."TURFZuora Order No.")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                    ToolTip = 'Specifies the value of the TURFZuora Order No. field.', Comment = '%';
                 }
                 field("TURFBoomi Order"; Rec."TURFBoomi Order")
                 {

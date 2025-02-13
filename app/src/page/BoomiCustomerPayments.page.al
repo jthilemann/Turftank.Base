@@ -25,6 +25,10 @@ page 70314 "TURFBoomi - Customer Payments"
                     Caption = 'Id';
                     Editable = false;
                 }
+                field(paymentType; PaymentType)
+                {
+                    Caption = 'Payment Type';
+                }
                 field(zuoraSubscriptionNumber; ZuoraSubscriptionNumber)
                 {
                 }
@@ -42,7 +46,7 @@ page 70314 "TURFBoomi - Customer Payments"
                 }
                 field(zuoraInvoiceNo; zuoraInvoiceNo)
                 {
-                    Caption = 'External Document No.';
+                    Caption = 'Zuora Invoice No.';
                     trigger OnValidate()
                     var
                         SalesInvoiceHeader: Record "Sales Invoice Header";
@@ -52,8 +56,7 @@ page 70314 "TURFBoomi - Customer Payments"
                         Rec.Validate("Account Type", Rec."Account Type"::Customer);
                         SalesInvoiceHeader.SetRange("TURFBoomi Order", true);
                         SalesInvoiceHeader.SetRange("TURFOrder Type", BoomiSetup."TURFBoomi Default Order Type");
-                        SalesInvoiceHeader.SetRange("TURFZuora Subscription No.", ZuoraSubscriptionNumber);
-                        SalesInvoiceHeader.SetRange("External Document No.", zuoraInvoiceNo);
+                        SalesInvoiceHeader.SetRange("TURFZuora Invoice No.", zuoraInvoiceNo);
                         SalesInvoiceHeader.FindFirst();
                         Rec.Validate("Account No.", SalesInvoiceHeader."Bill-to Customer No.");
                         Rec.Validate("Applies-to Doc. No.", SalesInvoiceHeader."No.");
@@ -112,6 +115,7 @@ page 70314 "TURFBoomi - Customer Payments"
     end;
 
     var
+        PaymentType: Option "Payment","Refund";
         BoomiSetup: Record "TURFBoomi Setup";
         GenJournalBatch: Record "Gen. Journal Batch";
         ZuoraSubscriptionNumber: Code[50];
@@ -122,9 +126,14 @@ page 70314 "TURFBoomi - Customer Payments"
         if BoomiSetup."Cash Rcpt. Jnl. Template Name" <> '' then
             exit;
         BoomiSetup.GetRecordOnce();
-        BoomiSetup.TestField("Cash Rcpt. Jnl. Template Name");
-        BoomiSetup.TestField("Cash Rcpt. Jnl. Batch Name");
-        GenJournalBatch.Get(BoomiSetup."Cash Rcpt. Jnl. Template Name", BoomiSetup."Cash Rcpt. Jnl. Batch Name");
+        if PaymentType = PaymentType::Payment then begin
+            BoomiSetup.TestField("Cash Rcpt. Jnl. Template Name");
+            BoomiSetup.TestField("Cash Rcpt. Jnl. Batch Name");
+            GenJournalBatch.Get(BoomiSetup."Cash Rcpt. Jnl. Template Name", BoomiSetup."Cash Rcpt. Jnl. Batch Name");
+        end else begin
+
+        end;
+
     end;
 
     local procedure SetJournalFilters()

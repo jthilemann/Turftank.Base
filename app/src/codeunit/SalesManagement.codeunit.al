@@ -44,9 +44,42 @@ codeunit 70302 "TURFSales Management"
         end;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"IC Outbox Export", 'OnBeforeSendToExternalPartner', '', false, false)]
-    local procedure OnRunOutboxTransactionsOnBeforeSend(var ICOutboxTransaction: Record "IC Outbox Transaction")
+    [EventSubscriber(ObjectType::Codeunit, codeunit::"Sales Post Invoice Events", 'OnAfterPrepareInvoicePostingBuffer', '', false, false)]
+    local procedure InvoicePostingBufferOnAfterPrepareSales(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary; var SalesLine: Record "Sales Line")
+    var
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
     begin
+        SalesReceivablesSetup.GetRecordOnce();
+        if SalesReceivablesSetup."Copy Line Descr. to G/L Entry" then
+            InvoicePostingBuffer."TURFDescription 2" := SalesLine."Description 2";
+    end;
 
+    [EventSubscriber(ObjectType::Codeunit, codeunit::"Sales Post Invoice Events", 'OnAfterPrepareGenJnlLine', '', false, false)]
+    local procedure InvoicePostingBufferOnAfterCopyToGenJnlLine(InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary; var GenJnlLine: Record "Gen. Journal Line")
+    begin
+        GenJnlLine."TURFDescription 2" := InvoicePostingBuffer."TURFDescription 2";
+    end;
+
+    // [EventSubscriber(ObjectType::Table, database::"Invoice Posting Buffer", 'OnAfterPrepareSales', '', false, false)]
+    // local procedure InvoicePostingBufferOnAfterPrepareSales(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary; var SalesLine: Record "Sales Line")
+    // var
+    //     SalesReceivablesSetup: Record "Sales & Receivables Setup";
+    // begin
+    //     SalesReceivablesSetup.GetRecordOnce();
+    //     if SalesReceivablesSetup."Copy Line Descr. to G/L Entry" then
+    //         InvoicePostingBuffer."TURFDescription 2" := SalesLine."Description 2";
+    // end;
+
+    // [EventSubscriber(ObjectType::Table, database::"Invoice Posting Buffer", 'OnAfterCopyToGenJnlLine', '', false, false)]
+    // local procedure InvoicePostingBufferOnAfterCopyToGenJnlLine(InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary; var GenJnlLine: Record "Gen. Journal Line")
+    // begin
+    //     GenJnlLine."TURFDescription 2" := InvoicePostingBuffer."TURFDescription 2";
+    // end;
+
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterInitGLEntry', '', false, false)]
+    local procedure GenJnlPostLineOnAfterInitGLEntry(GenJournalLine: Record "Gen. Journal Line"; var GLEntry: Record "G/L Entry")
+    begin
+        GLEntry."TURFDescription 2" := GenJournalLine."TURFDescription 2";
     end;
 }

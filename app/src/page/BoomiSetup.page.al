@@ -28,7 +28,6 @@ page 70315 "TURFBoomi Setup"
             }
             group("Customer Payments")
             {
-
                 field("Payment Journal Template Name"; Rec."Cash Rcpt. Jnl. Template Name")
                 {
                     ToolTip = 'Specifies the value of the Payment Journal Template Name field.', Comment = '%';
@@ -36,6 +35,17 @@ page 70315 "TURFBoomi Setup"
                 field("Payment Journal Batch Name"; Rec."Cash Rcpt. Jnl. Batch Name")
                 {
                     ToolTip = 'Specifies the value of the Payment Journal Batch Name field.', Comment = '%';
+                }
+            }
+            group("Customer Refunds")
+            {
+                field("Payment Jnl. Template Name"; Rec."Payment Jnl. Template Name")
+                {
+                    ToolTip = 'Specifies the value of the Payment Jnl. Template Name field.', Comment = '%';
+                }
+                field("Payment Jnl. Batch Name"; Rec."Payment Jnl. Batch Name")
+                {
+                    ToolTip = 'Specifies the value of the Payment Jnl. Batch Name field.', Comment = '%';
                 }
             }
             group("Boomi Connection")

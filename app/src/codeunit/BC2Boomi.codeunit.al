@@ -80,6 +80,8 @@ codeunit 70308 TURFBC2Boomi
             SalesInvoiceHeader."TURFZuora Order No." := Copystr(JsonTkn.AsValue().AsText(), 1, MaxStrLen(SalesInvoiceHeader."TURFZuora Order No."));
             JsonObj.Get('subscriptionNumber', JsonTkn);
             SalesInvoiceHeader."TURFZuora Subscription No." := Copystr(JsonTkn.AsValue().AsText(), 1, MaxStrLen(SalesInvoiceHeader."TURFZuora Subscription No."));
+            JsonObj.Get('invoiceNumber', JsonTkn);
+            SalesInvoiceHeader."TURFZuora Invoice No." := Copystr(JsonTkn.AsValue().AsText(), 1, MaxStrLen(SalesInvoiceHeader."TURFZuora Invoice No."));
             SalesInvoiceHeader."TURFSent to Boomi" := CurrentDateTime();
             SalesInvoiceHeader.Modify(false)
         end else
@@ -118,7 +120,7 @@ codeunit 70308 TURFBC2Boomi
         if SendRequest(Enum::"Http Method"::POST, TURFBoomiSetup."Tax Estimate URL", BodyContent, ResponseTxt) then begin
             JsonObj.ReadFrom(ResponseTxt);
             JsonObj.Get('creditMemoNumber', JsonTkn);
-            SalesCrMemoHeader."TURFZuora Cr. Memo No." := Copystr(JsonTkn.AsValue().AsText(), 1, MaxStrLen(SalesCrMemoHeader."TURFZuora Cr. Memo No."));
+            SalesCrMemoHeader."TURFZuora Order No." := Copystr(JsonTkn.AsValue().AsText(), 1, MaxStrLen(SalesCrMemoHeader."TURFZuora Order No."));
             SalesCrMemoHeader."TURFSent to Boomi" := CurrentDateTime();
             SalesCrMemoHeader.Modify(false)
         end else

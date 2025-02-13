@@ -99,6 +99,14 @@ page 70306 "TURFOrder API"
                 {
                     Caption = 'Order Type';
                 }
+                field(zuoraOrderNo; Rec."TURFZuora Order No.")
+                {
+                    Caption = 'Zuora Order No.';
+                }
+                field(zuoraInvoiceNo; Rec."TURFZuora Invoice No.")
+                {
+                    Caption = 'Zuora Invoice No.';
+                }
                 part(orderLines; "TURFOrder Lines API")
                 {
                     Caption = 'Lines';

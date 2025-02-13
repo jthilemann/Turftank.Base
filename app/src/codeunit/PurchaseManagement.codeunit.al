@@ -21,4 +21,29 @@ codeunit 70303 "TURFPurchase Management"
         end;
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, codeunit::"Purch. Post Invoice Events", 'OnAfterPrepareInvoicePostingBuffer', '', false, false)]
+    local procedure InvoicePostingBufferOnAfterPrepareSales(var PurchaseLine: Record "Purchase Line"; var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)
+    var
+        PurchasesPayablesSetup: Record "Purchases & Payables Setup";
+    begin
+        PurchasesPayablesSetup.GetRecordOnce();
+        if PurchasesPayablesSetup."Copy Line Descr. to G/L Entry" then
+            InvoicePostingBuffer."TURFDescription 2" := PurchaseLine."Description 2";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, codeunit::"Purch. Post Invoice Events", 'OnAfterPrepareGenJnlLine', '', false, false)]
+    local procedure InvoicePostingBufferOnAfterCopyToGenJnlLine(InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary; var GenJnlLine: Record "Gen. Journal Line")
+    begin
+        GenJnlLine."TURFDescription 2" := InvoicePostingBuffer."TURFDescription 2";
+    end;
+
+    // [EventSubscriber(ObjectType::Table, database::"Invoice Posting Buffer", 'OnAfterPreparePurchase', '', false, false)]
+    // local procedure InvoicePostingBufferOnAfterPrepareSales(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary; var PurchaseLine: Record "Purchase Line")
+    // var
+    //     SalesReceivablesSetup: Record "Sales & Receivables Setup";
+    // begin
+    //     SalesReceivablesSetup.GetRecordOnce();
+    //     if SalesReceivablesSetup."Copy Line Descr. to G/L Entry" then
+    //         InvoicePostingBuffer."TURFDescription 2" := PurchaseLine."Description 2";
+    // end;
 }

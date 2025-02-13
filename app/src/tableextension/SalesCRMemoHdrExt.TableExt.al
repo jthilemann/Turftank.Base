@@ -32,7 +32,7 @@ tableextension 70316 "TURFSales Cr. Memo Hdr Ext" extends "Sales Cr.Memo Header"
         {
             Caption = 'Zuora Subscription No.';
         }
-        field(70307; "TURFZuora Cr. Memo No."; Code[50])
+        field(70307; "TURFZuora Order No."; Code[50])
         {
             Caption = 'Zuora Cr. Memo No.';
             DataClassification = ToBeClassified;
@@ -41,6 +41,11 @@ tableextension 70316 "TURFSales Cr. Memo Hdr Ext" extends "Sales Cr.Memo Header"
         {
             Caption = 'Created In Boomi';
             Editable = false;
+            DataClassification = ToBeClassified;
+        }
+        field(70309; "TURFZuora Invoice No."; Code[35])
+        {
+            Caption = 'Zuora Cr. Memo No.';
             DataClassification = ToBeClassified;
         }
     }

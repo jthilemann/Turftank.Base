@@ -24,6 +24,12 @@ pageextension 70321 "TURFSalesQuoteExt" extends "Sales Quote"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the TURFBoomi Order field.', Comment = '%';
                 }
+                field("TURFZuora Invoice No."; Rec."TURFZuora Invoice No.")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                    ToolTip = 'Specifies the value of the Zuora Ext. Doc. No. field.', Comment = '%';
+                }
             }
         }
     }

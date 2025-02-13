@@ -30,6 +30,14 @@ page 70316 "TURFBoomi Post.S.Inv API"
                     Caption = 'No.';
                     Editable = false;
                 }
+                field(externalDocumentNo; Rec."External Document No.")
+                {
+                    Caption = 'External Document No.';
+                }
+                field(zuoraInvoiceNo; Rec."TURFZuora Invoice No.")
+                {
+                    Caption = 'Zuora Invoice No.';
+                }
                 field(sentToBoomi; Rec."TURFSent to Boomi")
                 {
                     Caption = 'Created In Boomi';

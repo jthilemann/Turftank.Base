@@ -28,6 +28,18 @@ pageextension 70301 "TURFS. Inv. Ext" extends "Sales invoice"
                     Editable = false;
                     ToolTip = 'Specifies the value of the Zuora Subscription No. field.', Comment = '%';
                 }
+                field("TURFZuora Order No."; Rec."TURFZuora Order No.")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                    ToolTip = 'Specifies the value of the TURFZuora Order No. field.', Comment = '%';
+                }
+                field("TURFZuora Invoice No."; Rec."TURFZuora Invoice No.")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                    ToolTip = 'Specifies the value of the Zuora Ext. Doc. No. field.', Comment = '%';
+                }
                 field("TURFBoomi Order"; Rec."TURFBoomi Order")
                 {
                     ApplicationArea = All;

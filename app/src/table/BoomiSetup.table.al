@@ -54,6 +54,18 @@ table 70307 "TURFBoomi Setup"
             DataClassification = ToBeClassified;
             ExtendedDatatype = Masked;
         }
+        field(10; "Payment Jnl. Template Name"; Code[10])
+        {
+            Caption = 'Payment Jnl. Template Name';
+            DataClassification = ToBeClassified;
+            TableRelation = "Gen. Journal Template".Name where(Type = const("Gen. Journal Template Type"::Payments));
+        }
+        field(11; "Payment Jnl. Batch Name"; Code[10])
+        {
+            Caption = 'Payment Jnl. Batch Name';
+            DataClassification = ToBeClassified;
+            TableRelation = "Gen. Journal Batch".Name where("Journal Template Name" = field("Payment Jnl. Template Name"));
+        }
     }
 
     keys

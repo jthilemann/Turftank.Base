@@ -27,10 +27,22 @@ pageextension 70310 "TURFBlanket Ord. Ext" extends "Blanket Sales Order"
                     Editable = false;
                     ToolTip = 'Specifies the value of the Zuora Subscription No. field.', Comment = '%';
                 }
+                field("TURFZuora Order No."; Rec."TURFZuora Order No.")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                    ToolTip = 'Specifies the value of the TURFZuora Order No. field.', Comment = '%';
+                }
                 field("TURFBoomi Order"; Rec."TURFBoomi Order")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the TURFBoomi Order field.', Comment = '%';
+                }
+                field("TURFZuora Invoice No."; Rec."TURFZuora Invoice No.")
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+                    ToolTip = 'Specifies the value of the Zuora Ext. Doc. No. field.', Comment = '%';
                 }
             }
         }
