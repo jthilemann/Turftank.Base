@@ -76,6 +76,12 @@ codeunit 70302 "TURFSales Management"
     //     GenJnlLine."TURFDescription 2" := InvoicePostingBuffer."TURFDescription 2";
     // end;
 
+    [EventSubscriber(ObjectType::Report, Report::"Create Ret.-Related Documents", 'OnPreReportOnAfterCopySalesDoc', '', false, false)]
+    local procedure CreateRetRelatedDocumentsOnPreReportOnAfterCopySalesDoc(var SOSalesHeader: Record "Sales Header"; var SROSalesHeader: Record "Sales Header")
+    begin
+        SOSalesHeader."TURFReplacement for SRO No." := SROSalesHeader."No.";
+        SOSalesHeader.Modify(false);
+    end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterInitGLEntry', '', false, false)]
     local procedure GenJnlPostLineOnAfterInitGLEntry(GenJournalLine: Record "Gen. Journal Line"; var GLEntry: Record "G/L Entry")

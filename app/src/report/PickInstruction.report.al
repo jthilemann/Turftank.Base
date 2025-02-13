@@ -79,6 +79,14 @@ report 70308 "TURFPick Instruction"
                 column(ShipToAddress8; ShipToAddr[8])
                 {
                 }
+                column(SourceNoCpt; SourceNoLbl)
+                {
+
+                }
+                column(TURFReplacementforSRONo_SalesHeader; "TURFReplacement for SRO No.")
+                {
+                }
+
                 dataitem("Sales Line"; "Sales Line")
                 {
                     DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("No.");
@@ -281,6 +289,7 @@ report 70308 "TURFPick Instruction"
         AsmExists: Boolean;
         ShipToAddr: array[8] of Text[100];
         ShiptoAddrLbl: Label 'Ship-to Address';
+        SourceNoLbl: Label 'Source No.';
 
     local procedure GetUOM(UOMCode: Code[10]): Text
     var

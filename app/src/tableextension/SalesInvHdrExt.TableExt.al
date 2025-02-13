@@ -47,5 +47,10 @@ tableextension 70302 "TURFSales Inv. Hdr Ext" extends "Sales Invoice Header"
             Caption = 'Zuora Invoice No.';
             DataClassification = ToBeClassified;
         }
+        field(70310; "TURFReplacement for SRO No."; Code[20])
+        {
+            Caption = 'Replacement for SRO No.';
+            DataClassification = ToBeClassified;
+        }
     }
 }
