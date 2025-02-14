@@ -79,7 +79,7 @@ codeunit 70302 "TURFSales Management"
     [EventSubscriber(ObjectType::Report, Report::"Create Ret.-Related Documents", 'OnPreReportOnAfterCopySalesDoc', '', false, false)]
     local procedure CreateRetRelatedDocumentsOnPreReportOnAfterCopySalesDoc(var SOSalesHeader: Record "Sales Header"; var SROSalesHeader: Record "Sales Header")
     begin
-        SOSalesHeader."TURFReplacement for SRO No." := SROSalesHeader."No.";
+        SOSalesHeader."TURFSales Return Order No." := SROSalesHeader."No.";
         SOSalesHeader.Modify(false);
     end;
 

@@ -10,169 +10,6 @@
       <rd:DataSourceID>ace23880-ab05-4ebb-af60-13aee80ed1a7</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Number">
-          <DataField>Number</DataField>
-        </Field>
-        <Field Name="CompanyNameText">
-          <DataField>CompanyNameText</DataField>
-        </Field>
-        <Field Name="DateText">
-          <DataField>DateText</DataField>
-        </Field>
-        <Field Name="No_SalesHeader">
-          <DataField>No_SalesHeader</DataField>
-        </Field>
-        <Field Name="CustomerNo_SalesHeader">
-          <DataField>CustomerNo_SalesHeader</DataField>
-        </Field>
-        <Field Name="CustomerName_SalesHeader">
-          <DataField>CustomerName_SalesHeader</DataField>
-        </Field>
-        <Field Name="ShippingAgent">
-          <DataField>ShippingAgent</DataField>
-        </Field>
-        <Field Name="Shipping_Agent_Service_Code">
-          <DataField>Shipping_Agent_Service_Code</DataField>
-        </Field>
-        <Field Name="TURFOrderType_SalesHeader">
-          <DataField>TURFOrderType_SalesHeader</DataField>
-        </Field>
-        <Field Name="GetWorkDescription">
-          <DataField>GetWorkDescription</DataField>
-        </Field>
-        <Field Name="CommentLbl">
-          <DataField>CommentLbl</DataField>
-        </Field>
-        <Field Name="ShipToAddress_Lbl">
-          <DataField>ShipToAddress_Lbl</DataField>
-        </Field>
-        <Field Name="ShipToAddress1">
-          <DataField>ShipToAddress1</DataField>
-        </Field>
-        <Field Name="ShipToAddress2">
-          <DataField>ShipToAddress2</DataField>
-        </Field>
-        <Field Name="ShipToAddress3">
-          <DataField>ShipToAddress3</DataField>
-        </Field>
-        <Field Name="ShipToAddress4">
-          <DataField>ShipToAddress4</DataField>
-        </Field>
-        <Field Name="ShipToAddress5">
-          <DataField>ShipToAddress5</DataField>
-        </Field>
-        <Field Name="ShipToAddress6">
-          <DataField>ShipToAddress6</DataField>
-        </Field>
-        <Field Name="ShipToAddress7">
-          <DataField>ShipToAddress7</DataField>
-        </Field>
-        <Field Name="ShipToAddress8">
-          <DataField>ShipToAddress8</DataField>
-        </Field>
-        <Field Name="SourceNoCpt">
-          <DataField>SourceNoCpt</DataField>
-        </Field>
-        <Field Name="TURFReplacementforSRONo_SalesHeader">
-          <DataField>TURFReplacementforSRONo_SalesHeader</DataField>
-        </Field>
-        <Field Name="LineNo_SalesLine">
-          <DataField>LineNo_SalesLine</DataField>
-        </Field>
-        <Field Name="ItemNo_SalesLine">
-          <DataField>ItemNo_SalesLine</DataField>
-        </Field>
-        <Field Name="Description_SalesLine">
-          <DataField>Description_SalesLine</DataField>
-        </Field>
-        <Field Name="LocationCode_SalesLine">
-          <DataField>LocationCode_SalesLine</DataField>
-        </Field>
-        <Field Name="BinCode_SalesLine">
-          <DataField>BinCode_SalesLine</DataField>
-        </Field>
-        <Field Name="ShipmentDate_SalesLine">
-          <DataField>ShipmentDate_SalesLine</DataField>
-        </Field>
-        <Field Name="Quantity_SalesLine">
-          <DataField>Quantity_SalesLine</DataField>
-        </Field>
-        <Field Name="Quantity_SalesLineFormat">
-          <DataField>Quantity_SalesLineFormat</DataField>
-        </Field>
-        <Field Name="UnitOfMeasure_SalesLine">
-          <DataField>UnitOfMeasure_SalesLine</DataField>
-        </Field>
-        <Field Name="QuantityToShip_SalesLine">
-          <DataField>QuantityToShip_SalesLine</DataField>
-        </Field>
-        <Field Name="QuantityToShip_SalesLineFormat">
-          <DataField>QuantityToShip_SalesLineFormat</DataField>
-        </Field>
-        <Field Name="QuantityShipped_SalesLine">
-          <DataField>QuantityShipped_SalesLine</DataField>
-        </Field>
-        <Field Name="QuantityShipped_SalesLineFormat">
-          <DataField>QuantityShipped_SalesLineFormat</DataField>
-        </Field>
-        <Field Name="QtyToAsm">
-          <DataField>QtyToAsm</DataField>
-        </Field>
-        <Field Name="QtyToAsmFormat">
-          <DataField>QtyToAsmFormat</DataField>
-        </Field>
-        <Field Name="SerialNo">
-          <DataField>SerialNo</DataField>
-        </Field>
-        <Field Name="SerialNoLbl">
-          <DataField>SerialNoLbl</DataField>
-        </Field>
-        <Field Name="No_AssemblyLine">
-          <DataField>No_AssemblyLine</DataField>
-        </Field>
-        <Field Name="Description_AssemblyLine">
-          <DataField>Description_AssemblyLine</DataField>
-        </Field>
-        <Field Name="VariantCode_AssemblyLine">
-          <DataField>VariantCode_AssemblyLine</DataField>
-        </Field>
-        <Field Name="Quantity_AssemblyLine">
-          <DataField>Quantity_AssemblyLine</DataField>
-        </Field>
-        <Field Name="Quantity_AssemblyLineFormat">
-          <DataField>Quantity_AssemblyLineFormat</DataField>
-        </Field>
-        <Field Name="QuantityPer_AssemblyLine">
-          <DataField>QuantityPer_AssemblyLine</DataField>
-        </Field>
-        <Field Name="QuantityPer_AssemblyLineFormat">
-          <DataField>QuantityPer_AssemblyLineFormat</DataField>
-        </Field>
-        <Field Name="UnitOfMeasure_AssemblyLine">
-          <DataField>UnitOfMeasure_AssemblyLine</DataField>
-        </Field>
-        <Field Name="LocationCode_AssemblyLine">
-          <DataField>LocationCode_AssemblyLine</DataField>
-        </Field>
-        <Field Name="BinCode_AssemblyLine">
-          <DataField>BinCode_AssemblyLine</DataField>
-        </Field>
-        <Field Name="QuantityToConsume_AssemblyLine">
-          <DataField>QuantityToConsume_AssemblyLine</DataField>
-        </Field>
-        <Field Name="QuantityToConsume_AssemblyLineFormat">
-          <DataField>QuantityToConsume_AssemblyLineFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -7928,4 +7765,167 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Number">
+          <DataField>Number</DataField>
+        </Field>
+        <Field Name="CompanyNameText">
+          <DataField>CompanyNameText</DataField>
+        </Field>
+        <Field Name="DateText">
+          <DataField>DateText</DataField>
+        </Field>
+        <Field Name="No_SalesHeader">
+          <DataField>No_SalesHeader</DataField>
+        </Field>
+        <Field Name="CustomerNo_SalesHeader">
+          <DataField>CustomerNo_SalesHeader</DataField>
+        </Field>
+        <Field Name="CustomerName_SalesHeader">
+          <DataField>CustomerName_SalesHeader</DataField>
+        </Field>
+        <Field Name="ShippingAgent">
+          <DataField>ShippingAgent</DataField>
+        </Field>
+        <Field Name="Shipping_Agent_Service_Code">
+          <DataField>Shipping_Agent_Service_Code</DataField>
+        </Field>
+        <Field Name="TURFOrderType_SalesHeader">
+          <DataField>TURFOrderType_SalesHeader</DataField>
+        </Field>
+        <Field Name="GetWorkDescription">
+          <DataField>GetWorkDescription</DataField>
+        </Field>
+        <Field Name="CommentLbl">
+          <DataField>CommentLbl</DataField>
+        </Field>
+        <Field Name="ShipToAddress_Lbl">
+          <DataField>ShipToAddress_Lbl</DataField>
+        </Field>
+        <Field Name="ShipToAddress1">
+          <DataField>ShipToAddress1</DataField>
+        </Field>
+        <Field Name="ShipToAddress2">
+          <DataField>ShipToAddress2</DataField>
+        </Field>
+        <Field Name="ShipToAddress3">
+          <DataField>ShipToAddress3</DataField>
+        </Field>
+        <Field Name="ShipToAddress4">
+          <DataField>ShipToAddress4</DataField>
+        </Field>
+        <Field Name="ShipToAddress5">
+          <DataField>ShipToAddress5</DataField>
+        </Field>
+        <Field Name="ShipToAddress6">
+          <DataField>ShipToAddress6</DataField>
+        </Field>
+        <Field Name="ShipToAddress7">
+          <DataField>ShipToAddress7</DataField>
+        </Field>
+        <Field Name="ShipToAddress8">
+          <DataField>ShipToAddress8</DataField>
+        </Field>
+        <Field Name="SourceNoCpt">
+          <DataField>SourceNoCpt</DataField>
+        </Field>
+        <Field Name="TURFReplacementforSRONo_SalesHeader">
+          <DataField>TURFReplacementforSRONo_SalesHeader</DataField>
+        </Field>
+        <Field Name="LineNo_SalesLine">
+          <DataField>LineNo_SalesLine</DataField>
+        </Field>
+        <Field Name="ItemNo_SalesLine">
+          <DataField>ItemNo_SalesLine</DataField>
+        </Field>
+        <Field Name="Description_SalesLine">
+          <DataField>Description_SalesLine</DataField>
+        </Field>
+        <Field Name="LocationCode_SalesLine">
+          <DataField>LocationCode_SalesLine</DataField>
+        </Field>
+        <Field Name="BinCode_SalesLine">
+          <DataField>BinCode_SalesLine</DataField>
+        </Field>
+        <Field Name="ShipmentDate_SalesLine">
+          <DataField>ShipmentDate_SalesLine</DataField>
+        </Field>
+        <Field Name="Quantity_SalesLine">
+          <DataField>Quantity_SalesLine</DataField>
+        </Field>
+        <Field Name="Quantity_SalesLineFormat">
+          <DataField>Quantity_SalesLineFormat</DataField>
+        </Field>
+        <Field Name="UnitOfMeasure_SalesLine">
+          <DataField>UnitOfMeasure_SalesLine</DataField>
+        </Field>
+        <Field Name="QuantityToShip_SalesLine">
+          <DataField>QuantityToShip_SalesLine</DataField>
+        </Field>
+        <Field Name="QuantityToShip_SalesLineFormat">
+          <DataField>QuantityToShip_SalesLineFormat</DataField>
+        </Field>
+        <Field Name="QuantityShipped_SalesLine">
+          <DataField>QuantityShipped_SalesLine</DataField>
+        </Field>
+        <Field Name="QuantityShipped_SalesLineFormat">
+          <DataField>QuantityShipped_SalesLineFormat</DataField>
+        </Field>
+        <Field Name="QtyToAsm">
+          <DataField>QtyToAsm</DataField>
+        </Field>
+        <Field Name="QtyToAsmFormat">
+          <DataField>QtyToAsmFormat</DataField>
+        </Field>
+        <Field Name="SerialNo">
+          <DataField>SerialNo</DataField>
+        </Field>
+        <Field Name="SerialNoLbl">
+          <DataField>SerialNoLbl</DataField>
+        </Field>
+        <Field Name="No_AssemblyLine">
+          <DataField>No_AssemblyLine</DataField>
+        </Field>
+        <Field Name="Description_AssemblyLine">
+          <DataField>Description_AssemblyLine</DataField>
+        </Field>
+        <Field Name="VariantCode_AssemblyLine">
+          <DataField>VariantCode_AssemblyLine</DataField>
+        </Field>
+        <Field Name="Quantity_AssemblyLine">
+          <DataField>Quantity_AssemblyLine</DataField>
+        </Field>
+        <Field Name="Quantity_AssemblyLineFormat">
+          <DataField>Quantity_AssemblyLineFormat</DataField>
+        </Field>
+        <Field Name="QuantityPer_AssemblyLine">
+          <DataField>QuantityPer_AssemblyLine</DataField>
+        </Field>
+        <Field Name="QuantityPer_AssemblyLineFormat">
+          <DataField>QuantityPer_AssemblyLineFormat</DataField>
+        </Field>
+        <Field Name="UnitOfMeasure_AssemblyLine">
+          <DataField>UnitOfMeasure_AssemblyLine</DataField>
+        </Field>
+        <Field Name="LocationCode_AssemblyLine">
+          <DataField>LocationCode_AssemblyLine</DataField>
+        </Field>
+        <Field Name="BinCode_AssemblyLine">
+          <DataField>BinCode_AssemblyLine</DataField>
+        </Field>
+        <Field Name="QuantityToConsume_AssemblyLine">
+          <DataField>QuantityToConsume_AssemblyLine</DataField>
+        </Field>
+        <Field Name="QuantityToConsume_AssemblyLineFormat">
+          <DataField>QuantityToConsume_AssemblyLineFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

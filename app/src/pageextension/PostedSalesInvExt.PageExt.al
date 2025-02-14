@@ -11,6 +11,16 @@ pageextension 70304 "TURFPosted Sales Inv. Ext" extends "Posted Sales Invoice"
             }
         }
 
+        addafter("External Document No.")
+        {
+
+            field("TURFSales Return Order No."; Rec."TURFSales Return Order No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Sales Return Order No. field.', Comment = '%';
+            }
+        }
+
         addafter(General)
         {
             group(TURFZuora)

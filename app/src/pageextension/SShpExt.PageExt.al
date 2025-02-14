@@ -11,6 +11,16 @@ pageextension 70303 "TURFS. Shp. Ext" extends "Posted Sales Shipment"
             }
         }
 
+        addafter("External Document No.")
+        {
+
+            field("TURFSales Return Order No."; Rec."TURFSales Return Order No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Sales Return Order No. field.', Comment = '%';
+            }
+        }
+
         addafter(General)
         {
             group(TURFZuora)

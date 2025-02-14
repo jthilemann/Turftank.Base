@@ -10,6 +10,17 @@ pageextension 70302 "TURFS. Ord. Ext" extends "Sales Order"
                 ToolTip = 'Specifies the value of the Order Type field.';
             }
         }
+
+        addafter("External Document No.")
+        {
+
+            field("TURFSales Return Order No."; Rec."TURFSales Return Order No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Sales Return Order No. field.', Comment = '%';
+            }
+        }
+
         addafter(General)
         {
             group(TURFZuora)

@@ -83,7 +83,7 @@ report 70308 "TURFPick Instruction"
                 {
 
                 }
-                column(TURFReplacementforSRONo_SalesHeader; "TURFReplacement for SRO No.")
+                column(TURFReplacementforSRONo_SalesHeader; "TURFSales Return Order No.")
                 {
                 }
 
