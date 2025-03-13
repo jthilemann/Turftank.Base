@@ -48,6 +48,10 @@ tableextension 70301 "TURFSales Hdr Ext" extends "Sales Header"
             DataClassification = ToBeClassified;
             Editable = false;
         }
-
+        field(70315; "TURFStripe Payment Link"; Text[200])
+        {
+            Caption = 'Stripe Payment Link';
+            DataClassification = ToBeClassified;
+        }
     }
 }

@@ -9,6 +9,11 @@ pageextension 70302 "TURFS. Ord. Ext" extends "Sales Order"
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Order Type field.';
             }
+            field("TURFStripe Payment Link"; Rec."TURFStripe Payment Link")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Stripe Payment Link field.', Comment = '%';
+            }
         }
 
         addafter("External Document No.")

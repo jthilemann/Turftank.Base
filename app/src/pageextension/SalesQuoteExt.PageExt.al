@@ -30,6 +30,11 @@ pageextension 70321 "TURFSalesQuoteExt" extends "Sales Quote"
                     Editable = false;
                     ToolTip = 'Specifies the value of the Zuora Ext. Doc. No. field.', Comment = '%';
                 }
+                field("TURFStripe Payment Link"; Rec."TURFStripe Payment Link")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Stripe Payment Link field.', Comment = '%';
+                }
             }
         }
     }
