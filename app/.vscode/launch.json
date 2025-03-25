@@ -67,19 +67,21 @@
             "schemaUpdateMode": "ForceSync"
         },
         {
-            "name": "Attach: Microsoft cloud sandbox",
+            "name": "Sandbox_20241105",
             "type": "al",
-            "request": "attach",
+            "request": "launch",
             "environmentType": "Sandbox",
-            "environmentName": "US-Sandbox-0826",
+            "environmentName": "Sandbox_20241105",
+            "startupObjectId": 22,
             "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
             "breakOnError": "All",
-            "breakOnRecordWrite": "All",
+            "breakOnRecordWrite": "None",
+            "launchBrowser": true,
             "enableSqlInformationDebugger": true,
             "enableLongRunningSqlStatements": true,
             "longRunningSqlStatementsThreshold": 500,
             "numberOfSqlStatements": 10,
-            "breakOnNext": "WebServiceClient"
+            "schemaUpdateMode": "ForceSync"
         }
     ]
 }

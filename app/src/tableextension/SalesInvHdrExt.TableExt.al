@@ -53,5 +53,16 @@ tableextension 70302 "TURFSales Inv. Hdr Ext" extends "Sales Invoice Header"
             DataClassification = ToBeClassified;
             Editable = false;
         }
+        field(70316; "TURFPayment Identification"; Text[100])
+        {
+            Caption = 'Payment Identification';
+            DataClassification = ToBeClassified;
+        }
+        field(70311; "TURFStripe Reconciled"; Boolean)
+        {
+            Caption = 'Stripe Reconciled';
+            DataClassification = ToBeClassified;
+        }
+
     }
 }

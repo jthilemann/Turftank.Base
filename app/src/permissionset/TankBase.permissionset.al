@@ -40,5 +40,17 @@ permissionset 70301 TURFTankBase
         page "TURFBoomi - Customer Payments" = X,
         page "TURFBoomi Setup" = X,
         page "TURFBoomi Sucr. List Part" = X,
-        page "TURFCust. Subscriptions API" = X;
+        page "TURFCust. Subscriptions API" = X,
+        tabledata "TURFTank Stripe Setup" = RIMD,
+        table "TURFTank Stripe Setup" = X,
+        report "TURFInventory to Excel" = X,
+        report "TURFPick Instruction" = X,
+        report "TURFPicking List" = X,
+        report "TURFStandard Sales - Quote" = X,
+        codeunit TURFBC2Boomi = X,
+        codeunit "TURFBoomi Mgt" = X,
+        codeunit "TURFStripe Management" = X,
+        codeunit "TURFUpgrade Mgt" = X,
+        page "TURFBoomi Post.S.Inv API" = X,
+        page "TURFTank Stripe Setup" = X;
 }

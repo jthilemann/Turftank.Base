@@ -78,6 +78,15 @@ pageextension 70302 "TURFS. Ord. Ext" extends "Sales Order"
                 ToolTip = 'Specifies the value of the Ship-To Phone No. field.', Comment = '%';
             }
         }
+
+        addlast("Invoice Details")
+        {
+            field("TURFPayment Identification"; Rec."TURFPayment Identification")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Payment Identification field.', Comment = '%';
+            }
+        }
     }
     actions
     {

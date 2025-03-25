@@ -99,6 +99,10 @@ page 70306 "TURFOrder API"
                 {
                     Caption = 'Order Type';
                 }
+                field(paymentIdentification; Rec."TURFPayment Identification")
+                {
+                    Caption = 'Payment Identification';
+                }
                 field(zuoraOrderNo; Rec."TURFZuora Order No.")
                 {
                     Caption = 'Zuora Order No.';
