@@ -2239,7 +2239,7 @@ Cstr(Fields!DeliveryAddressCaptionLbl.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>23.29996pt</Top>
+                  <Top>22.30001pt</Top>
                   <Height>11pt</Height>
                   <Width>10.52458cm</Width>
                   <ZIndex>2</ZIndex>
@@ -3210,6 +3210,12 @@ End Function
         </Field>
         <Field Name="ShipmentMethodDesc">
           <DataField>ShipmentMethodDesc</DataField>
+        </Field>
+        <Field Name="Shipping_Agent_Code">
+          <DataField>Shipping_Agent_Code</DataField>
+        </Field>
+        <Field Name="Shipping_Agent_Service_Code">
+          <DataField>Shipping_Agent_Service_Code</DataField>
         </Field>
         <Field Name="CompanyInfo1Picture">
           <DataField>CompanyInfo1Picture</DataField>

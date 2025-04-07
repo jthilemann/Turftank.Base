@@ -1,5 +1,7 @@
 codeunit 70302 "TURFSales Management"
 {
+    Permissions = tabledata "Cust. Ledger Entry" = M;
+
     [EventSubscriber(ObjectType::Table, Database::Customer, 'OnBeforeSetDefaultSalesperson', '', false, false)]
     local procedure CustomerOnBeforeSetDefaultSalesperson(var IsHandled: Boolean)
     begin
@@ -87,5 +89,56 @@ codeunit 70302 "TURFSales Management"
     local procedure GenJnlPostLineOnAfterInitGLEntry(GenJournalLine: Record "Gen. Journal Line"; var GLEntry: Record "G/L Entry")
     begin
         GLEntry."TURFDescription 2" := GenJournalLine."TURFDescription 2";
+    end;
+
+    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterPostSalesDoc', '', false, false)]
+    // local procedure SalesPostOnAfterPostSalesDoc(SalesInvHdrNo: Code[20]; SalesCrMemoHdrNo: Code[20]; var CustLedgerEntry: Record "Cust. Ledger Entry")
+    // var
+    //     SalesInvoiceHeader: Record "Sales Invoice Header";
+    //     SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+    // begin
+    //     if CustLedgerEntry."Document Type" = CustLedgerEntry."Document Type"::Invoice then
+    //         if SalesInvoiceHeader.get(SalesInvHdrNo) then
+    //             if SalesInvoiceHeader."TURFZuora Invoice No." <> '' then begin
+    //                 CustLedgerEntry."TURFZuora Invoice No." := SalesInvoiceHeader."TURFZuora Invoice No.";
+    //                 CustLedgerEntry.Modify(false);
+    //             end;
+
+    //     if CustLedgerEntry."Document Type" = CustLedgerEntry."Document Type"::"Credit Memo" then
+    //         if SalesCrMemoHeader.get(SalesCrMemoHdrNo) then
+    //             if SalesCrMemoHeader."TURFZuora Invoice No." <> '' then begin
+    //                 CustLedgerEntry."TURFZuora Invoice No." := SalesCrMemoHeader."TURFZuora Invoice No.";
+    //                 CustLedgerEntry.Modify(false);
+    //             end;
+    // end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterCustLedgEntryInsert', '', false, false)]
+    local procedure GenJnlPostLineOnAfterCustLedgEntryInsert(var CustLedgerEntry: Record "Cust. Ledger Entry")
+    var
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+        InvoiceNo: Code[35];
+    begin
+        case CustLedgerEntry."Document Type" of
+            CustLedgerEntry."Document Type"::Invoice:
+                if SalesInvoiceHeader.get(CustLedgerEntry."Document No.") then
+                    InvoiceNo := SalesInvoiceHeader."TURFZuora Invoice No.";
+            CustLedgerEntry."Document Type"::"Credit Memo":
+                if SalesCrMemoHeader.get(CustLedgerEntry."Document No.") then
+                    InvoiceNo := SalesCrMemoHeader."TURFZuora Invoice No.";
+            CustLedgerEntry."Document Type"::Payment:
+                begin
+                    if CustLedgerEntry."Applies-to Doc. Type" = CustLedgerEntry."Applies-to Doc. Type"::Invoice then
+                        if SalesInvoiceHeader.get(CustLedgerEntry."Applies-to Doc. No.") then
+                            InvoiceNo := SalesInvoiceHeader."TURFZuora Invoice No.";
+                    if CustLedgerEntry."Applies-to Doc. Type" = CustLedgerEntry."Applies-to Doc. Type"::"Credit Memo" then
+                        if SalesCrMemoHeader.get(CustLedgerEntry."Applies-to Doc. No.") then
+                            InvoiceNo := SalesCrMemoHeader."TURFZuora Invoice No.";
+                end;
+        end;
+        if InvoiceNo <> '' then begin
+            CustLedgerEntry."TURFZuora Invoice No." := InvoiceNo;
+            CustLedgerEntry.Modify(false);
+        end
     end;
 }

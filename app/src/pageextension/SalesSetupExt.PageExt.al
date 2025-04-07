@@ -7,17 +7,30 @@ pageextension 70329 "TURFSales Setup Ext" extends "Sales & Receivables Setup"
             group("TURFTerms & Conditions")
             {
                 Caption = 'Terms & Conditions';
-                field(TURFTerms; Tc)
+                field(TURFTerms; QuoteTC)
                 {
                     ApplicationArea = all;
                     ExtendedDatatype = RichContent;
                     MultiLine = true;
                     Caption = 'Quote Terms & Conditions';
-                    ToolTip = 'Terms & Conditions';
+                    ToolTip = 'Quote Terms & Conditions';
 
                     trigger OnValidate()
                     begin
-                        Rec.SetTURFQuoteTermsConditions(TC);
+                        Rec.SetTURFQuoteTermsConditions(QuoteTC);
+                    end;
+                }
+                field(TURFShipmentTC; ShipmentTC)
+                {
+                    ApplicationArea = all;
+                    ExtendedDatatype = RichContent;
+                    MultiLine = true;
+                    Caption = 'Shipment Terms & Conditions';
+                    ToolTip = 'Shipment Terms & Conditions';
+
+                    trigger OnValidate()
+                    begin
+                        Rec.SetTURFShipmentTermsConditions(ShipmentTC);
                     end;
                 }
             }
@@ -25,10 +38,11 @@ pageextension 70329 "TURFSales Setup Ext" extends "Sales & Receivables Setup"
     }
 
     var
-        TC: Text;
+        QuoteTC, ShipmentTC : Text;
 
     trigger OnOpenPage()
     begin
-        TC := Rec.GetTURFQuoteTermsConditions();
+        QuoteTC := Rec.GetTURFQuoteTermsConditions();
+        ShipmentTC := Rec.GetTURFShipmentTermsConditions();
     end;
 }

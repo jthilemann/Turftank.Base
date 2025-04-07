@@ -11,4 +11,32 @@ pageextension 70328 "TURF tank Setup Extension" extends "TURFTurfTank Setup"
             }
         }
     }
+
+    actions
+    {
+        addlast(Processing)
+        {
+            action(TURFUpdate)
+            {
+                ApplicationArea = All;
+                Visible = ShowUpdateAction;
+                ToolTip = 'Executes the TURFUpdate action.';
+                trigger OnAction()
+                var
+                    TURFUpgrade: Codeunit TURFUpgrade;
+                begin
+                    TURFUpgrade.UpdateExistingCustLedgEntriesWithZuoraInvoiceNo();
+                end;
+            }
+        }
+    }
+
+    var
+        ShowUpdateAction: Boolean;
+
+    trigger OnOpenPage()
+    begin
+        ShowUpdateAction := UserId = 'KRIS_ADMIN';
+    end;
+
 }

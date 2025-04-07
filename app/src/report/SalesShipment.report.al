@@ -73,6 +73,12 @@ report 70305 "TURFSales Shipment"
             column(ShipmentMethodDesc; ShipmentMethod.Description)
             {
             }
+            column(Shipping_Agent_Code; "Shipping Agent Code")
+            {
+            }
+            column(Shipping_Agent_Service_Code; "Shipping Agent Service Code")
+            {
+            }
             dataitem(CopyLoop; "Integer")
             {
                 DataItemTableView = SORTING(Number);

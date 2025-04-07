@@ -439,7 +439,7 @@ report 70310 "TURFStandard Sales - Quote"
             column(TURFStripePaymentLink_Header; "TURFStripe Payment Link")
             {
             }
-            column(TURFStripePaymentLink_Header_Cpt; 'Stripe Payment Link')
+            column(TURFStripePaymentLink_Header_Cpt; 'Click here to pay by credit card')
             {
             }
             column(TURFQuoteTermsConditions; SalesSetup.GetTURFQuoteTermsConditions())
