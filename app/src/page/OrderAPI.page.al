@@ -63,9 +63,17 @@ page 70306 "TURFOrder API"
                 {
                     Caption = 'Sell-to Contact No.';
                 }
-                field(sellToCustomerNo; Rec."Sell-to Customer No.")
+                field(sellToCustomerNo; CustomerNo)
                 {
                     Caption = 'Sell-to Customer No.';
+                    trigger OnValidate()
+                    var
+                        HubspotSetup: Record "TURFHubspot Setup";
+                    begin
+                        HubspotSetup.GetRecordOnce();
+                        CustomerNo := Copystr(format(CustomerNo).PadLeft(HubspotSetup."Customer No. Length", '0'), 1, 20);
+                        Rec.Validate("Sell-to Customer No.", CustomerNo);
+                    end;
                 }
                 field(shipToCode; Rec."Ship-to Code")
                 {
@@ -121,6 +129,10 @@ page 70306 "TURFOrder API"
             }
         }
     }
+
+    var
+        CustomerNo: Code[20];
+
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     var
         BoomiSetup: Record "TURFBoomi Setup";

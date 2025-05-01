@@ -9,12 +9,12 @@ table 70308 "TURFTank Stripe Setup"
         }
 
         //You might want to add fields here
-        field(2; "Stripe Payments Bank No."; Code[20])
-        {
-            Caption = 'Stripe Payments Bank';
-            DataClassification = ToBeClassified;
-            TableRelation = "Bank Account"."No.";
-        }
+        // field(2; "Stripe Payments Bank No."; Code[20])
+        // {
+        //     Caption = 'Stripe Payments Bank';
+        //     DataClassification = ToBeClassified;
+        //     TableRelation = "Bank Account"."No.";
+        // }
         field(3; "Stripe Fee G/L Account No."; Code[20])
         {
             Caption = 'Stripe Fee G/L Account No.';
@@ -38,7 +38,12 @@ table 70308 "TURFTank Stripe Setup"
             DataClassification = ToBeClassified;
             TableRelation = "G/L Account"."No." where("Direct Posting" = const(true));
         }
-
+        field(7; "TURFWebshop Def. Global Dim. 1"; Code[20])
+        {
+            Caption = 'Default Global Dimension 1';
+            DataClassification = ToBeClassified;
+            TableRelation = "Dimension Value".Code WHERE("Dimension Code" = CONST('DEPARTMENT'));
+        }
 
     }
 

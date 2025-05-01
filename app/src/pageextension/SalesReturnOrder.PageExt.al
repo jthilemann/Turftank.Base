@@ -55,6 +55,7 @@ pageextension 70323 "TURFSales Return Order" extends "Sales Return Order"
                     TURFBoomiTaxMgt: Codeunit "TURFBoomi Mgt";
                 begin
                     TURFBoomiTaxMgt.GetTaxFromZuora(Rec);
+                    CurrPage.SalesLines.Page.ForceTotalsCalculation()
                 end;
             }
         }

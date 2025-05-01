@@ -55,6 +55,7 @@ pageextension 70322 TURFSalesCrMemoExt extends "Sales Credit Memo"
                     TURFBoomiTaxMgt: Codeunit "TURFBoomi Mgt";
                 begin
                     TURFBoomiTaxMgt.GetTaxFromZuora(Rec);
+                    CurrPage.SalesLines.Page.ForceTotalsCalculation()
                 end;
             }
         }

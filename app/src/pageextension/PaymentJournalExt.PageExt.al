@@ -1,4 +1,4 @@
-pageextension 70330 "TURFCash Receipt Journal" extends "Cash Receipt Journal"
+pageextension 70333 TURFPaymentJournalExt extends "Payment Journal"
 {
     layout
     {
@@ -11,15 +11,15 @@ pageextension 70330 "TURFCash Receipt Journal" extends "Cash Receipt Journal"
         {
             action(TURFApplyStripe)
             {
-                Caption = 'Apply Webshop Orders';
+                Caption = 'Apply Webshop Return Orders';
                 ApplicationArea = all;
-                ToolTip = 'Download transactions and apply webshop orders';
+                ToolTip = 'Download transactions and apply webshop return orders';
                 Image = ApplyEntries;
                 trigger OnAction()
                 var
                     StripeManagement: Codeunit "TURFStripe Management";
                 begin
-                    StripeManagement.ApplyWebshopOrders(Rec."Journal Template Name", CurrentJnlBatchName, false);
+                    StripeManagement.ApplyWebshopOrders(Rec."Journal Template Name", CurrentJnlBatchName, true);
                 end;
             }
         }

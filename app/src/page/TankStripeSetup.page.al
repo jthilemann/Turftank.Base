@@ -21,15 +21,15 @@ page 70317 "TURFTank Stripe Setup"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Stripe Fee G/L Account No. field.', Comment = '%';
                 }
-                field("Stripe Payments Bank No."; Rec."Stripe Payments Bank No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the Stripe Payments Bank field.', Comment = '%';
-                }
                 field("Stripe Interim Account"; Rec."Stripe Interim Account")
                 {
                     ToolTip = 'Specifies the value of the Stripe Interim Account field.', Comment = '%';
                 }
+                field("TURFWebshop Def. Global Dim. 1"; Rec."TURFWebshop Def. Global Dim. 1")
+                {
+                    ToolTip = 'Specifies the value of the Default Global Dimension 1 field.', Comment = '%';
+                }
+
             }
             group(StripeAPISetup)
             {

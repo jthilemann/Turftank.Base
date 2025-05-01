@@ -45,8 +45,19 @@ tableextension 70316 "TURFSales Cr. Memo Hdr Ext" extends "Sales Cr.Memo Header"
         }
         field(70309; "TURFZuora Invoice No."; Code[35])
         {
-            Caption = 'Zuora Cr. Memo No.';
+            Caption = 'Zuora Cr. Invoice No.';
             DataClassification = ToBeClassified;
         }
+        field(70311; "TURFStripe Reconciled"; Boolean)
+        {
+            Caption = 'Stripe Reconciled';
+            DataClassification = ToBeClassified;
+        }
+        field(70316; "TURFPayment Identification"; Text[100])
+        {
+            Caption = 'Payment Identification';
+            DataClassification = ToBeClassified;
+        }
+
     }
 }

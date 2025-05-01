@@ -120,6 +120,7 @@ pageextension 70302 "TURFS. Ord. Ext" extends "Sales Order"
                     TURFBoomiTaxMgt: Codeunit "TURFBoomi Mgt";
                 begin
                     TURFBoomiTaxMgt.GetTaxFromZuora(Rec);
+                    CurrPage.SalesLines.Page.ForceTotalsCalculation()
                 end;
             }
         }

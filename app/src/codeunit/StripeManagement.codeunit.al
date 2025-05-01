@@ -6,9 +6,10 @@ codeunit 70309 "TURFStripe Management"
         GenJournalLine2: Record "Gen. Journal Line";
         TurfTankStripeSetup: Record "TURFTank Stripe Setup";
 
-    internal procedure ApplyWebshopOrders(JournalTemplateName: Code[10]; JnlBatchName: Code[10])
+    internal procedure ApplyWebshopOrders(JournalTemplateName: Code[10]; JnlBatchName: Code[10]; ReturnOrder: Boolean)
     var
         SalesInvoiceHeader: Record "Sales Invoice Header";
+        SalesCrMemoHeader: Record "Sales Cr.Memo Header";
         ChargeId: Text;
         LastLineNo: Integer;
         JsonObj: JsonObject;
@@ -19,19 +20,41 @@ codeunit 70309 "TURFStripe Management"
         TurfTankStripeSetup.GetRecordOnce();
 
         LastLineNo := GetLastGenJournalLine(JournalTemplateName, JnlBatchName);
-        SalesInvoiceHeader.SetRange("TURFStripe Reconciled", false);
-        SalesInvoiceHeader.SetFilter("TURFPayment Identification", '<>%1', '');
-        if SalesInvoiceHeader.FindSet(false) then
-            repeat
-                if SendRequest(StrSubstNo(ChargePathLbl, SalesInvoiceHeader."TURFPayment Identification"), JsonObj) then
-                    if JsonObj.AsToken().SelectToken('$.data[0].id', JTkn) then
-                        ChargeId := JTkn.AsValue().AsText();
 
-                if ChargeId <> '' then
-                    if SendRequest(StrSubstNo(BalanceTransactionPathLbl, ChargeId), JsonObj) then
-                        ReconcileAmount(JournalTemplateName, JnlBatchName, SalesInvoiceHeader, JsonObj, LastLineNo);
+        if ReturnOrder then begin
+            SalesCrMemoHeader.SetRange("TURFStripe Reconciled", false);
+            SalesCrMemoHeader.SetFilter("TURFPayment Identification", '<>%1', '');
+            if SalesCrMemoHeader.FindSet(false) then
+                repeat
+                    if SendRequest(StrSubstNo(ChargePathLbl, SalesCrMemoHeader."TURFPayment Identification"), JsonObj) then
+                        if JsonObj.AsToken().SelectToken('$.data[0].id', JTkn) then
+                            ChargeId := JTkn.AsValue().AsText();
 
-            until SalesInvoiceHeader.Next() = 0;
+                    if ChargeId <> '' then
+                        if SendRequest(StrSubstNo(BalanceTransactionPathLbl, ChargeId), JsonObj) then begin
+                            ReconcileAmount(JournalTemplateName, JnlBatchName, SalesCrMemoHeader."Posting Date", SalesCrMemoHeader."Currency Code", JsonObj, LastLineNo, true);
+                            SalesCrMemoHeader."TURFStripe Reconciled" := true;
+                            SalesCrMemoHeader.Modify(false);
+                        end;
+
+                until SalesCrMemoHeader.Next() = 0;
+        end else begin
+            SalesInvoiceHeader.SetRange("TURFStripe Reconciled", false);
+            SalesInvoiceHeader.SetFilter("TURFPayment Identification", '<>%1', '');
+            if SalesInvoiceHeader.FindSet(false) then
+                repeat
+                    if SendRequest(StrSubstNo(ChargePathLbl, SalesInvoiceHeader."TURFPayment Identification"), JsonObj) then
+                        if JsonObj.AsToken().SelectToken('$.data[0].id', JTkn) then
+                            ChargeId := JTkn.AsValue().AsText();
+
+                    if ChargeId <> '' then
+                        if SendRequest(StrSubstNo(BalanceTransactionPathLbl, ChargeId), JsonObj) then begin
+                            ReconcileAmount(JournalTemplateName, JnlBatchName, SalesInvoiceHeader."Posting Date", SalesInvoiceHeader."Currency Code", JsonObj, LastLineNo, false);
+                            SalesInvoiceHeader."TURFStripe Reconciled" := true;
+                            SalesInvoiceHeader.Modify(false);
+                        end;
+                until SalesInvoiceHeader.Next() = 0;
+        end;
     end;
 
     local procedure SendRequest(Path: Text; var JsonObj: JsonObject): Boolean
@@ -58,30 +81,40 @@ codeunit 70309 "TURFStripe Management"
         exit(Success);
     end;
 
-    local procedure ReconcileAmount(JournalTemplateName: Code[10]; JnlBatchName: Code[10]; SalesInvoiceHeader: Record "Sales Invoice Header"; JsonObj: JsonObject; var NextLineNo: Integer)
+    local procedure ReconcileAmount(JournalTemplateName: Code[10]; JnlBatchName: Code[10]; PostingDate: Date; CurrencyCode: Code[10]; JsonObj: JsonObject; var NextLineNo: Integer; ReturnOrder: Boolean)
     var
         GenJournalLine: Record "Gen. Journal Line";
+        GeneralLedgerSetup: Record "General Ledger Setup";
         Amount, BankAmount, FeeAmount : Decimal;
-        PostingDate: Date;
+        UsePostingDate: Date;
         ExternalDocNo: Code[35];
+        BankAccountNo: Code[20];
         BankShopifyPmntLbl: Label 'Bank Stripe Europe payment';
         FeeShopifyLbl: Label 'Fee Stribe Europe';
     begin
-        GetValuesFromJson(PostingDate, ExternalDocNo, Amount, BankAmount, FeeAmount, JsonObj);
+        GetValuesFromJson(UsePostingDate, ExternalDocNo, Amount, BankAmount, FeeAmount, JsonObj);
 
-        if PostingDate < SalesInvoiceHeader."Posting Date" then
-            PostingDate := SalesInvoiceHeader."Posting Date";
+        if UsePostingDate < PostingDate then
+            UsePostingDate := PostingDate;
 
-        InsertCashReceiptLine(JournalTemplateName, JnlBatchName, GenJournalLine, NextLineNo, PostingDate, ExternalDocNo, Amount);
+        if ReturnOrder then begin
+            InsertCashReceiptLine(JournalTemplateName, JnlBatchName, GenJournalLine, NextLineNo, UsePostingDate, ExternalDocNo, Amount);
+            BankAmount := -BankAmount;
+            FeeAmount := -FeeAmount;
+        end else
+            InsertCashReceiptLine(JournalTemplateName, JnlBatchName, GenJournalLine, NextLineNo, UsePostingDate, ExternalDocNo, -Amount);
 
         if FeeAmount <> 0 then
             InsertSumLine(JournalTemplateName, JnlBatchName, NextLineNo, FeeAmount, FeeShopifyLbl, Enum::"Gen. Journal Account Type"::"G/L Account", TurfTankStripeSetup."Stripe Fee G/L Account No.");
 
-        if BankAmount <> 0 then
-            InsertSumLine(JournalTemplateName, JnlBatchName, NextLineNo, BankAmount, BankShopifyPmntLbl, Enum::"Gen. Journal Account Type"::"Bank Account", TurfTankStripeSetup."Stripe Payments Bank No.");
+        BankAccountNo := CurrencyCode;
+        if BankAccountNo = '' then begin
+            GeneralLedgerSetup.GetRecordOnce();
+            BankAccountNo := GeneralLedgerSetup."LCY Code";
+        end;
 
-        SalesInvoiceHeader."TURFStripe Reconciled" := true;
-        SalesInvoiceHeader.Modify(false);
+        if BankAmount <> 0 then
+            InsertSumLine(JournalTemplateName, JnlBatchName, NextLineNo, BankAmount, BankShopifyPmntLbl, Enum::"Gen. Journal Account Type"::"Bank Account", BankAccountNo);
     end;
 
     local procedure GetLastGenJournalLine(JournalTemplateName: Code[10]; JnlBatchName: Code[10]): Integer
@@ -106,7 +139,8 @@ codeunit 70309 "TURFStripe Management"
         GenJournalLine.validate("Posting Date", PostingDate);
         GenJournalLine.validate("External Document No.", ExternalDocNo);
         GenJournalLine.validate(Description, StripePaymentLbl);
-        GenJournalLine.validate(Amount, -Amount);
+        GenJournalLine.validate(Amount, Amount);
+        GenJournalLine.validate("Shortcut Dimension 1 Code", TurfTankStripeSetup."TURFWebshop Def. Global Dim. 1");
         GenJournalLine.Insert(true);
 
         GenJournalLine2 := GenJournalLine;
@@ -114,7 +148,6 @@ codeunit 70309 "TURFStripe Management"
 
     local procedure InsertSumLine(JournalTemplateName: Code[10]; JnlBatchName: Code[10]; var NextLineNo: Integer; NewAmount: Decimal; Description: Text[50]; GenJournalAccountType: Enum "Gen. Journal Account Type"; AccountNo: Code[20])
     var
-
         GenJournalLine: Record "Gen. Journal Line";
     begin
         NextLineNo += 10000;
@@ -131,9 +164,9 @@ codeunit 70309 "TURFStripe Management"
             GenJournalLine.validate("Account Type", GenJournalAccountType);
             GenJournalLine.Validate("Account No.", AccountNo);
             GenJournalLine.validate("Line No.", NextLineNo);
-
             GenJournalLine.validate("Posting Date", GenJournalLine2."Posting Date");
             GenJournalLine.validate(Description, Description);
+            GenJournalLine.validate("Shortcut Dimension 1 Code", TurfTankStripeSetup."TURFWebshop Def. Global Dim. 1");
             GenJournalLine.Insert(true);
 
             GenJournalLine2 := GenJournalLine;

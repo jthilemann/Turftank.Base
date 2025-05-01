@@ -89,6 +89,7 @@ pageextension 70301 "TURFS. Inv. Ext" extends "Sales invoice"
                     TURFBoomiTaxMgt: Codeunit "TURFBoomi Mgt";
                 begin
                     TURFBoomiTaxMgt.GetTaxFromZuora(Rec);
+                    CurrPage.SalesLines.Page.ForceTotalsCalculation()
                 end;
             }
         }

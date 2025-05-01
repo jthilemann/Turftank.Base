@@ -54,6 +54,7 @@ pageextension 70321 "TURFSalesQuoteExt" extends "Sales Quote"
                     TURFBoomiTaxMgt: Codeunit "TURFBoomi Mgt";
                 begin
                     TURFBoomiTaxMgt.GetTaxFromZuora(Rec);
+                    CurrPage.SalesLines.Page.ForceTotalsCalculation()
                 end;
             }
         }
