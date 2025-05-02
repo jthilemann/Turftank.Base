@@ -54,8 +54,6 @@ page 70314 "TURFBoomi - Customer Payments"
                         GetSetup();
                         //UpdateRecFields();
                         Rec.Validate("Account Type", Rec."Account Type"::Customer);
-                        SalesInvoiceHeader.SetRange("TURFBoomi Order", true);
-                        SalesInvoiceHeader.SetRange("TURFOrder Type", BoomiSetup."TURFBoomi Default Order Type");
                         SalesInvoiceHeader.SetRange("TURFZuora Invoice No.", zuoraInvoiceNo);
                         SalesInvoiceHeader.FindFirst();
                         Rec.Validate("Account No.", SalesInvoiceHeader."Bill-to Customer No.");
