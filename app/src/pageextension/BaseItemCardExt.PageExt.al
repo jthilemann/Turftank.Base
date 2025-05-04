@@ -2,6 +2,15 @@ pageextension 70313 "TURFBase Item Card Ext" extends "Item Card"
 {
     layout
     {
+        addafter("Qty. on Sales Order")
+        {
+
+            field("TURFQty. on Sales Return"; Rec."Qty. on Sales Return")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Qty. on Sales Return field.', Comment = '%';
+            }
+        }
         addlast(Item)
         {
             field("TURFPart For Robots"; Rec."TURFPart For Robots")
