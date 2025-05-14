@@ -5,12 +5,13 @@ codeunit 70316 "TURFPurchase Receipt Notif."
     var
         Vendor: Record Vendor;
         PurchRcptHeader: Record "Purch. Rcpt. Header";
+        PurchRcptLine: Record "Purch. Rcpt. Line";
         PurchaseReceipt: Report "Purchase - Receipt";
         EmailMessage: Codeunit "Email Message";
         Base64Convert: Codeunit "Base64 Convert";
         TempBlob: Codeunit "Temp Blob";
         Email: Codeunit Email;
-        BodyLbl: Label 'A new purchase receipt %1 has been posted.', Comment = '%1=PurchRcpHdrNo', Locked = true;
+        BodyLbl: Label 'A new purchase receipt %1 has been posted. Purchase Order No. %2', Comment = '%1=PurchRcpHdrNo, %2=PurchaseOrderNo', Locked = true;
         SubjectLbl: Label 'Purchase Receipt %1', Comment = '%1=PurchRcpHdrNo', Locked = true;
         OStream: OutStream;
         IStream: InStream;
@@ -29,8 +30,14 @@ codeunit 70316 "TURFPurchase Receipt Notif."
         if Vendor."TURFPurchase Receipt Email" = '' then
             exit;
 
+        PurchRcptLine.SetRange("Document No.", PurchRcpHdrNo);
+        PurchRcptLine.SetRange(Type, PurchRcptLine.Type::Item);
+        PurchRcptLine.SetFilter(Quantity, '<>0');
+        if PurchRcptLine.IsEmpty() then
+            exit;
+
         Subject := StrSubstNo(SubjectLbl, PurchRcpHdrNo);
-        Body := StrSubstNo(BodyLbl, PurchRcpHdrNo);
+        Body := StrSubstNo(BodyLbl, PurchRcpHdrNo, PurchRcptHeader."Order No.");
 
         EmailMessage.Create(Vendor."TURFPurchase Receipt Email", Subject, Body);
 

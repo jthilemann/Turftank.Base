@@ -60,6 +60,19 @@ pageextension 70304 "TURFPosted Sales Inv. Ext" extends "Posted Sales Invoice"
                     Editable = false;
                     ToolTip = 'Specifies the value of the Zuora Ext. Doc. No. field.', Comment = '%';
                 }
+                field(TURFUpdateZuoraInvoiceNo; TURFUpdateZuoraInvoiceNo)
+                {
+                    Caption = 'Update Zuora Invoice No.';
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Update Zuora Invoice No. field.', Comment = '%';
+                    trigger OnValidate()
+                    var
+                        BC2Boomi: Codeunit "TURFBC2Boomi";
+                    begin
+                        BC2Boomi.UpdateZuoraInvoiceNo(Rec, TURFUpdateZuoraInvoiceNo);
+                        Clear(TURFUpdateZuoraInvoiceNo);
+                    end;
+                }
             }
         }
         addafter("Ship-to Contact")
@@ -97,4 +110,6 @@ pageextension 70304 "TURFPosted Sales Inv. Ext" extends "Posted Sales Invoice"
             }
         }
     }
+    var
+        TURFUpdateZuoraInvoiceNo: Code[35];
 }

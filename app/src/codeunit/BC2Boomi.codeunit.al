@@ -31,15 +31,16 @@ codeunit 70308 TURFBC2Boomi
         SalesLine.SetRange("Document Type", SalesHeader."Document Type");
         SalesLine.SetRange("Document No.", SalesHeader."No.");
         SalesLine.SetRange(Type, SalesLine.Type::Item);
+        SalesLine.SetFilter("Quantity", '<>0');
         if SalesLine.FindSet(false) then
             repeat
-                AddLineToArray(LinesArray, SalesLine."No.", SalesLine.Quantity, SalesLine."Unit Price", SalesLine."Line Amount");
+                AddLineToArray(LinesArray, SalesLine."No.", SalesLine.Quantity, SalesLine."Line Amount" / SalesLine.Quantity, SalesLine."Line Amount");
             until SalesLine.Next() = 0;
         HdrObj.Add('items', LinesArray);
 
         HdrObj.WriteTo(BodyContent);
 
-        if SendRequest(Enum::"Http Method"::POST, TURFBoomiSetup."Tax Estimate URL", BodyContent, ResponseTxt) then begin
+        if SendRequestToZuora(Enum::"Http Method"::POST, TURFBoomiSetup."Tax Estimate URL", BodyContent, ResponseTxt, false) then begin
             JsonObj.ReadFrom(ResponseTxt);
             JsonObj.Get('TaxAmount', JsonTkn);
             TaxAmount := JsonTkn.AsValue().AsDecimal();
@@ -66,15 +67,16 @@ codeunit 70308 TURFBC2Boomi
         SalesInvoiceLine.SetRange("Document No.", SalesInvoiceHeader."No.");
         SalesInvoiceLine.SetRange(Type, SalesInvoiceLine.Type::Item);
         SalesInvoiceLine.SetFilter("No.", '<>%1', TURFBoomiSetup."Default Tax Item");
+        SalesInvoiceLine.SetFilter("Quantity", '<>0');
         if SalesInvoiceLine.FindSet(false) then
             repeat
-                AddLineToArray(LinesArray, SalesInvoiceLine."No.", SalesInvoiceLine.Quantity, SalesInvoiceLine."Unit Price", SalesInvoiceLine."Line Amount");
+                AddLineToArray(LinesArray, SalesInvoiceLine."No.", SalesInvoiceLine.Quantity, SalesInvoiceLine."Line Amount" / SalesInvoiceLine.Quantity, SalesInvoiceLine."Line Amount");
             until SalesInvoiceLine.Next() = 0;
         HdrObj.Add('items', LinesArray);
 
         HdrObj.WriteTo(BodyContent);
 
-        if SendRequest(Enum::"Http Method"::POST, TURFBoomiSetup."Tax Estimate URL", BodyContent, ResponseTxt) then begin
+        if SendRequestToZuora(Enum::"Http Method"::POST, TURFBoomiSetup."Tax Estimate URL", BodyContent, ResponseTxt, false) then begin
             JsonObj.ReadFrom(ResponseTxt);
             JsonObj.Get('orderNumber', JsonTkn);
             SalesInvoiceHeader."TURFZuora Order No." := Copystr(JsonTkn.AsValue().AsText(), 1, MaxStrLen(SalesInvoiceHeader."TURFZuora Order No."));
@@ -109,15 +111,16 @@ codeunit 70308 TURFBC2Boomi
         SalesCrMemoLine.SetRange("Document No.", SalesCrMemoHeader."No.");
         SalesCrMemoLine.SetRange(Type, SalesCrMemoLine.Type::Item);
         SalesCrMemoLine.SetFilter("No.", '<>%1', TURFBoomiSetup."Default Tax Item");
+        SalesCrMemoLine.SetFilter("Quantity", '<>0');
         if SalesCrMemoLine.FindSet(false) then
             repeat
-                AddLineToArray(LinesArray, SalesCrMemoLine."No.", SalesCrMemoLine.Quantity, SalesCrMemoLine."Unit Price", SalesCrMemoLine."Line Amount");
+                AddLineToArray(LinesArray, SalesCrMemoLine."No.", SalesCrMemoLine.Quantity, SalesCrMemoLine."Line Amount" / SalesCrMemoLine.Quantity, SalesCrMemoLine."Line Amount");
             until SalesCrMemoLine.Next() = 0;
         HdrObj.Add('items', LinesArray);
 
         HdrObj.WriteTo(BodyContent);
 
-        if SendRequest(Enum::"Http Method"::POST, TURFBoomiSetup."Tax Estimate URL", BodyContent, ResponseTxt) then begin
+        if SendRequestToZuora(Enum::"Http Method"::POST, TURFBoomiSetup."Tax Estimate URL", BodyContent, ResponseTxt, true) then begin
             JsonObj.ReadFrom(ResponseTxt);
             JsonObj.Get('creditMemoNumber', JsonTkn);
             SalesCrMemoHeader."TURFZuora Order No." := Copystr(JsonTkn.AsValue().AsText(), 1, MaxStrLen(SalesCrMemoHeader."TURFZuora Order No."));
@@ -127,7 +130,7 @@ codeunit 70308 TURFBC2Boomi
             Error(ResponseTxt);
     end;
 
-    local procedure SendRequest(HttpMethod: Enum "Http Method"; URL: Text; Body: Text; var ResponseText: Text): Boolean
+    procedure SendRequestToZuora(HttpMethod: Enum "Http Method"; URL: Text; Body: Text; var ResponseText: Text; UseMaxTimeout: Boolean): Boolean
     var
         Client: HttpClient;
         Content: HttpContent;
@@ -137,6 +140,11 @@ codeunit 70308 TURFBC2Boomi
         Success: Boolean;
         ErrorMsgFormatLbl: Label 'Reason: %1\Response: %2', Locked = true;
     begin
+        TURFBoomiSetup.GetRecordOnce();
+
+        if UseMaxTimeout then
+            Client.Timeout := 300000;
+
         ClientHeaders := Client.DefaultRequestHeaders();
         ClientHeaders.Add('accept', 'application/json');
         AddAuthorizationHeader(ClientHeaders);
@@ -196,5 +204,12 @@ codeunit 70308 TURFBC2Boomi
         HdrObj.Add('poNumber', ExtDocNo);
         if ReferenceNo <> '' then
             HdrObj.Add('referenceNumber', ReferenceNo);
+    end;
+
+    internal procedure UpdateZuoraInvoiceNo(var SalesInvoiceHeader: Record "Sales Invoice Header"; NewZuoraInvoiceNo: Code[35])
+    begin
+        SalesInvoiceHeader.TestField("TURFZuora Invoice No.", '');
+        SalesInvoiceHeader."TURFZuora Invoice No." := NewZuoraInvoiceNo;
+        SalesInvoiceHeader.Modify(false);
     end;
 }
