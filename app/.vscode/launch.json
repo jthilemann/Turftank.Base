@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "snapshotInitialize: Microsoft production cloud",
+            "type": "al",
+            "request": "snapshotInitialize",
+            "environmentType": "Production",
+            "environmentName": "ROW_Production",
+            "breakOnNext": "WebClient",
+            "executionContext": "DebugAndProfile",
+            "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
+            "userId" : "KRIS_ADMIN"
+        },
+        {
             "name": "US-PROD SNA${pathSeparator}",
             "type": "al",
             "request": "snapshotInitialize",
@@ -16,11 +27,11 @@
             "userId" : "KRIS_ADMIN"
         },
         {
-            "name": "Sandbox_2024-06-22",
+            "name": "USSandbox_040825",
             "type": "al",
             "request": "launch",
             "environmentType": "Sandbox",
-            "environmentName": "Sandbox_20241105",
+            "environmentName": "USSandbox_040825",
             "startupObjectId": 22,
             "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
             "breakOnError": "All",

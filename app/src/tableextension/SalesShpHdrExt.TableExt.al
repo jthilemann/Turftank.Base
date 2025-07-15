@@ -48,5 +48,10 @@ tableextension 70303 "TURFSales Shp. Hdr Ext" extends "Sales Shipment Header"
             DataClassification = ToBeClassified;
             Editable = false;
         }
+        field(70317; "TURFWarranty Order"; Boolean)
+        {
+            Caption = 'Warranty Order';
+            DataClassification = ToBeClassified;
+        }
     }
 }

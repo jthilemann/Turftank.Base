@@ -2,7 +2,7 @@ pageextension 70329 "TURFSales Setup Ext" extends "Sales & Receivables Setup"
 {
     layout
     {
-        addafter("Dynamics 365 Sales")
+        addafter(General)
         {
             group("TURFTerms & Conditions")
             {
@@ -33,16 +33,31 @@ pageextension 70329 "TURFSales Setup Ext" extends "Sales & Receivables Setup"
                         Rec.SetTURFShipmentTermsConditions(ShipmentTC);
                     end;
                 }
+
+                field(TURFOrderConfTC; OrderConfTC)
+                {
+                    ApplicationArea = all;
+                    ExtendedDatatype = RichContent;
+                    MultiLine = true;
+                    Caption = 'Order Confirmation Terms & Conditions';
+                    ToolTip = 'Order Confirmation Terms & Conditions';
+
+                    trigger OnValidate()
+                    begin
+                        Rec.SetTURFOrderConfirmationTermsConditions(OrderConfTC);
+                    end;
+                }
             }
         }
     }
 
     var
-        QuoteTC, ShipmentTC : Text;
+        QuoteTC, ShipmentTC, OrderConfTC : Text;
 
     trigger OnOpenPage()
     begin
         QuoteTC := Rec.GetTURFQuoteTermsConditions();
         ShipmentTC := Rec.GetTURFShipmentTermsConditions();
+        OrderConfTC := Rec.GetTURFOrderConfirmationTermsConditions();
     end;
 }

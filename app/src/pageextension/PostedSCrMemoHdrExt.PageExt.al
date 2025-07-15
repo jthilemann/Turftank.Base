@@ -38,6 +38,19 @@ pageextension 70324 TURFPostedSCrMemoHdrExt extends "Posted Sales Credit Memo"
                     Editable = false;
                     ToolTip = 'Specifies the value of the Zuora Ext. Doc. No. field.', Comment = '%';
                 }
+                field(TURFUpdateZuoraCreditMemoNo; TURFUpdateZuoraCreditMemoNo)
+                {
+                    Caption = 'Update Zuora Cr. Invoice No.';
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Update Zuora Cr. Invoice No. field.', Comment = '%';
+                    trigger OnValidate()
+                    var
+                        BC2Boomi: Codeunit "TURFBC2Boomi";
+                    begin
+                        BC2Boomi.UpdateZuoraCreditMemoNo(Rec, TURFUpdateZuoraCreditMemoNo);
+                        Clear(TURFUpdateZuoraCreditMemoNo);
+                    end;
+                }
                 field("TURFBoomi Order"; Rec."TURFBoomi Order")
                 {
                     ApplicationArea = All;
@@ -72,4 +85,7 @@ pageextension 70324 TURFPostedSCrMemoHdrExt extends "Posted Sales Credit Memo"
             }
         }
     }
+
+    var
+        TURFUpdateZuoraCreditMemoNo: Code[35];
 }

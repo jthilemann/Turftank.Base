@@ -10,12 +10,12 @@ codeunit 70309 "TURFStripe Management"
     var
         SalesInvoiceHeader: Record "Sales Invoice Header";
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
-        ChargeId: Text;
+        BalanceTransaction: Text;
         LastLineNo: Integer;
         JsonObj: JsonObject;
         JTkn: JsonToken;
         ChargePathLbl: Label 'charges?payment_intent=%1', Locked = true;
-        BalanceTransactionPathLbl: Label 'balance_transactions?type=charge&source=%1', Locked = true;
+        BalanceTransactionPathLbl: Label 'balance_transactions/%1', Locked = true;
     begin
         TurfTankStripeSetup.GetRecordOnce();
 
@@ -27,11 +27,11 @@ codeunit 70309 "TURFStripe Management"
             if SalesCrMemoHeader.FindSet(false) then
                 repeat
                     if SendRequest(StrSubstNo(ChargePathLbl, SalesCrMemoHeader."TURFPayment Identification"), JsonObj) then
-                        if JsonObj.AsToken().SelectToken('$.data[0].id', JTkn) then
-                            ChargeId := JTkn.AsValue().AsText();
+                        if JsonObj.AsToken().SelectToken('$.data[0].balance_transaction', JTkn) then
+                            BalanceTransaction := JTkn.AsValue().AsText();
 
-                    if ChargeId <> '' then
-                        if SendRequest(StrSubstNo(BalanceTransactionPathLbl, ChargeId), JsonObj) then begin
+                    if BalanceTransaction <> '' then
+                        if SendRequest(StrSubstNo(BalanceTransactionPathLbl, BalanceTransaction), JsonObj) then begin
                             ReconcileAmount(JournalTemplateName, JnlBatchName, SalesCrMemoHeader."Posting Date", SalesCrMemoHeader."Currency Code", JsonObj, LastLineNo, true);
                             SalesCrMemoHeader."TURFStripe Reconciled" := true;
                             SalesCrMemoHeader.Modify(false);
@@ -44,11 +44,11 @@ codeunit 70309 "TURFStripe Management"
             if SalesInvoiceHeader.FindSet(false) then
                 repeat
                     if SendRequest(StrSubstNo(ChargePathLbl, SalesInvoiceHeader."TURFPayment Identification"), JsonObj) then
-                        if JsonObj.AsToken().SelectToken('$.data[0].id', JTkn) then
-                            ChargeId := JTkn.AsValue().AsText();
+                        if JsonObj.AsToken().SelectToken('$.data[0].balance_transaction', JTkn) then
+                            BalanceTransaction := JTkn.AsValue().AsText();
 
-                    if ChargeId <> '' then
-                        if SendRequest(StrSubstNo(BalanceTransactionPathLbl, ChargeId), JsonObj) then begin
+                    if BalanceTransaction <> '' then
+                        if SendRequest(StrSubstNo(BalanceTransactionPathLbl, BalanceTransaction), JsonObj) then begin
                             ReconcileAmount(JournalTemplateName, JnlBatchName, SalesInvoiceHeader."Posting Date", SalesInvoiceHeader."Currency Code", JsonObj, LastLineNo, false);
                             SalesInvoiceHeader."TURFStripe Reconciled" := true;
                             SalesInvoiceHeader.Modify(false);
@@ -124,10 +124,12 @@ codeunit 70309 "TURFStripe Management"
         if GenJournalLine2.FindLast() then;
     end;
 
-    local procedure InsertCashReceiptLine(JournalTemplateName: Code[20]; JournalBatchName: Code[20]; var GenJournalLine: Record "Gen. Journal Line"; NextLineNo: Integer; PostingDate: Date; ExternalDocNo: Code[35]; Amount: Decimal)
+    local procedure InsertCashReceiptLine(JournalTemplateName: Code[20]; JournalBatchName: Code[20]; var GenJournalLine: Record "Gen. Journal Line"; var NextLineNo: Integer; PostingDate: Date; ExternalDocNo: Code[35]; Amount: Decimal)
     var
         StripePaymentLbl: Label 'Stripe Payment';
     begin
+        NextLineNo += 10000;
+
         GenJournalLine.INIT();
         GenJournalLine.validate("Journal Template Name", JournalTemplateName);
         GenJournalLine.validate("Journal Batch Name", JournalBatchName);
@@ -180,28 +182,27 @@ codeunit 70309 "TURFStripe Management"
     var
         TypeHelper: Codeunit "Type Helper";
         PostingDateTime: Datetime;
-        JsonData: JsonObject;
         JsonTkn: JsonToken;
-        JArray: JsonArray;
         TimeStamp: BigInteger;
     begin
-        if JsonObj.Get('data', JsonTkn) then begin
-            JArray := JsonTkn.AsArray();
-            if JArray.Get(0, JsonTkn) then begin
-                JsonData := JsonTkn.AsObject();
-                JsonData.Get('id', JsonTkn);
-                ExternalDocNo := CopyStr(JsonTkn.AsValue().AsText(), 1, MaxStrLen(ExternalDocNo));
-                JsonData.Get('available_on', JsonTkn);
-                TimeStamp := JsonTkn.AsValue().AsBigInteger();
-                PostingDateTime := TypeHelper.EvaluateUnixTimestamp(TimeStamp);
-                PostingDate := DT2Date(PostingDateTime);
-                JsonData.Get('amount', JsonTkn);
-                Amount := JsonTkn.AsValue().AsDecimal() / 100;
-                JsonData.Get('fee', JsonTkn);
-                FeeAmount := JsonTkn.AsValue().AsDecimal() / 100;
-                JsonData.Get('net', JsonTkn);
-                BankAmount := JsonTkn.AsValue().AsDecimal() / 100;
-            end;
+        if JsonObj.Get('id', JsonTkn) then begin
+            ExternalDocNo := CopyStr(JsonTkn.AsValue().AsText(), 1, MaxStrLen(ExternalDocNo));
+            JsonObj.Get('available_on', JsonTkn);
+            TimeStamp := JsonTkn.AsValue().AsBigInteger();
+            PostingDateTime := TypeHelper.EvaluateUnixTimestamp(TimeStamp);
+            PostingDate := DT2Date(PostingDateTime);
+            JsonObj.Get('amount', JsonTkn);
+            Amount := JsonTkn.AsValue().AsDecimal() / 100;
+            JsonObj.Get('fee', JsonTkn);
+            FeeAmount := JsonTkn.AsValue().AsDecimal() / 100;
+            JsonObj.Get('net', JsonTkn);
+            BankAmount := JsonTkn.AsValue().AsDecimal() / 100;
         end;
+    end;
+
+    internal procedure ResetReconciledSalesInvoice(var SalesInvoiceHeader: Record "Sales Invoice Header")
+    begin
+        SalesInvoiceHeader."TURFStripe Reconciled" := false;
+        SalesInvoiceHeader.Modify(false);
     end;
 }

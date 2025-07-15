@@ -108,6 +108,19 @@ pageextension 70304 "TURFPosted Sales Inv. Ext" extends "Posted Sales Invoice"
                     TURFBoomiTaxMgt.SendInvoiceToBoomi(Rec);
                 end;
             }
+            action(TURFResetReconciled)
+            {
+                ApplicationArea = All;
+                Caption = 'Reset Reconciled';
+                ToolTip = 'Reset the reconciled status of the invoice';
+                Image = ResetStatus;
+                trigger OnAction()
+                var
+                    StripeManagement: Codeunit "TURFStripe Management";
+                begin
+                    StripeManagement.ResetReconciledSalesInvoice(Rec);
+                end;
+            }
         }
     }
     var

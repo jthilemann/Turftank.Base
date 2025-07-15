@@ -51,6 +51,10 @@ page 70306 "TURFOrder API"
                 {
                     Caption = 'Posting Date';
                 }
+                field(dueDate; DueDate)
+                {
+                    Caption = 'Due Date';
+                }
                 field(postingDescription; Rec."Posting Description")
                 {
                     Caption = 'Posting Description';
@@ -119,6 +123,10 @@ page 70306 "TURFOrder API"
                 {
                     Caption = 'Zuora Invoice No.';
                 }
+                field(stripePaymentIntent; Rec."TURFPayment Identification")
+                {
+                    Caption = 'Stripe Payment Intent';
+                }
                 part(orderLines; "TURFOrder Lines API")
                 {
                     Caption = 'Lines';
@@ -132,6 +140,7 @@ page 70306 "TURFOrder API"
 
     var
         CustomerNo: Code[20];
+        DueDate: Date;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     var
@@ -143,5 +152,8 @@ page 70306 "TURFOrder API"
             if BoomiSetup."TURFDef. Boomi Order Location" <> '' then
                 Rec.validate("Location Code", BoomiSetup."TURFDef. Boomi Order Location");
         end;
+
+        if DueDate <> 0D then
+            Rec.Validate("Due Date", DueDate);
     end;
 }

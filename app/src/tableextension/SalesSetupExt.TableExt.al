@@ -12,6 +12,11 @@ tableextension 70321 "TURFSales Setup Ext" extends "Sales & Receivables Setup"
             Caption = 'Shipment Terms & Conditions';
             DataClassification = ToBeClassified;
         }
+        field(70303; "TURFOrderConfirmation T & C"; Blob)
+        {
+            Caption = 'Order Confirmation Terms & Conditions';
+            DataClassification = ToBeClassified;
+        }
     }
 
     procedure SetTURFQuoteTermsConditions(NewWorkDescription: Text)
@@ -52,5 +57,25 @@ tableextension 70321 "TURFSales Setup Ext" extends "Sales & Receivables Setup"
         CalcFields("TURFShipment T & C");
         "TURFShipment T & C".CreateInStream(InStream, TEXTENCODING::UTF8);
         exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(InStream, TypeHelper.LFSeparator(), FieldName("TURFShipment T & C")));
+    end;
+
+    procedure SetTURFOrderConfirmationTermsConditions(NewWorkDescription: Text)
+    var
+        OutStream: OutStream;
+    begin
+        Clear("TURFOrderConfirmation T & C");
+        "TURFOrderConfirmation T & C".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+        OutStream.WriteText(NewWorkDescription);
+        Modify();
+    end;
+
+    procedure GetTURFOrderConfirmationTermsConditions() WorkDescription: Text
+    var
+        TypeHelper: Codeunit "Type Helper";
+        InStream: InStream;
+    begin
+        CalcFields("TURFOrderConfirmation T & C");
+        "TURFOrderConfirmation T & C".CreateInStream(InStream, TEXTENCODING::UTF8);
+        exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(InStream, TypeHelper.LFSeparator(), FieldName("TURFOrderConfirmation T & C")));
     end;
 }

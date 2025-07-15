@@ -58,5 +58,49 @@ tableextension 70301 "TURFSales Hdr Ext" extends "Sales Header"
             Caption = 'Payment Identification';
             DataClassification = ToBeClassified;
         }
+        field(70317; "TURFWarranty Order"; Boolean)
+        {
+            Caption = 'Warranty Order';
+            DataClassification = ToBeClassified;
+            trigger OnValidate()
+            var
+                TurfTankSetup: Record "TURFTurfTank Setup";
+                DimensionManagement: Codeunit DimensionManagement;
+                GLSetupShortcutDimCode: array[8] of Code[20];
+                DimensionNo: Integer;
+                WarrantyDimensionValue: Code[20];
+            begin
+                TurfTankSetup.GetRecordOnce();
+                if '' in [TurfTankSetup."TURFWarranty Dimension", TurfTankSetup."TURFWarranty Dimension Value"] then
+                    exit;
+
+                DimensionManagement.GetGLSetup(GLSetupShortcutDimCode);
+
+                case TurfTankSetup."TURFWarranty Dimension" of
+                    GLSetupShortcutDimCode[1]:
+                        DimensionNo := 1;
+                    GLSetupShortcutDimCode[2]:
+                        DimensionNo := 2;
+                    GLSetupShortcutDimCode[3]:
+                        DimensionNo := 3;
+                    GLSetupShortcutDimCode[4]:
+                        DimensionNo := 4;
+                    GLSetupShortcutDimCode[5]:
+                        DimensionNo := 5;
+                    GLSetupShortcutDimCode[6]:
+                        DimensionNo := 6;
+                    GLSetupShortcutDimCode[7]:
+                        DimensionNo := 7;
+                    GLSetupShortcutDimCode[8]:
+                        DimensionNo := 8;
+                end;
+
+                if DimensionNo > 0 then
+                    if "TURFWarranty Order" then
+                        Rec.ValidateShortcutDimCode(DimensionNo, TurfTankSetup."TURFWarranty Dimension Value")
+                    else
+                        Rec.ValidateShortcutDimCode(DimensionNo, WarrantyDimensionValue);
+            end;
+        }
     }
 }

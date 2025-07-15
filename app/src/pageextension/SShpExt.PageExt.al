@@ -9,6 +9,11 @@ pageextension 70303 "TURFS. Shp. Ext" extends "Posted Sales Shipment"
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Order Type field.';
             }
+            field("TURFWarranty Order"; Rec."TURFWarranty Order")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Warranty Order field.', Comment = '%';
+            }
         }
 
         addafter("External Document No.")

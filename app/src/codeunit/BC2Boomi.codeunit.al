@@ -212,4 +212,11 @@ codeunit 70308 TURFBC2Boomi
         SalesInvoiceHeader."TURFZuora Invoice No." := NewZuoraInvoiceNo;
         SalesInvoiceHeader.Modify(false);
     end;
+
+    internal procedure UpdateZuoraCreditMemoNo(var SalesCrMemoHeader: Record "Sales Cr.Memo Header"; NewZuoraCreditMemoNo: Code[35])
+    begin
+        SalesCrMemoHeader.TestField("TURFZuora Invoice No.", '');
+        SalesCrMemoHeader."TURFZuora Invoice No." := NewZuoraCreditMemoNo;
+        SalesCrMemoHeader.Modify(false);
+    end;
 }
