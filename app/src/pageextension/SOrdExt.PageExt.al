@@ -14,11 +14,6 @@ pageextension 70302 "TURFS. Ord. Ext" extends "Sales Order"
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Stripe Payment Link field.', Comment = '%';
             }
-            field("TURFWarranty Order"; Rec."TURFWarranty Order")
-            {
-                ApplicationArea = All;
-                ToolTip = 'Specifies the value of the Warranty Order field.', Comment = '%';
-            }
         }
 
         addafter("External Document No.")
