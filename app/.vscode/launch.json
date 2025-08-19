@@ -12,8 +12,7 @@
             "environmentName": "ROW_Production",
             "breakOnNext": "WebClient",
             "executionContext": "DebugAndProfile",
-            "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
-            "userId" : "KRIS_ADMIN"
+            "tenant": "4159635d-ffbc-4276-8454-eb16442604d9"
         },
         {
             "name": "US-PROD SNA${pathSeparator}",
@@ -23,8 +22,8 @@
             "environmentName": "us-production",
             "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
             "breakOnNext": "WebClient",
-            "executionContext": "DebugAndProfile",
-            "userId" : "KRIS_ADMIN"
+            "executionContext": "DebugAndProfile"
+            
         },
         {
             "name": "USSandbox_040825",
