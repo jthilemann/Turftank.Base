@@ -2,6 +2,14 @@ pageextension 70319 "TURFCust Card Ext" extends "Customer Card"
 {
     layout
     {
+        addlast(General)
+        {
+            field("TURFRequire Ext. Doc. No."; Rec."TURFRequire Ext. Doc. No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Require Ext. Doc. No. field.', Comment = '%';
+            }
+        }
         addafter(TURFHubspot)
         {
             group(TURFZuora)

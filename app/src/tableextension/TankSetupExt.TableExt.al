@@ -20,5 +20,16 @@ tableextension 70320 "TURF Tank Setup Ext" extends "TURFTurfTank Setup"
             DataClassification = ToBeClassified;
             TableRelation = "Dimension Value".Code where("Dimension Code" = field("TURFWarranty Dimension"));
         }
+        field(70304; "TURFMarkup Item No."; Code[20])
+        {
+            Caption = 'Markup Item No.';
+            DataClassification = ToBeClassified;
+            TableRelation = Item."No.";
+        }
+        field(70305; "TURFMarkup Robot Unit Price"; Decimal)
+        {
+            Caption = 'Markup Robot Unit Price';
+            DataClassification = ToBeClassified;
+        }
     }
 }

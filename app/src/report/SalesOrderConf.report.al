@@ -427,13 +427,20 @@ report 70311 "TURFSales - Order Conf."
             column(TURFOrderType_Header_Lbl; FieldCaption("TURFOrder Type"))
             {
             }
+#pragma warning disable AL0432
             column(PackageTrackingNo_Header; "Package Tracking No.")
+#pragma warning restore AL0432
             {
             }
+#pragma warning disable AL0432
             column(PackageTrackingNo_Header_Lbl; FieldCaption("Package Tracking No."))
+#pragma warning restore AL0432
             {
             }
             column(TURFOrderConfirmationTermsConditions; SalesSetup.GetTURFOrderConfirmationTermsConditions())
+            {
+            }
+            column(ForTurfTankUS; ForTurfTankUS)
             {
             }
             dataitem(Line; "Sales Line")
@@ -442,6 +449,17 @@ report 70311 "TURFSales - Order Conf."
                 DataItemLinkReference = Header;
                 DataItemTableView = sorting("Document No.", "Line No.");
                 UseTemporary = true;
+                column(HideSubtotal; HideSubtotal) { }
+                column(SubTotalLineAmount; SubTotalLineAmount)
+                {
+                    AutoFormatExpression = "Currency Code";
+                    AutoFormatType = 2;
+                }
+                column(SubTotalUnitPrice; SubTotalUnitPrice)
+                {
+                    AutoFormatExpression = "Currency Code";
+                    AutoFormatType = 2;
+                }
                 column(LineNo_Line; "Line No.")
                 {
                 }
@@ -579,6 +597,8 @@ report 70311 "TURFSales - Order Conf."
                 }
 
                 trigger OnAfterGetRecord()
+                var
+                    MarkupFromLine: Record "Sales Line";
                 begin
                     if Type = Type::"G/L Account" then
                         "No." := '';
@@ -602,6 +622,20 @@ report 70311 "TURFSales - Order Conf."
                     OnLineOnAfterGetRecordOnAfterCalcTotals(Header, Line, TotalAmount, TotalAmountVAT, TotalAmountInclVAT);
 
                     FormatDocument.SetSalesLine(Line, FormattedQuantity, FormattedUnitPrice, FormattedVATPct, FormattedLineAmount);
+
+
+                    if (Header."Sell-to Customer No." = '002180') and (CompanyName = 'Turf Tank ApS') and (Line."No." = turftankSetup."TURFMarkup Item No.") and (Line."Attached to Line No." > 0) then begin
+                        if not MarkupFromLine.get(Line."Document Type", Line."Document No.", Line."Attached to Line No.") then
+                            Clear(MarkupFromLine);
+
+                        HideSubtotal := 0;
+                        SubtotalUnitPrice := Line."Unit Price" + MarkupFromLine."Unit Price";
+                        SubTotalLineAmount := SubTotalUnitPrice * Line.Quantity;
+                    end else begin
+                        Clear(SubTotalLineAmount);
+                        Clear(SubTotalUnitPrice);
+                        HideSubtotal := 1;
+                    end;
 
                     if FirstLineHasBeenOutput then
                         Clear(DummyCompanyInfo.Picture);
@@ -924,6 +958,8 @@ report 70311 "TURFSales - Order Conf."
 
                 OnHeaderOnAfterGetRecordOnAfterUpdateNoPrinted(IsReportInPreviewMode(), Header);
 
+                ForTurfTankUS := Header."Sell-to Customer No." = '002180';
+
                 CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
                 CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
@@ -1023,7 +1059,7 @@ report 70311 "TURFSales - Order Conf."
         begin
             LogInteractionEnable := true;
             ArchiveDocument := SalesSetup."Archive Orders";
-
+            TurfTankSetup.GetRecordOnce();
             OnAfterOnInit(Header);
         end;
 
@@ -1085,6 +1121,7 @@ report 70311 "TURFSales - Order Conf."
     end;
 
     var
+        TurfTankSetup: Record "TURFTurfTank Setup";
         GLSetup: Record "General Ledger Setup";
         CompanyBankAccount: Record "Bank Account";
         DummyCompanyInfo: Record "Company Information";
@@ -1112,6 +1149,7 @@ report 70311 "TURFSales - Order Conf."
         PrevLineAmount: Decimal;
         PmtDiscText: Text;
         ShowWorkDescription: Boolean;
+        HideSubtotal: Integer;
         WorkDescriptionLine: Text;
         CompanyInfoBankAccNoLbl: Label 'Account No.';
         CompanyInfoBankNameLbl: Label 'Bank';
@@ -1173,6 +1211,7 @@ report 70311 "TURFSales - Order Conf."
         TotalAmountVAT: Decimal;
         TotalInvDiscAmount: Decimal;
         TotalPaymentDiscOnVAT: Decimal;
+        SubTotalLineAmount, SubTotalUnitPrice : decimal;
         FirstLineHasBeenOutput: Boolean;
         TotalExclVATText: Text[50];
         TotalInclVATText: Text[50];
@@ -1186,6 +1225,7 @@ report 70311 "TURFSales - Order Conf."
         LineDiscountPctText: Text;
         SalesPersonText: Text[50];
         ShowShippingAddr: Boolean;
+        ForTurfTankUS: Boolean;
         VATBaseLCY: Decimal;
         VATAmountLCY: Decimal;
         TotalVATBaseLCY: Decimal;

@@ -11,6 +11,11 @@
             "id": "AA0215",
             "action": "None",
             "justification": "We define our own filenames"
+        },
+        {
+            "id": "AA0218",
+            "action": "Hidden",
+            "justification": "Customer must scope the use of tooltips for per-tenant extensions."
         }
     ]
 }

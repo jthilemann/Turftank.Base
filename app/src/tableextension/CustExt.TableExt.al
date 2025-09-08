@@ -7,5 +7,11 @@ tableextension 70310 "TURFCust Ext" extends Customer
             Caption = 'Zuora Account Number';
             DataClassification = ToBeClassified;
         }
+        field(70302; "TURFRequire Ext. Doc. No."; Boolean)
+        {
+            Caption = 'Require Ext. Doc. No.';
+            DataClassification = ToBeClassified;
+        }
+
     }
 }

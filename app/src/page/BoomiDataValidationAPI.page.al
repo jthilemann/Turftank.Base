@@ -63,6 +63,7 @@ page 70318 "TURFBoomi Data Validation API"
         SalesInvoiceHeader: Record "Sales Invoice Header";
     begin
         SalesInvoiceHeader.SetRange("TURFZuora Invoice No.", Rec."Reference Number");
+        SalesInvoiceHeader.SetFilter("Pre-Assigned No.", '<>%1', '');
         SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Invoice);
         SalesHeader.SetRange("TURFZuora Invoice No.", Rec."Reference Number");
         if SalesHeader.FindFirst() then begin
@@ -70,32 +71,45 @@ page 70318 "TURFBoomi Data Validation API"
             Rec."BC Document No." := SalesHeader."No.";
             Rec."Customer No." := SalesHeader."Sell-to Customer No.";
             Rec."Created Date" := SalesHeader.SystemCreatedAt;
-        end else if SalesInvoiceHeader.FindFirst() then begin
-            Rec."Zuora Reference No." := SalesInvoiceHeader."TURFZuora Invoice No.";
-            Rec."BC Document No." := SalesInvoiceHeader."No.";
-            Rec."Customer No." := SalesInvoiceHeader."Sell-to Customer No.";
-            Rec."Created Date" := SalesInvoiceHeader.SystemCreatedAt;
         end else
-            clear(Rec);
+            if SalesInvoiceHeader.FindFirst() then begin
+                Rec."Zuora Reference No." := SalesInvoiceHeader."TURFZuora Invoice No.";
+                Rec."BC Document No." := SalesInvoiceHeader."Pre-Assigned No.";
+                Rec."Customer No." := SalesInvoiceHeader."Sell-to Customer No.";
+                Rec."Created Date" := SalesInvoiceHeader.SystemCreatedAt;
+            end else
+                clear(Rec);
     end;
 
     local procedure GetReferenceDataForPayment()
     var
         GenJournalLine: Record "Gen. Journal Line";
-        SalesInvoiceHeader: Record "Sales Invoice Header";
+        CustLedgerEntry: Record "Cust. Ledger Entry";
+        BCDocNoLbl: Label 'BC_%1', Locked = true;
     begin
-        SalesInvoiceHeader.SetRange("TURFZuora Invoice No.", Rec."Reference Number");
-        SalesInvoiceHeader.FindFirst();
+        CustLedgerEntry.SetCurrentKey("Document No.");
+        CustLedgerEntry.SetRange("Document Type", CustLedgerEntry."Document Type"::Payment);
+        CustLedgerEntry.SetRange("Document No.", StrSubstNo(BCDocNoLbl, Rec."Reference Number"));
+        CustLedgerEntry.SetRange("Customer No.", Rec."Customer No.");
+        GenJournalLine.SetRange("Document No.", StrSubstNo(BCDocNoLbl, Rec."Reference Number"));
         GenJournalLine.SetRange("Account Type", GenJournalLine."Account Type"::Customer);
-        GenJournalLine.SetRange("Account No.", SalesInvoiceHeader."Bill-to Customer No.");
-        GenJournalLine.SetRange("Applies-to Doc. No.", SalesInvoiceHeader."No.");
+        GenJournalLine.SetRange("Account No.", Rec."Customer No.");
 #pragma warning disable AA0175
-        GenJournalLine.FindFirst();
+        if GenJournalLine.FindFirst() then begin
+            Rec."Zuora Reference No." := GenJournalLine."External Document No.";
+            Rec."BC Document No." := GenJournalLine."Document No.";
+            Rec."Customer No." := GenJournalLine."Account No.";
+            Rec."Created Date" := GenJournalLine.SystemCreatedAt;
+        end else
+            if CustLedgerEntry.FindFirst() then begin
+                Rec."Zuora Reference No." := Rec."Reference Number";
+                Rec."BC Document No." := CustLedgerEntry."Document No.";
+                Rec."Customer No." := CustLedgerEntry."Customer No.";
+                Rec."Created Date" := CustLedgerEntry.SystemCreatedAt;
+            end else
+                clear(Rec);
+
 #pragma warning restore AA0175
-        Rec."Zuora Reference No." := SalesInvoiceHeader."TURFZuora Invoice No.";
-        Rec."BC Document No." := GenJournalLine."Journal Batch Name";
-        Rec."Customer No." := SalesInvoiceHeader."Bill-to Customer No.";
-        Rec."Created Date" := GenJournalLine.SystemCreatedAt;
     end;
 
     local procedure GetReferenceDataForCreditMemo()
@@ -103,9 +117,10 @@ page 70318 "TURFBoomi Data Validation API"
         SalesHeader: Record "Sales Header";
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
     begin
-        SalesCrMemoHeader.SetRange("TURFZuora Invoice No.", Rec."Reference Number");
+        SalesCrMemoHeader.SetRange("External Document No.", Rec."Reference Number");
+        SalesCrMemoHeader.SetFilter("Pre-Assigned No.", '<>%1', '');
         SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::"Credit Memo");
-        SalesHeader.SetRange("TURFZuora Invoice No.", Rec."Reference Number");
+        SalesHeader.SetRange("External Document No.", Rec."Reference Number");
         if SalesHeader.FindFirst() then begin
             Rec."Zuora Reference No." := SalesHeader."TURFZuora Invoice No.";
             Rec."BC Document No." := SalesHeader."No.";
@@ -114,7 +129,7 @@ page 70318 "TURFBoomi Data Validation API"
         end else
             if SalesCrMemoHeader.FindFirst() then begin
                 Rec."Zuora Reference No." := SalesCrMemoHeader."TURFZuora Invoice No.";
-                Rec."BC Document No." := SalesCrMemoHeader."No.";
+                Rec."BC Document No." := SalesCrMemoHeader."Pre-Assigned No.";
                 Rec."Customer No." := SalesCrMemoHeader."Sell-to Customer No.";
                 Rec."Created Date" := SalesCrMemoHeader.SystemCreatedAt;
             end else
