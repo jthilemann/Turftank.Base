@@ -9,16 +9,7 @@ pageextension 70328 "TURF tank Setup Extension" extends "TURFTurfTank Setup"
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Main Location field.', Comment = '%';
             }
-            field("TURFWarranty Dimension"; Rec."TURFWarranty Dimension")
-            {
-                ApplicationArea = All;
-                ToolTip = 'Specifies the value of the Warranty Dimension field.', Comment = '%';
-            }
-            field("TURFWarranty Dimension Value"; Rec."TURFWarranty Dimension Value")
-            {
-                ApplicationArea = All;
-                ToolTip = 'Specifies the value of the Warranty Dimension Value field.', Comment = '%';
-            }
+
             group(TURFMarkup)
             {
                 Caption = 'US Markup';

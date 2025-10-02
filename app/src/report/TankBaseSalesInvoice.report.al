@@ -478,6 +478,17 @@ report 70306 "TURFTank Base Sales Invoice"
                 DataItemLink = "Document No." = FIELD("No.");
                 DataItemLinkReference = Header;
                 DataItemTableView = SORTING("Document No.", "Line No.");
+                column(HideSubtotal; HideSubtotal) { }
+                column(SubTotalLineAmount; SubTotalLineAmount)
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 2;
+                }
+                column(SubTotalUnitPrice; SubTotalUnitPrice)
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 2;
+                }
                 column(LineNo_Line; "Line No.")
                 {
                 }
@@ -670,6 +681,9 @@ report 70306 "TURFTank Base Sales Invoice"
                 }
 
                 trigger OnAfterGetRecord()
+                var
+                    MarkupFromLine: Record "Sales Line";
+                    AutoFormatType: Enum "Auto Format";
                 begin
                     InitializeShipmentLine();
                     if Type = Type::"G/L Account" then
@@ -714,6 +728,20 @@ report 70306 "TURFTank Base Sales Invoice"
                         JobNoLbl := '';
 
                     FormatLineValues(Line);
+
+                    if (Header."Sell-to Customer No." = '002180') and (CompanyName = 'Turf Tank ApS') and (Line."No." = turftankSetup."TURFMarkup Item No.") and (Line."Attached to Line No." > 0) then begin
+                        if not MarkupFromLine.get(Line."Document No.", Line."Attached to Line No.") then
+                            Clear(MarkupFromLine);
+
+                        HideSubtotal := 0;
+
+                        SubtotalUnitPrice := Format(Line."Unit Price" + MarkupFromLine."Unit Price", 0, AutoFormat.ResolveAutoFormat(AutoFormatType::UnitAmountFormat, Header."Currency Code"));
+                        SubTotalLineAmount := Format((Line."Unit Price" + MarkupFromLine."Unit Price") * Line.Quantity, 0, AutoFormat.ResolveAutoFormat(AutoFormatType::UnitAmountFormat, Header."Currency Code"));
+                    end else begin
+                        Clear(SubTotalLineAmount);
+                        Clear(SubTotalUnitPrice);
+                        HideSubtotal := 1;
+                    end;
                 end;
 
                 trigger OnPreDataItem()
@@ -1306,6 +1334,7 @@ report 70306 "TURFTank Base Sales Invoice"
     end;
 
     var
+        TurfTankSetup: Record "TURFTurfTank Setup";
         SellToCustomer: Record Customer;
         GLSetup: Record "General Ledger Setup";
         PaymentMethod: Record "Payment Method";
@@ -1342,12 +1371,14 @@ report 70306 "TURFTank Base Sales Invoice"
         TotalAmountExclInclVATTextValue: Text;
         MoreLines: Boolean;
         ShowWorkDescription: Boolean;
+        HideSubtotal: Integer;
         LogTheInteraction: Boolean;
         TotalAmount: Decimal;
         TotalAmountInclVAT: Decimal;
         TotalAmountVAT: Decimal;
         TotalInvDiscAmount: Decimal;
         TotalPaymentDiscOnVAT: Decimal;
+        SubTotalLineAmount, SubTotalUnitPrice : text;
         RemainingAmount: Decimal;
         ShipmentDateLbl: label 'Shipment Date';
         TransHeaderAmount: Decimal;

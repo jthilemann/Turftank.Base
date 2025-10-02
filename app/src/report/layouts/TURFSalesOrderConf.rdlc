@@ -4911,7 +4911,7 @@
                                           </TablixMember>
                                           <TablixMember>
                                             <Visibility>
-                                              <Hidden>=(fields!HideSubtotal.Value = 1)</Hidden>
+                                              <Hidden>=(fields!HideSubtotal.Value = 1) or (fields!SubTotalUnitPrice.Value = "")</Hidden>
                                             </Visibility>
                                           </TablixMember>
                                           <TablixMember>
@@ -7114,14 +7114,8 @@ End Function
         <Field Name="SubTotalLineAmount">
           <DataField>SubTotalLineAmount</DataField>
         </Field>
-        <Field Name="SubTotalLineAmountFormat">
-          <DataField>SubTotalLineAmountFormat</DataField>
-        </Field>
         <Field Name="SubTotalUnitPrice">
           <DataField>SubTotalUnitPrice</DataField>
-        </Field>
-        <Field Name="SubTotalUnitPriceFormat">
-          <DataField>SubTotalUnitPriceFormat</DataField>
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>

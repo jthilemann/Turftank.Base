@@ -599,6 +599,7 @@ report 70311 "TURFSales - Order Conf."
                 trigger OnAfterGetRecord()
                 var
                     MarkupFromLine: Record "Sales Line";
+                    AutoFormatType: Enum "Auto Format";
                 begin
                     if Type = Type::"G/L Account" then
                         "No." := '';
@@ -629,8 +630,9 @@ report 70311 "TURFSales - Order Conf."
                             Clear(MarkupFromLine);
 
                         HideSubtotal := 0;
-                        SubtotalUnitPrice := Line."Unit Price" + MarkupFromLine."Unit Price";
-                        SubTotalLineAmount := SubTotalUnitPrice * Line.Quantity;
+
+                        SubtotalUnitPrice := Format(Line."Unit Price" + MarkupFromLine."Unit Price", 0, AutoFormat.ResolveAutoFormat(AutoFormatType::UnitAmountFormat, Header."Currency Code"));
+                        SubTotalLineAmount := Format((Line."Unit Price" + MarkupFromLine."Unit Price") * Line.Quantity, 0, AutoFormat.ResolveAutoFormat(AutoFormatType::UnitAmountFormat, Header."Currency Code"));
                     end else begin
                         Clear(SubTotalLineAmount);
                         Clear(SubTotalUnitPrice);
@@ -1211,7 +1213,7 @@ report 70311 "TURFSales - Order Conf."
         TotalAmountVAT: Decimal;
         TotalInvDiscAmount: Decimal;
         TotalPaymentDiscOnVAT: Decimal;
-        SubTotalLineAmount, SubTotalUnitPrice : decimal;
+        SubTotalLineAmount, SubTotalUnitPrice : text;
         FirstLineHasBeenOutput: Boolean;
         TotalExclVATText: Text[50];
         TotalInclVATText: Text[50];
