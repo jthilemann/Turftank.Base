@@ -102,5 +102,11 @@ tableextension 70301 "TURFSales Hdr Ext" extends "Sales Header"
                         Rec.ValidateShortcutDimCode(DimensionNo, WarrantyDimensionValue);
             end;
         }
+
+        field(70330; "TURFZuora Order"; Boolean)
+        {
+            Caption = 'Zuora Order';
+            DataClassification = ToBeClassified;
+        }
     }
 }
