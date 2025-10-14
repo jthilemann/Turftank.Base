@@ -145,6 +145,7 @@ page 70320 "TURFZuora Order API"
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     var
         BoomiSetup: Record "TURFBoomi Setup";
+        Customer: Record Customer;
     begin
         Rec."TURFZuora Order" := true;
         if BoomiSetup.Get() then begin
@@ -152,6 +153,12 @@ page 70320 "TURFZuora Order API"
             if BoomiSetup."TURFDef. Boomi Order Location" <> '' then
                 Rec.validate("Location Code", BoomiSetup."TURFDef. Boomi Order Location");
         end;
+
+        Rec.testfield("TURFZuora Account Number");
+        Customer.SetRange("TURFZuora Account Number", Rec."TURFZuora Account Number");
+        Customer.FindFirst();
+
+        Rec.Validate("Sell-to Customer No.", Customer."No.");
 
         if DueDate <> 0D then
             Rec.Validate("Due Date", DueDate);
