@@ -50,11 +50,13 @@ page 70318 "TURFBoomi Data Validation API"
     begin
         SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::"Blanket Order");
         SalesHeader.SetRange("TURFZuora Subscription No.", Rec."Reference Number");
-        SalesHeader.FindFirst();
-        Rec."Zuora Reference No." := SalesHeader."TURFZuora Subscription No.";
-        Rec."BC Document No." := SalesHeader."No.";
-        Rec."Customer No." := SalesHeader."Sell-to Customer No.";
-        Rec."Created Date" := SalesHeader.SystemCreatedAt;
+        if SalesHeader.FindFirst() then begin
+            Rec."Zuora Reference No." := SalesHeader."TURFZuora Subscription No.";
+            Rec."BC Document No." := SalesHeader."No.";
+            Rec."Customer No." := SalesHeader."Sell-to Customer No.";
+            Rec."Created Date" := SalesHeader.SystemCreatedAt;
+        end else
+            clear(Rec);
     end;
 
     local procedure GetReferenceDataForInvoice()
