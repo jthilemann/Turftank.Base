@@ -36,6 +36,11 @@ tableextension 70304 "TURFItem Ext" extends Item
             Caption = 'Main Location Filter';
             FieldClass = FlowFilter;
         }
+        field(70305; "TURFAluminium Weight"; Decimal)
+        {
+            Caption = 'Aluminium Weight';
+            DataClassification = ToBeClassified;
+        }
 
 
     }

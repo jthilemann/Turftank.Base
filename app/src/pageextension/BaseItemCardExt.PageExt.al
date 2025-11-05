@@ -2,6 +2,14 @@ pageextension 70313 "TURFBase Item Card Ext" extends "Item Card"
 {
     layout
     {
+        addafter("Gross Weight")
+        {
+            field("TURFAluminium Weight"; Rec."TURFAluminium Weight")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Aluminium Weight field.', Comment = '%';
+            }
+        }
         addafter("Qty. on Sales Order")
         {
 
