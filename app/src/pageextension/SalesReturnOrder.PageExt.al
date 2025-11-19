@@ -2,6 +2,26 @@ pageextension 70323 "TURFSales Return Order" extends "Sales Return Order"
 {
     layout
     {
+        addlast(General)
+        {
+            group("TURFWork Description")
+            {
+                Caption = 'Work Description';
+                field(TURFWorkDescription; WorkDescription)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Additional;
+                    MultiLine = true;
+                    ShowCaption = false;
+                    ToolTip = 'Specifies the products or service being offered.';
+
+                    trigger OnValidate()
+                    begin
+                        Rec.SetWorkDescription(WorkDescription);
+                    end;
+                }
+            }
+        }
         addafter(General)
         {
             group(TURFZuora)
@@ -60,4 +80,12 @@ pageextension 70323 "TURFSales Return Order" extends "Sales Return Order"
             }
         }
     }
+
+    var
+        WorkDescription: Text;
+
+    trigger OnAfterGetRecord()
+    begin
+        WorkDescription := Rec.GetWorkDescription();
+    end;
 }
