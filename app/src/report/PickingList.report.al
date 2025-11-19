@@ -59,6 +59,24 @@ report 70309 "TURFPicking List"
             column(ShipToAddress8; ShipToAddr[8])
             {
             }
+            column(OrderBarcode; OrderBarcode)
+            {
+            }
+            column(WarehouseShipmentBarcode; WarehouseShipmentBarcode)
+            {
+            }
+            column(PickingListBarcode; PickingListBarcode)
+            {
+            }
+            column(PickingListCaption2; PickingListBarcodeCaptionLbl)
+            {
+            }
+            column(WarehouseShipmentBarcodeCaption; WarehouseShipmentBarcodeCaptionLbl)
+            {
+            }
+            column(OrderBarcodeCaption; OrderBarcodeCaptionLbl)
+            {
+            }
             dataitem("Integer"; "Integer")
             {
                 DataItemTableView = sorting(Number) where(Number = const(1));
@@ -213,6 +231,10 @@ report 70309 "TURFPicking List"
                             end;
                         end else
                             Mark(true);
+
+
+
+
                     end;
 
                     trigger OnPostDataItem()
@@ -390,9 +412,20 @@ report 70309 "TURFPicking List"
                     if WarehouseActivityLine."Source Document" = WarehouseActivityLine."Source Document"::"Sales Order" then begin
                         WarehouseActivityLine.setfilter("Source No.", '<>%1', WarehouseActivityLine."Source No.");
                         if WarehouseActivityLine.IsEmpty() then
-                            if SalesHeader.Get(SalesHeader."Document Type"::Order, WarehouseActivityLine."Source No.") then
+                            if SalesHeader.Get(SalesHeader."Document Type"::Order, WarehouseActivityLine."Source No.") then begin
                                 FormatAddress.SalesHeaderShipTo(ShipToAddr, DummyArray, SalesHeader);
+
+                                BarcodeFontProvider.ValidateInput(SalesHeader."No.", BarcodeSymbology);
+                                OrderBarcode := BarcodeFontProvider.EncodeFont(SalesHeader."No.", BarcodeSymbology);
+
+                                BarcodeFontProvider.ValidateInput(WarehouseActivityLine."Whse. Document No.", BarcodeSymbology);
+                                WarehouseShipmentBarcode := BarcodeFontProvider.EncodeFont(WarehouseActivityLine."Whse. Document No.", BarcodeSymbology);
+
+                                BarcodeFontProvider.ValidateInput("Warehouse Activity Header"."No.", BarcodeSymbology);
+                                PickingListBarcode := BarcodeFontProvider.EncodeFont("Warehouse Activity Header"."No.", BarcodeSymbology);
+                            end;
                     end;
+
             end;
         }
     }
@@ -423,6 +456,11 @@ report 70309 "TURFPicking List"
     labels
     {
     }
+    trigger OnInitReport()
+    begin
+        BarcodeFontProvider := Enum::"Barcode Font Provider"::IDAutomation1D;
+        BarcodeSymbology := Enum::"Barcode Symbology"::Code39;
+    end;
 
     trigger OnPreReport()
     begin
@@ -434,12 +472,18 @@ report 70309 "TURFPicking List"
         ReservationEntry: Record "Reservation Entry";
         SalesHeader: Record "Sales Header";
         TempWhseActivLine: Record "Warehouse Activity Line" temporary;
+        BarcodeSymbology: Enum "Barcode Symbology";
+        BarcodeFontProvider: Interface "Barcode Font Provider";
+        OrderBarcode, WarehouseShipmentBarcode, PickingListBarcode : Text;
         PickFilter: Text;
         ShipToAddr: array[8] of Text[100];
         InvtPick: Boolean;
         Counter: Integer;
         CurrReportPageNoCaptionLbl: Label 'Page';
         PickingListCaptionLbl: Label 'Picking List';
+        PickingListBarcodeCaptionLbl: Label 'Picking List No.';
+        WarehouseShipmentBarcodeCaptionLbl: Label 'Whse. Document No.';
+        OrderBarcodeCaptionLbl: Label 'Sales Order No.';
         WhseActLineDueDateCaptionLbl: Label 'Due Date';
         QtyHandledCaptionLbl: Label 'Qty. Handled';
         EmptyStringCaptionLbl: Label '____________';
