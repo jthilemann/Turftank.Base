@@ -61,9 +61,9 @@ pageextension 70336 TURFSalesOrderSubformExt extends "Sales Order Subform"
         if Rec.type = Rec.type::Item then begin
             item.setrange("Location Filter", Rec."Location Code");
             Item.setautocalcfields(Inventory, "Qty. on Sales Order");
-            Item.Get(Rec."No.");
-            if Item.IsInventoriableType() then
-                TURFAvailableQuantity := Item.Inventory - Item."Qty. on Sales Order";
+            if Item.Get(Rec."No.") then
+                if Item.IsInventoriableType() then
+                    TURFAvailableQuantity := Item.Inventory - Item."Qty. on Sales Order";
         end;
     end;
 }
