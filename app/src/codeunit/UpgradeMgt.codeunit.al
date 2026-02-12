@@ -1,14 +1,14 @@
 codeunit 70307 "TURFUpgrade Mgt"
 {
-    Subtype = Upgrade;
+    Subtype = Install;
 
-    trigger OnUpgradePerCompany()
+    trigger OnInstallAppPerCompany()
     var
         UpgradeTag: Codeunit "Upgrade Tag";
     begin
-        if not UpgradeTag.HasUpgradeTag(GetUpgradeTagNewAppMoveCompanyInfoFields()) then begin
-            MoveCompanyInfoFields();
-            UpgradeTag.SetUpgradeTag(GetUpgradeTagNewAppMoveCompanyInfoFields());
+        if not UpgradeTag.HasUpgradeTag(GetUpgradeTagUpdateItemLastCountingPeriod()) then begin
+            UpdateItemLastCountingPeriod();
+            UpgradeTag.SetUpgradeTag(GetUpgradeTagUpdateItemLastCountingPeriod());
         end;
     end;
 
@@ -18,37 +18,31 @@ codeunit 70307 "TURFUpgrade Mgt"
         EXIT('MigrateCompanyDataToNewApp');
     end;
 
-    local procedure MoveCompanyInfoFields()
-    var
-        CompanyInformation: Record "Company Information";
-        RecRef: RecordRef;
-        Modify: Boolean;
+    local procedure GetUpgradeTagUpdateItemLastCountingPeriod(): Code[250]
     begin
-        RecRef.Open(CompanyInformation.RecordId.TableNo);
-        if CompanyInformation.get() then begin
-            RecRef.GetTable(CompanyInformation);
-            if RecRef.FieldExist(50000) then begin
-                CompanyInformation."TURFE-Mail (Purchase)" := RecRef.Field(50000).Value;
-                Modify := true;
-            end;
+        EXIT('UpdateItemLastCountingPeriodUpdate');
+    end;
 
-            if RecRef.FieldExist(50005) then begin
-                CompanyInformation."TURFSort Code" := RecRef.Field(50005).Value;
-                CompanyInformation.Modify(false);
-                Modify := true;
-            end;
 
-            if Modify then
-                CompanyInformation.Modify(false);
-        end;
-
-        RecRef.Close();
+    local procedure UpdateItemLastCountingPeriod()
+    var
+        Item: Record Item;
+    begin
+        Item.setautoCalcFields("Last Phys. Invt. Date");
+        if Item.FindSet(true) then
+            repeat
+                if Item."Last Phys. Invt. Date" > Item."Last Counting Period Update" then begin
+                    Item.Validate("Last Counting Period Update", Item."Last Phys. Invt. Date");
+                    Item.Modify(false);
+                end;
+            until Item.Next() = 0;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Upgrade Tag", 'OnGetPerCompanyUpgradeTags', '', false, false)]
     local procedure OnGetPerCompanyTags(var PerCompanyUpgradeTags: List of [Code[250]]);
     begin
         PerCompanyUpgradeTags.Add(GetUpgradeTagNewAppMoveCompanyInfoFields());
+        PerCompanyUpgradeTags.Add(GetUpgradeTagUpdateItemLastCountingPeriod());
     end;
 
 }
