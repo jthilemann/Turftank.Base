@@ -9,6 +9,16 @@ pageextension 70328 "TURF tank Setup Extension" extends "TURFTurfTank Setup"
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Main Location field.', Comment = '%';
             }
+            field(TURFUSPickLocation; Rec."TURFUSPickLocation")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the TURF US Pick Location field.', Comment = '%';
+            }
+            field(TURFPACKOUTPickLocation; Rec."TURFPACKOUTPickLocation")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the TURF PACKOUT Pick Location field.', Comment = '%';
+            }
 
             group(TURFMarkup)
             {

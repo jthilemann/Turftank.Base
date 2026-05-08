@@ -18,6 +18,20 @@ pageextension 70313 "TURFBase Item Card Ext" extends "Item Card"
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Qty. on Sales Return field.', Comment = '%';
             }
+            field("TURFQty. on TT US Pick"; Rec."TURFQty. on TT US Pick")
+            {
+                Visible = ShowUSPickInventory;
+                Caption = 'Qty. on TT US Pick';
+                ApplicationArea = All;
+                ToolTip = 'Specifies the quantity on hand at the US Pick location.', Comment = '%';
+            }
+            field("TURFQty. on TT PACKOUT pick"; Rec."TURFQty. on TT PACKOUT pick")
+            {
+                Visible = ShowPACKOUTPickInventory;
+                Caption = 'Qty. on TT PACKOUT pick';
+                ApplicationArea = All;
+                ToolTip = 'Specifies the quantity on hand at the PACKOUT Pick location.', Comment = '%';
+            }
         }
         addlast(Item)
         {
@@ -50,6 +64,8 @@ pageextension 70313 "TURFBase Item Card Ext" extends "Item Card"
     var
         TURFTurfTankSetup: Record "TURFTurfTank Setup";
         ShowMainLocationInventory: Boolean;
+        ShowUSPickInventory: Boolean;
+        ShowPACKOUTPickInventory: Boolean;
 
     trigger OnOpenPage()
     begin
@@ -57,6 +73,12 @@ pageextension 70313 "TURFBase Item Card Ext" extends "Item Card"
         ShowMainLocationInventory := TURFTurfTankSetup."TURFMain Location" <> '';
         if ShowMainLocationInventory then
             Rec.SetFilter("TURFMain Location Filter", TURFTurfTankSetup."TURFMain Location");
+        ShowUSPickInventory := TURFTurfTankSetup."TURFUSPickLocation" <> '';
+        if ShowUSPickInventory then
+            Rec.SetFilter("TURFUSPickLocationFilter", TURFTurfTankSetup."TURFUSPickLocation");
+        ShowPACKOUTPickInventory := TURFTurfTankSetup."TURFPACKOUTPickLocation" <> '';
+        if ShowPACKOUTPickInventory then
+            Rec.SetFilter("TURFPACKOUTPickLocationFilter", TURFTurfTankSetup."TURFPACKOUTPickLocation");
     end;
 
     local procedure GetMainLocationInventoryCaption(): Text

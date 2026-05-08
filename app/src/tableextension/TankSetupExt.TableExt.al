@@ -31,5 +31,17 @@ tableextension 70320 "TURF Tank Setup Ext" extends "TURFTurfTank Setup"
             Caption = 'Markup Robot Unit Price';
             DataClassification = ToBeClassified;
         }
+        field(70306; TURFUSPickLocation; Code[10])
+        {
+            Caption = 'US Pick Location';
+            DataClassification = ToBeClassified;
+            TableRelation = Location.Code;
+        }
+        field(70307; TURFPACKOUTPickLocation; Code[10])
+        {
+            Caption = 'PACKOUT Pick Location';
+            DataClassification = ToBeClassified;
+            TableRelation = Location.Code;
+        }
     }
 }

@@ -5,6 +5,23 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "AttachUSSUB",
+            "type": "al",
+            "request": "attach",
+            "environmentType": "Sandbox",
+            "breakOnError": "All",
+            "breakOnRecordWrite": "None",
+            "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
+            "environmentName": "US-Subscription",
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10,
+            "breakOnNext": "WebServiceClient",
+            "useMcpServerForDebugging": true,
+            "userId": "Millers2"
+        },
+        {
             "name": "snapshotInitialize: Microsoft production cloud",
             "type": "al",
             "request": "snapshotInitialize",
@@ -23,14 +40,13 @@
             "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
             "breakOnNext": "WebClient",
             "executionContext": "DebugAndProfile"
-            
         },
         {
-            "name": "USSandbox_040825",
+            "name": "US-Subscription",
             "type": "al",
             "request": "launch",
             "environmentType": "Sandbox",
-            "environmentName": "USSandbox_040825",
+            "environmentName": "US-Subscription",
             "startupObjectId": 22,
             "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
             "breakOnError": "All",
@@ -109,7 +125,8 @@
             "longRunningSqlStatementsThreshold": 500,
             "numberOfSqlStatements": 10,
             "schemaUpdateMode": "ForceSync"
-        },{
+        },
+        {
             "name": "USSandbox_040825",
             "type": "al",
             "request": "launch",
@@ -126,7 +143,7 @@
             "numberOfSqlStatements": 10,
             "schemaUpdateMode": "ForceSync"
         },
-          {
+        {
             "name": "US-Subscription",
             "type": "al",
             "request": "launch",

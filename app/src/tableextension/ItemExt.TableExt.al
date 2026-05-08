@@ -41,6 +41,46 @@ tableextension 70304 "TURFItem Ext" extends Item
             Caption = 'Aluminium Weight';
             DataClassification = ToBeClassified;
         }
+        field(70306; "TURFQty. on TT US Pick"; Decimal)
+        {
+            Caption = 'Qty. on TT US Pick';
+            Editable = false;
+            FieldClass = FlowField;
+            DecimalPlaces = 0 : 5;
+            CalcFormula = sum("Warehouse Activity Line"."Qty. Outstanding (Base)" where("Activity Type" = const(Pick),
+                                                                                         "Action Type" = const(Take),
+                                                                                         "Item No." = field("No."),
+                                                                                         "Location Code" = field("TURFUSPickLocationFilter"),
+                                                                                         "Variant Code" = field("Variant Filter"),
+                                                                                         "Unit of Measure Code" = field("Unit of Measure Filter"),
+                                                                                         "Breakbulk No." = const(0),
+                                                                                         "Original Breakbulk" = const(false)));
+        }
+        field(70307; "TURFUSPickLocationFilter"; Code[10])
+        {
+            Caption = 'US Pick Location Filter';
+            FieldClass = FlowFilter;
+        }
+        field(70308; "TURFQty. on TT PACKOUT pick"; Decimal)
+        {
+            Caption = 'Qty. on TT PACKOUT pick';
+            Editable = false;
+            FieldClass = FlowField;
+            DecimalPlaces = 0 : 5;
+            CalcFormula = sum("Warehouse Activity Line"."Qty. Outstanding (Base)" where("Activity Type" = const(Pick),
+                                                                                         "Action Type" = const(Take),
+                                                                                         "Item No." = field("No."),
+                                                                                         "Location Code" = field("TURFPACKOUTPickLocationFilter"),
+                                                                                         "Variant Code" = field("Variant Filter"),
+                                                                                         "Unit of Measure Code" = field("Unit of Measure Filter"),
+                                                                                         "Breakbulk No." = const(0),
+                                                                                         "Original Breakbulk" = const(false)));
+        }
+        field(70309; "TURFPACKOUTPickLocationFilter"; Code[10])
+        {
+            Caption = 'PACKOUT Pick Location Filter';
+            FieldClass = FlowFilter;
+        }
 
 
     }
