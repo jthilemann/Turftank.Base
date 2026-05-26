@@ -43,6 +43,18 @@ report 70301 "TURFProd. Order - Job Card"
             column(PrdOrdNo_ProdOrderRtngLineCaption; "Prod. Order Line".FieldCaption("Routing No.")) { }
             column(ProdOrderSourceNoCapt; ProdOrderSourceNoCaptLbl) { }
             column(ExpPerItemLbl; ExpPerItemLbl) { }
+            column(TURFResponsible_ProductionOrder; "TURF Responsible")
+            {
+            }
+            column(TURFWeek_ProductionOrder; "TURF Week")
+            {
+            }
+            column(TURFResponsible_ProductionOrderCpt; fieldcaption("TURF Responsible"))
+            {
+            }
+            column(TURFWeek_ProductionOrderCpt; fieldcaption("TURF Week"))
+            {
+            }
             dataitem("Prod. Order Line"; "Prod. Order Line")
             {
                 DataItemLink = "Prod. Order No." = field("No."), Status = field(status);

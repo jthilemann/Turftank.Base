@@ -1,4 +1,4 @@
-pageextension 70313 "TURFBase Item Card Ext" extends "Item Card"
+pageextension 70338 "TURFBase Item Card Ext" extends "Item Card"
 {
     layout
     {

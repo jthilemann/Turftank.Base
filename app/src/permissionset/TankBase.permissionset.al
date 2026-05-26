@@ -52,5 +52,8 @@ permissionset 70301 TURFTankBase
         codeunit "TURFStripe Management" = X,
         codeunit "TURFUpgrade Mgt" = X,
         page "TURFBoomi Post.S.Inv API" = X,
-        page "TURFTank Stripe Setup" = X;
+        page "TURFTank Stripe Setup" = X,
+        tabledata "TURFResponsible" = RIMD,
+        table "TURFResponsible" = X,
+        page "TURFResponsibles" = X;
 }

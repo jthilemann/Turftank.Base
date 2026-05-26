@@ -1,8 +1,8 @@
-pageextension 70312 "TURF R. Prod. Orders" extends "Released Production Orders"
+pageextension 70313 "TURF FP Prod. Ord. Card Ext" extends "Firm Planned Prod. Order"
 {
     layout
     {
-        addlast(Control1)
+        addlast(General)
         {
             field("TURF Production Start"; Rec."TURF Production Start")
             {
@@ -22,7 +22,8 @@ pageextension 70312 "TURF R. Prod. Orders" extends "Released Production Orders"
             field(TURFComment; Rec.TURFComment)
             {
                 ApplicationArea = All;
-                ToolTip = 'Specifies the value of the Comment field.';
+                ToolTip = 'Specifies a comment for the production order.';
+                MultiLine = true;
             }
             field("TURF Printed"; Rec."TURF Printed")
             {
@@ -31,13 +32,13 @@ pageextension 70312 "TURF R. Prod. Orders" extends "Released Production Orders"
             }
             field("TURFWarehouse/Production"; Rec."TURFWarehouse/Production")
             {
-                ApplicationArea = all;
-                ToolTip = 'Specifies the value of the TURFWarehouse/Production field.';
+                ApplicationArea = All;
+                ToolTip = 'Specifies the warehouse/production value.';
             }
             field(TURFShipping; Rec.TURFShipping)
             {
-                ApplicationArea = all;
-                ToolTip = 'Specifies the value of the TURFShipping field.';
+                ApplicationArea = All;
+                ToolTip = 'Specifies the shipping value.';
             }
             field("TURF Responsible"; Rec."TURF Responsible")
             {
@@ -48,28 +49,6 @@ pageextension 70312 "TURF R. Prod. Orders" extends "Released Production Orders"
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the production week for this production order.';
-            }
-        }
-    }
-    actions
-    {
-        addlast(reporting)
-        {
-            action(TURFPrintJobCard)
-            {
-                Caption = 'Print Turf Job Card';
-                Image = PrintDocument;
-                ToolTip = 'Executes the Print Turf Job Card action.';
-                ApplicationArea = all;
-                trigger OnAction()
-                var
-                    ProductionOrder: Record "Production Order";
-                    ProdOrderJobCard: Report "TURFProd. Order - Job Card";
-                begin
-                    CurrPage.SetSelectionFilter(ProductionOrder);
-                    ProdOrderJobCard.SetTableView(ProductionOrder);
-                    ProdOrderJobCard.Run();
-                end;
             }
         }
     }

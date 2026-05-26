@@ -59,11 +59,11 @@
             "schemaUpdateMode": "ForceSync"
         },
         {
-            "name": "ROWSandbox_040825",
+            "name": "Row-SUB",
             "type": "al",
             "request": "launch",
             "environmentType": "Sandbox",
-            "environmentName": "ROWSandbox_040825",
+            "environmentName": "Row-Subscription",
             "startupObjectId": 22,
             "tenant": "4159635d-ffbc-4276-8454-eb16442604d9",
             "breakOnError": "All",
