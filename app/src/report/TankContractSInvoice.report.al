@@ -706,30 +706,52 @@ report 70312 "TURFTank Contract S. Invoice"
                     MarkupFromLine: Record "Sales Line";
                     AutoFormatType: Enum "Auto Format";
                 begin
-                    // Subscription line combining logic
+                    // Subscription line combining logic - split by tax group code
+                    IsCombinedSubscrLine := false;
                     Header.testfield("TURFSubscription No.");
-                    if Line."TURFCombine Line" then
-                        if CombinedSubscrLineOutputDone then begin
-                            // Accumulate totals for VAT/subtotal but skip rendering this line
-                            InsertVATAmountLine(VATAmountLine, Line);
-                            TransHeaderAmount += PrevLineAmount;
-                            PrevLineAmount := "Line Amount";
-                            TotalSubTotal += "Line Amount";
-                            TotalInvDiscAmount -= "Inv. Discount Amount";
-                            TotalAmount += Amount;
-                            TotalAmountVAT += "Amount Including VAT" - Amount;
-                            TotalAmountInclVAT += "Amount Including VAT";
-                            TotalPaymentDiscOnVAT += -("Line Amount" - "Inv. Discount Amount" - "Amount Including VAT");
-                            CurrReport.Skip();
-                        end else begin
-                            // First combine line: output the combined line
-                            CombinedSubscrLineOutputDone := true;
+                    if Line."TURFCombine Line" then begin
+                        // Always accumulate VAT/totals for every combine line
+                        InsertVATAmountLine(VATAmountLine, Line);
+                        TransHeaderAmount += PrevLineAmount;
+                        PrevLineAmount := "Line Amount";
+                        TotalSubTotal += "Line Amount";
+                        TotalInvDiscAmount -= "Inv. Discount Amount";
+                        TotalAmount += Amount;
+                        TotalAmountVAT += "Amount Including VAT" - Amount;
+                        TotalAmountInclVAT += "Amount Including VAT";
+                        TotalPaymentDiscOnVAT += -("Line Amount" - "Inv. Discount Amount" - "Amount Including VAT");
+
+                        // Only render the representative line for this tax group
+                        if SubscrTaxGroupRepLineNo.ContainsKey("Tax Group Code") and
+                           (SubscrTaxGroupRepLineNo.Get("Tax Group Code") = "Line No.")
+                        then begin
                             IsCombinedSubscrLine := true;
                             CombinedSubscrDescription := GetSubscrCombinedDescription(Header."No.");
-                            CombinedSubscrAmount := SubscrCombinedAmount;
-                            CombinedSubscrAmountInclVAT := SubscrCombinedAmountInclVAT;
-                            CombinedSubscrLineAmount := SubscrCombinedLineAmount;
+                            if SubscrTaxGroupLineAmounts.ContainsKey("Tax Group Code") then begin
+                                CombinedSubscrLineAmount := SubscrTaxGroupLineAmounts.Get("Tax Group Code");
+                                CombinedSubscrAmount := SubscrTaxGroupAmountsExclVAT.Get("Tax Group Code");
+                                CombinedSubscrAmountInclVAT := SubscrTaxGroupAmountsInclVAT.Get("Tax Group Code");
+                            end;
+                        end else begin
+                            // Not the representative line for this tax group – skip rendering
+                            if FirstLineHasBeenOutput then
+                                Clear(DummyCompanyInfo.Picture);
+                            FirstLineHasBeenOutput := true;
+                            CurrReport.Skip();
                         end;
+
+                        // Combined lines are fully handled above – skip general processing
+                        InitializeShipmentLine();
+                        if FirstLineHasBeenOutput then
+                            Clear(DummyCompanyInfo.Picture);
+                        FirstLineHasBeenOutput := true;
+                        FormatLineValues(Line);
+                        if IsCombinedSubscrLine then begin
+                            FormattedUnitPrice := '';
+                            FormattedLineAmount := Format(CombinedSubscrLineAmount, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Header."Currency Code"));
+                        end;
+                        exit;
+                    end;
 
                     InitializeShipmentLine();
                     if Type = Type::"G/L Account" then
@@ -775,11 +797,6 @@ report 70312 "TURFTank Contract S. Invoice"
 
                     FormatLineValues(Line);
 
-                    if IsCombinedSubscrLine then begin
-                        FormattedUnitPrice := '';
-                        FormattedLineAmount := Format(CombinedSubscrLineAmount, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Header."Currency Code"));
-                    end;
-
                     if (Header."Sell-to Customer No." = '002180') and (CompanyName = 'Turf Tank ApS') and (Line."No." = turftankSetup."TURFMarkup Item No.") and (Line."Attached to Line No." > 0) then begin
                         if not MarkupFromLine.get(Line."Document No.", Line."Attached to Line No.") then
                             Clear(MarkupFromLine);
@@ -814,24 +831,47 @@ report 70312 "TURFTank Contract S. Invoice"
                     FirstLineHasBeenOutput := false;
                     DummyCompanyInfo.Picture := CompanyInfo.Picture;
 
-                    // Pre-calculate combined subscription line totals
-                    CombinedSubscrLineOutputDone := false;
+                    // Pre-calculate combined subscription totals per tax group code
                     IsCombinedSubscrLine := false;
                     Clear(CombinedSubscrDescription);
                     Clear(CombinedSubscrAmount);
                     Clear(CombinedSubscrAmountInclVAT);
                     Clear(CombinedSubscrLineAmount);
-                    SubscrCombinedAmount := 0;
-                    SubscrCombinedAmountInclVAT := 0;
-                    SubscrCombinedLineAmount := 0;
+                    Clear(SubscrTaxGroupLineAmounts);
+                    Clear(SubscrTaxGroupAmountsExclVAT);
+                    Clear(SubscrTaxGroupAmountsInclVAT);
+                    Clear(SubscrTaxGroupRepLineNo);
+                    Clear(SubscrTaxGroupRepLineAmt);
 
                     SalesInvLine2.SetRange("Document No.", Header."No.");
                     SalesInvLine2.SetRange("TURFCombine Line", true);
                     if SalesInvLine2.FindSet() then
                         repeat
-                            SubscrCombinedAmount += SalesInvLine2.Amount;
-                            SubscrCombinedAmountInclVAT += SalesInvLine2."Amount Including VAT";
-                            SubscrCombinedLineAmount += SalesInvLine2."Line Amount";
+                            // Accumulate per tax group
+                            if SubscrTaxGroupLineAmounts.ContainsKey(SalesInvLine2."Tax Group Code") then begin
+                                SubscrTaxGroupLineAmounts.Set(SalesInvLine2."Tax Group Code",
+                                    SubscrTaxGroupLineAmounts.Get(SalesInvLine2."Tax Group Code") + SalesInvLine2."Line Amount");
+                                SubscrTaxGroupAmountsExclVAT.Set(SalesInvLine2."Tax Group Code",
+                                    SubscrTaxGroupAmountsExclVAT.Get(SalesInvLine2."Tax Group Code") + SalesInvLine2.Amount);
+                                SubscrTaxGroupAmountsInclVAT.Set(SalesInvLine2."Tax Group Code",
+                                    SubscrTaxGroupAmountsInclVAT.Get(SalesInvLine2."Tax Group Code") + SalesInvLine2."Amount Including VAT");
+                            end else begin
+                                SubscrTaxGroupLineAmounts.Add(SalesInvLine2."Tax Group Code", SalesInvLine2."Line Amount");
+                                SubscrTaxGroupAmountsExclVAT.Add(SalesInvLine2."Tax Group Code", SalesInvLine2.Amount);
+                                SubscrTaxGroupAmountsInclVAT.Add(SalesInvLine2."Tax Group Code", SalesInvLine2."Amount Including VAT");
+                            end;
+                            // Track the representative line (highest Line Amount) per tax group
+                            if not SubscrTaxGroupRepLineNo.ContainsKey(SalesInvLine2."Tax Group Code") or
+                               (SalesInvLine2."Line Amount" > SubscrTaxGroupRepLineAmt.Get(SalesInvLine2."Tax Group Code"))
+                            then begin
+                                if SubscrTaxGroupRepLineNo.ContainsKey(SalesInvLine2."Tax Group Code") then begin
+                                    SubscrTaxGroupRepLineNo.Set(SalesInvLine2."Tax Group Code", SalesInvLine2."Line No.");
+                                    SubscrTaxGroupRepLineAmt.Set(SalesInvLine2."Tax Group Code", SalesInvLine2."Line Amount");
+                                end else begin
+                                    SubscrTaxGroupRepLineNo.Add(SalesInvLine2."Tax Group Code", SalesInvLine2."Line No.");
+                                    SubscrTaxGroupRepLineAmt.Add(SalesInvLine2."Tax Group Code", SalesInvLine2."Line Amount");
+                                end;
+                            end;
                         until SalesInvLine2.Next() = 0;
 
                     OnAfterLineOnPreDataItem(Header, Line);
@@ -1468,16 +1508,17 @@ report 70312 "TURFTank Contract S. Invoice"
         TotalAmountExclInclVATValue: Decimal;
         CurrCode: Text[10];
         CurrSymbol: Text[10];
-        // Subscription line combining
-        CombinedSubscrLineOutputDone: Boolean;
+        // Subscription line combining - per tax group
         IsCombinedSubscrLine: Boolean;
         CombinedSubscrDescription: Text;
         CombinedSubscrAmount: Decimal;
         CombinedSubscrAmountInclVAT: Decimal;
         CombinedSubscrLineAmount: Decimal;
-        SubscrCombinedAmount: Decimal;
-        SubscrCombinedAmountInclVAT: Decimal;
-        SubscrCombinedLineAmount: Decimal;
+        SubscrTaxGroupLineAmounts: Dictionary of [Code[20], Decimal];
+        SubscrTaxGroupAmountsExclVAT: Dictionary of [Code[20], Decimal];
+        SubscrTaxGroupAmountsInclVAT: Dictionary of [Code[20], Decimal];
+        SubscrTaxGroupRepLineNo: Dictionary of [Code[20], Integer];
+        SubscrTaxGroupRepLineAmt: Dictionary of [Code[20], Decimal];
         SubscrPeriodLbl: Label 'Subscription %1 – %2', Comment = '%1 = Period From Date, %2 = Period To Date';
 
         SalespersonLbl: Label 'Salesperson';
