@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<ReportDataSet name="TURFTank Contract S. Invoice" id="70312" language="en-US" formatRegion="da-DK" wordMergeDataItem="Header">
+  <BCReportInformation>
+    <ReportMetadata>
+      <ExtensionId>fa17329a-1c58-4bf0-a202-ebea2c480903</ExtensionId>
+      <ExtensionName>Turftank.Base by TurfTank ApS</ExtensionName>
+      <ExtensionPublisher>TurfTank ApS</ExtensionPublisher>
+      <ExtensionVersion>1.1.20262605.1</ExtensionVersion>
+      <ReportId>70312</ReportId>
+      <ReportName>TURFTank Contract S. Invoice</ReportName>
+      <AboutThisReportTitle></AboutThisReportTitle>
+      <AboutThisReportText></AboutThisReportText>
+      <ReportHelpLink></ReportHelpLink>
+    </ReportMetadata>
+    <ReportRequest>
+      <TenantEntraId>4159635d-ffbc-4276-8454-eb16442604d9</TenantEntraId>
+      <EnvironmentName>US-SUB2</EnvironmentName>
+      <EnvironmentType>Sandbox</EnvironmentType>
+      <CompanyName>Turf Tank US</CompanyName>
+      <CompanyDisplayName>Turf Tank </CompanyDisplayName>
+      <CompanyId>e159b34e-60b8-ef11-8a6d-002248bef507</CompanyId>
+      <UserName>jonasthilemann twoday</UserName>
+      <DateAndTime>Thursday, June 25, 2026 1:33:36 PM</DateAndTime>
+      <Language>en-US</Language>
+      <FormatRegion>da-DK</FormatRegion>
+      <DateTimeValues>
+        <Year>2026</Year>
+        <MonthNumber>6</MonthNumber>
+        <DayNumber>25</DayNumber>
+        <Hour>13</Hour>
+        <Minute>33</Minute>
+      </DateTimeValues>
+    </ReportRequest>
+  </BCReportInformation>
+  <DataItems>
+    <DataItem language="en-US" formatRegion="da-DK" name="Header" tableId="112" systemId="d1a9374a-8970-f111-8070-002248a581f7">
+      <Columns>
+        <Column name="TURFExtendedAddressInfoLabel"></Column>
+        <Column name="TURFExtendedAddressInfo"></Column>
+        <Column name="CompanyAddress1">Turf Tank </Column>
+        <Column name="CompanyAddress2">7878 Main Street</Column>
+        <Column name="CompanyAddress3">STE 2C</Column>
+        <Column name="CompanyAddress4">La Vista, NE 68128</Column>
+        <Column name="CompanyAddress5">USA</Column>
+        <Column name="CompanyAddress6"></Column>
+        <Column name="CompanyAddress7"></Column>
+        <Column name="CompanyAddress8"></Column>
+        <Column name="CompanyHomePage"></Column>
+        <Column name="CompanyEMail"></Column>
+        <Column name="CompanyPicture"></Column>
+        <Column name="CompanyPhoneNo"></Column>
+        <Column name="CompanyPhoneNo_Lbl">Phone No.</Column>
+        <Column name="CompanyGiroNo"></Column>
+        <Column name="CompanyGiroNo_Lbl">Giro No.</Column>
+        <Column name="CompanyBankName">Bank of America</Column>
+        <Column name="CompanyBankName_Lbl">Bank</Column>
+        <Column name="CompanyBankBranchNo"> </Column>
+        <Column name="CompanyBankBranchNo_Lbl">Bank Branch No.</Column>
+        <Column name="CompanyBankAccountNo">334054444690</Column>
+        <Column name="CompanyBankAccountNo_Lbl">Account No.</Column>
+        <Column name="CompanyIBAN"></Column>
+        <Column name="CompanyIBAN_Lbl">IBAN</Column>
+        <Column name="CompanySWIFT"></Column>
+        <Column name="CompanySWIFT_Lbl">SWIFT Code</Column>
+        <Column name="CompanyLogoPosition">0</Column>
+        <Column name="CompanyRegistrationNumber"></Column>
+        <Column name="CompanyRegistrationNumber_Lbl">Registration No.</Column>
+        <Column name="CompanyVATRegNo"></Column>
+        <Column name="CompanyVATRegNo_Lbl"></Column>
+        <Column name="CompanyVATRegistrationNo"></Column>
+        <Column name="CompanyVATRegistrationNo_Lbl"></Column>
+        <Column name="CompanyLegalOffice"></Column>
+        <Column name="CompanyLegalOffice_Lbl"></Column>
+        <Column name="CompanyCustomGiro"></Column>
+        <Column name="CompanyCustomGiro_Lbl"></Column>
+        <Column name="CompanyLegalStatement"></Column>
+        <Column name="DisplayAdditionalFeeNote">False</Column>
+        <Column name="CustomerAddress1">Derry Area School District</Column>
+        <Column name="CustomerAddress2">982 North Chestnut Street</Column>
+        <Column name="CustomerAddress3">Derry, PA 15627</Column>
+        <Column name="CustomerAddress4">USA</Column>
+        <Column name="CustomerAddress5"></Column>
+        <Column name="CustomerAddress6"></Column>
+        <Column name="CustomerAddress7"></Column>
+        <Column name="CustomerAddress8"></Column>
+        <Column name="CustomerPostalBarCode"></Column>
+        <Column name="YourReference"></Column>
+        <Column name="YourReference_Lbl">Your Reference</Column>
+        <Column name="ShipmentMethodDescription">Ex Warehouse</Column>
+        <Column name="ShipmentMethodDescription_Lbl">Shipment Method</Column>
+        <Column name="ShipmentDate">25. June 2026</Column>
+        <Column name="ShipmentDate_Lbl">Shipment Date</Column>
+        <Column name="Shipment_Lbl">Shipment</Column>
+        <Column name="ShowShippingAddress">False</Column>
+        <Column name="ShipToAddress_Lbl">Ship-to Address</Column>
+        <Column name="ShipToAddress1">Derry Area School District</Column>
+        <Column name="ShipToAddress2">982 North Chestnut Street</Column>
+        <Column name="ShipToAddress3">Derry, PA 15627</Column>
+        <Column name="ShipToAddress4">USA</Column>
+        <Column name="ShipToAddress5"></Column>
+        <Column name="ShipToAddress6"></Column>
+        <Column name="ShipToAddress7"></Column>
+        <Column name="ShipToAddress8"></Column>
+        <Column name="SellToContactPhoneNoLbl">Sell-to Contact Phone No.</Column>
+        <Column name="SellToContactMobilePhoneNoLbl">Sell-to Contact Mobile Phone No.</Column>
+        <Column name="SellToContactEmailLbl">Sell-to Contact E-Mail</Column>
+        <Column name="BillToContactPhoneNoLbl">Bill-to Contact Phone No.</Column>
+        <Column name="BillToContactMobilePhoneNoLbl">Bill-to Contact Mobile Phone No.</Column>
+        <Column name="BillToContactEmailLbl">Bill-to Contact E-Mail</Column>
+        <Column name="SellToContactPhoneNo"></Column>
+        <Column name="SellToContactMobilePhoneNo"></Column>
+        <Column name="SellToContactEmail"></Column>
+        <Column name="BillToContactPhoneNo"></Column>
+        <Column name="BillToContactMobilePhoneNo"></Column>
+        <Column name="BillToContactEmail"></Column>
+        <Column name="PaymentTermsDescription">Net 30 days</Column>
+        <Column name="PaymentTermsDescription_Lbl">Payment Terms</Column>
+        <Column name="PaymentMethodDescription"></Column>
+        <Column name="PaymentMethodDescription_Lbl">Payment Method</Column>
+        <Column name="BilltoCustumerNo">002643</Column>
+        <Column name="BilltoCustomerNo_Lbl">Bill-to Customer No.</Column>
+        <Column name="DocumentDate">1. July 2026</Column>
+        <Column name="DocumentDate_Lbl">Document Date</Column>
+        <Column name="DueDate">31. July 2026</Column>
+        <Column name="DueDate_Lbl">Due Date</Column>
+        <Column name="DocumentNo">50-40028067</Column>
+        <Column name="DocumentNo_Lbl">Invoice No.</Column>
+        <Column name="OrderNo"></Column>
+        <Column name="OrderNo_Lbl">Order No.</Column>
+        <Column name="PricesIncludingVAT">False</Column>
+        <Column name="PricesIncludingVAT_Lbl">Prices Including Tax</Column>
+        <Column name="PricesIncludingVATYesNo">No</Column>
+        <Column name="SalesPerson_Lbl">Salesperson</Column>
+        <Column name="SalesPersonBlank_Lbl">Salesperson</Column>
+        <Column name="SalesPersonName">Kris Sørensen</Column>
+        <Column name="SelltoCustomerNo">002643</Column>
+        <Column name="SelltoCustomerNo_Lbl">Sell-to Customer No.</Column>
+        <Column name="VATRegistrationNo"></Column>
+        <Column name="VATRegistrationNo_Lbl"></Column>
+        <Column name="GlobalLocationNumber"></Column>
+        <Column name="GlobalLocationNumber_Lbl">GLN</Column>
+        <Column name="SellToFaxNo"></Column>
+        <Column name="SellToPhoneNo"></Column>
+        <Column name="PaymentReference"></Column>
+        <Column name="From_Lbl">From</Column>
+        <Column name="BilledTo_Lbl">Billed to</Column>
+        <Column name="ChecksPayable_Lbl">Please make checks payable to Turf Tank </Column>
+        <Column name="PaymentReference_Lbl"></Column>
+        <Column name="LegalEntityType">Legal Entity</Column>
+        <Column name="LegalEntityType_Lbl">Tax Identification Type</Column>
+        <Column name="Copy_Lbl">Copy</Column>
+        <Column name="EMail_Header_Lbl">Email</Column>
+        <Column name="HomePage_Header_Lbl">Home Page</Column>
+        <Column name="InvoiceDiscountBaseAmount_Lbl">Invoice Discount Base Amount</Column>
+        <Column name="InvoiceDiscountAmount_Lbl">Invoice Discount</Column>
+        <Column name="LineAmountAfterInvoiceDiscount_Lbl">Payment Discount on VAT</Column>
+        <Column name="LocalCurrency_Lbl">Local Currency</Column>
+        <Column name="ExchangeRateAsText"></Column>
+        <Column name="Page_Lbl">Page</Column>
+        <Column name="SalesInvoiceLineDiscount_Lbl">Discount %</Column>
+        <Column name="Questions_Lbl">Questions?</Column>
+        <Column name="Contact_Lbl"></Column>
+        <Column name="DocumentTitle_Lbl">Invoice</Column>
+        <Column name="YourDocumentTitle_Lbl">Your Invoice</Column>
+        <Column name="Thanks_Lbl">Thank You!</Column>
+        <Column name="ShowWorkDescription">False</Column>
+        <Column name="RemainingAmount" decimalformatter="#,##0.00">17700</Column>
+        <Column name="RemainingAmountText"></Column>
+        <Column name="Subtotal_Lbl">Subtotal</Column>
+        <Column name="Total_Lbl">Total</Column>
+        <Column name="VATAmount_Lbl">VAT Amount</Column>
+        <Column name="VATBase_Lbl">VAT Base</Column>
+        <Column name="VATAmountSpecification_Lbl">VAT Amount Specification</Column>
+        <Column name="VATClauses_Lbl">VAT Clause</Column>
+        <Column name="VATIdentifier_Lbl">VAT Identifier</Column>
+        <Column name="VATPercentage_Lbl">VAT %</Column>
+        <Column name="VATClause_Lbl">Tax Clause</Column>
+        <Column name="PackageTrackingNo"></Column>
+        <Column name="PackageTrackingNo_Lbl">Package Tracking No.</Column>
+        <Column name="ShippingAgentCode"></Column>
+        <Column name="ShippingAgentCode_Lbl">Shipping Agent Code</Column>
+        <Column name="PaymentInstructions_Txt"></Column>
+        <Column name="ExternalDocumentNo"></Column>
+        <Column name="ExternalDocumentNo_Lbl">External Document No.</Column>
+        <Column name="RespCenterCorpRegNo"></Column>
+        <Column name="RespCenterTTVatNo"></Column>
+        <Column name="BottomText1">Terms of payment: Net 30 days - Final payment date 31-07-26</Column>
+        <Column name="BottomText2">Please transfer amount to our bank: Bank of America   334054444690</Column>
+        <Column name="BottomText3">IBAN:  - SWIFT Code: </Column>
+        <Column name="BottomText4">When paying by bank transfer, please state 50-40028067</Column>
+        <Column name="BottomText5">Interest will be changed on overdue payment pursuant to applicable law.</Column>
+      </Columns>
+      <DataItems>
+        <DataItem name="Line" tableId="113" systemId="94852c24-8970-f111-8070-002248a581f7">
+          <Columns>
+            <Column name="HideSubtotal">1</Column>
+            <Column name="SubTotalLineAmount"></Column>
+            <Column name="SubTotalUnitPrice"></Column>
+            <Column name="LineNo_Line">10000</Column>
+            <Column name="AmountExcludingVAT_Line" decimalformatter="#,##0.00">0</Column>
+            <Column name="AmountExcludingVAT_Line_Lbl">Amount</Column>
+            <Column name="AmountIncludingVAT_Line" decimalformatter="#,##0.00">0</Column>
+            <Column name="AmountIncludingVAT_Line_Lbl">Amount Including Tax</Column>
+            <Column name="Description_Line">Pro Subscription Package</Column>
+            <Column name="Description_2"></Column>
+            <Column name="Description_Line_Lbl">Description</Column>
+            <Column name="LineDiscountPercent_Line" decimalformatter="#,##0.#####">0</Column>
+            <Column name="LineDiscountPercentText_Line"></Column>
+            <Column name="LineAmount_Line">0,00</Column>
+            <Column name="LineAmount_Line_Lbl">Line Amount Excl. Tax</Column>
+            <Column name="ItemNo_Line">600112</Column>
+            <Column name="ItemNo_Line_Lbl">No.</Column>
+            <Column name="ItemReferenceNo_Line"></Column>
+            <Column name="ItemReferenceNo_Line_Lbl">Item Reference No.</Column>
+            <Column name="ShipmentDate_Line">25-06-26</Column>
+            <Column name="ShipmentDate_Line_Lbl">Shipment Date</Column>
+            <Column name="Quantity_Line">1</Column>
+            <Column name="Quantity_Line_Lbl">Quantity</Column>
+            <Column name="Type_Line">Item</Column>
+            <Column name="UnitPrice">0,00</Column>
+            <Column name="UnitPrice_Lbl">Unit Price Excl. Tax</Column>
+            <Column name="UnitOfMeasure">Pieces</Column>
+            <Column name="UnitOfMeasure_Lbl">Unit of Measure</Column>
+            <Column name="VATIdentifier_Line"></Column>
+            <Column name="VATIdentifier_Line_Lbl">Tax Identifier</Column>
+            <Column name="VATPct_Line">0</Column>
+            <Column name="VATPct_Line_Lbl">Tax %</Column>
+            <Column name="TransHeaderAmount" decimalformatter="#,##0.00">0</Column>
+            <Column name="JobTaskNo_Lbl"></Column>
+            <Column name="JobTaskNo"></Column>
+            <Column name="JobTaskDescription"></Column>
+            <Column name="JobTaskDesc_Lbl">Job Task Description</Column>
+            <Column name="JobNo_Lbl"></Column>
+            <Column name="JobNo"></Column>
+            <Column name="Unit_Lbl">Unit</Column>
+            <Column name="Qty_Lbl">Qty</Column>
+            <Column name="Price_Lbl">Price</Column>
+            <Column name="PricePer_Lbl">Price per</Column>
+            <Column name="IsCombinedSubscrLine">True</Column>
+            <Column name="CombinedSubscrDescription">Subscription 14. May 2026 – 13. May 2027</Column>
+            <Column name="CombinedSubscrAmount" decimalformatter="#,##0.00">17700</Column>
+            <Column name="CombinedSubscrAmountInclVAT" decimalformatter="#,##0.00">17700</Column>
+            <Column name="CombinedSubscrLineAmount" decimalformatter="#,##0.00">17700</Column>
+          </Columns>
+          <DataItems />
+        </DataItem>
+        <DataItem name="VATAmountLine" tableId="290">
+          <Columns>
+            <Column name="InvoiceDiscountAmount_VATAmountLine" decimalformatter="#,##0.00">0</Column>
+            <Column name="InvoiceDiscountAmount_VATAmountLine_Lbl">Invoice Discount Amount</Column>
+            <Column name="InvoiceDiscountBaseAmount_VATAmountLine" decimalformatter="#,##0.00">17700</Column>
+            <Column name="InvoiceDiscountBaseAmount_VATAmountLine_Lbl">Inv. Disc. Base Amount</Column>
+            <Column name="LineAmount_VatAmountLine" decimalformatter="#,##0.00">17700</Column>
+            <Column name="LineAmount_VatAmountLine_Lbl">Line Amount</Column>
+            <Column name="VATAmount_VatAmountLine" decimalformatter="#,##0.00">0</Column>
+            <Column name="VATAmount_VatAmountLine_Lbl">Tax Amount</Column>
+            <Column name="VATAmountLCY_VATAmountLine" decimalformatter="#,##0.00">0</Column>
+            <Column name="VATAmountLCY_VATAmountLine_Lbl">VAT Amount (LCY)</Column>
+            <Column name="VATBase_VatAmountLine" decimalformatter="#,##0.00">17700</Column>
+            <Column name="VATBase_VatAmountLine_Lbl">Tax Base</Column>
+            <Column name="VATBaseLCY_VATAmountLine" decimalformatter="#,##0.00">17700,00</Column>
+            <Column name="VATBaseLCY_VATAmountLine_Lbl">VAT Base (LCY)</Column>
+            <Column name="VATIdentifier_VatAmountLine"></Column>
+            <Column name="VATIdentifier_VatAmountLine_Lbl">Tax Identifier</Column>
+            <Column name="VATPct_VatAmountLine" decimalformatter="#,##0.#####">0</Column>
+            <Column name="VATPct_VatAmountLine_Lbl">Tax %</Column>
+            <Column name="NoOfVATIdentifiers">1</Column>
+          </Columns>
+        </DataItem>
+        <DataItem name="LeftHeader" tableId="823">
+          <Columns>
+            <Column name="LeftHeaderName">Bill-to Customer No.</Column>
+            <Column name="LeftHeaderValue">002643</Column>
+          </Columns>
+        </DataItem>
+        <DataItem name="LeftHeader" tableId="823">
+          <Columns>
+            <Column name="LeftHeaderName">Invoice No.</Column>
+            <Column name="LeftHeaderValue">50-40028067</Column>
+          </Columns>
+        </DataItem>
+        <DataItem name="LeftHeader" tableId="823">
+          <Columns>
+            <Column name="LeftHeaderName">Posting Date</Column>
+            <Column name="LeftHeaderValue">1. July 2026</Column>
+          </Columns>
+        </DataItem>
+        <DataItem name="LeftHeader" tableId="823">
+          <Columns>
+            <Column name="LeftHeaderName">Document Date</Column>
+            <Column name="LeftHeaderValue">1. July 2026</Column>
+          </Columns>
+        </DataItem>
+        <DataItem name="LeftHeader" tableId="823">
+          <Columns>
+            <Column name="LeftHeaderName">Due Date</Column>
+            <Column name="LeftHeaderValue">31. July 2026</Column>
+          </Columns>
+        </DataItem>
+        <DataItem name="LeftHeader" tableId="823">
+          <Columns>
+            <Column name="LeftHeaderName">Payment Terms</Column>
+            <Column name="LeftHeaderValue">Net 30 days</Column>
+          </Columns>
+        </DataItem>
+        <DataItem name="LetterText" tableId="2000000026">
+          <Columns>
+            <Column name="GreetingText">Hello</Column>
+            <Column name="BodyText">Thank you for your business. Your invoice is attached to this message.</Column>
+            <Column name="ClosingText">Sincerely</Column>
+            <Column name="PmtDiscText"></Column>
+          </Columns>
+        </DataItem>
+        <DataItem name="Totals" tableId="2000000026">
+          <Columns>
+            <Column name="TotalNetAmount">17.700,00</Column>
+            <Column name="TotalVATBaseLCY" decimalformatter="#,##0.00">17700,00</Column>
+            <Column name="TotalAmountIncludingVAT">17.700,00</Column>
+            <Column name="TotalVATAmount">0,00</Column>
+            <Column name="TotalVATAmountLCY" decimalformatter="#,##0.00">0</Column>
+            <Column name="TotalInvoiceDiscountAmount">0,00</Column>
+            <Column name="TotalPaymentDiscountOnVAT" decimalformatter="#,##0.00">0</Column>
+            <Column name="TotalVATAmountText">Tax Amount</Column>
+            <Column name="TotalExcludingVATText">Total $ Excl. Tax</Column>
+            <Column name="TotalIncludingVATText">Total $ Incl. Tax</Column>
+            <Column name="TotalSubTotal">17.700,00</Column>
+            <Column name="TotalSubTotalMinusInvoiceDiscount">17.700,00</Column>
+            <Column name="TotalText">Total $</Column>
+            <Column name="TotalAmountExclInclVAT">17.700,00</Column>
+            <Column name="TotalAmountExclInclVATText">Total $ Incl. Tax</Column>
+            <Column name="TotalVATBaseOnVATAmtLine" decimalformatter="#,##0.00">17700</Column>
+            <Column name="TotalVATAmountOnVATAmtLine" decimalformatter="#,##0.00">0</Column>
+            <Column name="CurrencyCode">USD</Column>
+            <Column name="CurrencySymbol">$</Column>
+          </Columns>
+        </DataItem>
+      </DataItems>
+    </DataItem>
+  </DataItems>
+</ReportDataSet>

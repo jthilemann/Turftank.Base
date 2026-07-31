@@ -55,5 +55,7 @@ permissionset 70301 TURFTankBase
         page "TURFTank Stripe Setup" = X,
         tabledata "TURFResponsible" = RIMD,
         table "TURFResponsible" = X,
-        page "TURFResponsibles" = X;
+        page "TURFResponsibles" = X,
+        codeunit "TURFReport Substitution" = X,
+        report "TURFTank Contract S. Invoice" = X;
 }

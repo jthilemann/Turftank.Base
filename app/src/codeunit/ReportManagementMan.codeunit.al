@@ -20,6 +20,4 @@ codeunit 70301 "TURFReport Management Man"
         UnbindSubscription(ReportManagement);
     end;
 
-
-
 }
