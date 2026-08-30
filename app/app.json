@@ -16,11 +16,17 @@
       "name": "Turftank.Hubspot.ERP",
       "publisher": "TurfTank ApS",
       "version": "1.0.0.0"
+    },
+    {
+      "id": "5fedf952-2450-4bce-b578-f3b7c13cd9a9",
+      "publisher": "Avalara",
+      "name": "Avalara AvaTax",
+      "version": "28.0.36.1"
     }
   ],
   "screenshots": [],
   "platform": "1.0.0.0",
-  "application": "23.0.0.0",
+  "application": "28.0.0.0",
   "idRanges": [
     {
       "from": 70301,
@@ -32,7 +38,7 @@
     "allowDownloadingSource": true,
     "includeSourceInSymbolFile": true
   },
-  "runtime": "12.0",
+  "runtime": "17.0",
   "features": [
     "NoImplicitWith",
     "TranslationFile"

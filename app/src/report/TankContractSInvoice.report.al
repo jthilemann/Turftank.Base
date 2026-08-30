@@ -627,6 +627,9 @@ report 70312 "TURFTank Contract S. Invoice"
                 column(CombinedSubscrDescription; CombinedSubscrDescription)
                 {
                 }
+                column(CombinedSubscrItemNo; CombinedSubscrItemNo)
+                {
+                }
                 column(CombinedSubscrAmount; CombinedSubscrAmount)
                 {
                     AutoFormatExpression = GetCurrencyCode();
@@ -706,7 +709,7 @@ report 70312 "TURFTank Contract S. Invoice"
                     MarkupFromLine: Record "Sales Line";
                     AutoFormatType: Enum "Auto Format";
                 begin
-                    // Subscription line combining logic - split by tax group code
+                    // Subscription line combining logic - split by tax group code + VAT identifier
                     IsCombinedSubscrLine := false;
                     Header.testfield("TURFSubscription No.");
                     if Line."TURFCombine Line" then begin
@@ -721,19 +724,28 @@ report 70312 "TURFTank Contract S. Invoice"
                         TotalAmountInclVAT += "Amount Including VAT";
                         TotalPaymentDiscOnVAT += -("Line Amount" - "Inv. Discount Amount" - "Amount Including VAT");
 
-                        // Only render the representative line for this tax group
-                        if SubscrTaxGroupRepLineNo.ContainsKey("Tax Group Code") and
-                           (SubscrTaxGroupRepLineNo.Get("Tax Group Code") = "Line No.")
+                        // Only render the representative line for this tax group + Ava Tax Code combination
+                        if SubscrTaxGroupRepLineNo.ContainsKey(GetSubscrTaxKey("Tax Group Code", "Ava Tax Code")) and
+                           (SubscrTaxGroupRepLineNo.Get(GetSubscrTaxKey("Tax Group Code", "Ava Tax Code")) = "Line No.")
                         then begin
                             IsCombinedSubscrLine := true;
-                            CombinedSubscrDescription := GetSubscrCombinedDescription(Header."No.");
-                            if SubscrTaxGroupLineAmounts.ContainsKey("Tax Group Code") then begin
-                                CombinedSubscrLineAmount := SubscrTaxGroupLineAmounts.Get("Tax Group Code");
-                                CombinedSubscrAmount := SubscrTaxGroupAmountsExclVAT.Get("Tax Group Code");
-                                CombinedSubscrAmountInclVAT := SubscrTaxGroupAmountsInclVAT.Get("Tax Group Code");
+                            // Look up combined description scoped to the same tax group + Ava Tax Code.
+                            // This prevents other groups' items from leaking their description.
+                            CombinedSubscrDescription := GetSubscrCombinedDescription(Header."No.", GetSubscrTaxKey("Tax Group Code", "Ava Tax Code"));
+                            if CombinedSubscrItemNo <> '' then
+                                "No." := CombinedSubscrItemNo;
+                            if CombinedSubscrDescription <> '' then begin
+                                Description := CopyStr(CombinedSubscrDescription, 1, MaxStrLen(Description));
+                                // Clear so the RDLC does not render it as a second row
+                                CombinedSubscrDescription := '';
+                            end;
+                            if SubscrTaxGroupLineAmounts.ContainsKey(GetSubscrTaxKey("Tax Group Code", "Ava Tax Code")) then begin
+                                CombinedSubscrLineAmount := SubscrTaxGroupLineAmounts.Get(GetSubscrTaxKey("Tax Group Code", "Ava Tax Code"));
+                                CombinedSubscrAmount := SubscrTaxGroupAmountsExclVAT.Get(GetSubscrTaxKey("Tax Group Code", "Ava Tax Code"));
+                                CombinedSubscrAmountInclVAT := SubscrTaxGroupAmountsInclVAT.Get(GetSubscrTaxKey("Tax Group Code", "Ava Tax Code"));
                             end;
                         end else begin
-                            // Not the representative line for this tax group – skip rendering
+                            // Not the representative line for this tax group + VAT identifier – skip rendering
                             if FirstLineHasBeenOutput then
                                 Clear(DummyCompanyInfo.Picture);
                             FirstLineHasBeenOutput := true;
@@ -747,8 +759,12 @@ report 70312 "TURFTank Contract S. Invoice"
                         FirstLineHasBeenOutput := true;
                         FormatLineValues(Line);
                         if IsCombinedSubscrLine then begin
-                            FormattedUnitPrice := '';
                             FormattedLineAmount := Format(CombinedSubscrLineAmount, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Header."Currency Code"));
+                            // Unit price = total combined line amount / quantity
+                            if Quantity <> 0 then
+                                FormattedUnitPrice := Format(CombinedSubscrLineAmount / Quantity, 0, AutoFormat.ResolveAutoFormat("Auto Format"::UnitAmountFormat, Header."Currency Code"))
+                            else
+                                FormattedUnitPrice := FormattedLineAmount;
                         end;
                         exit;
                     end;
@@ -834,6 +850,7 @@ report 70312 "TURFTank Contract S. Invoice"
                     // Pre-calculate combined subscription totals per tax group code
                     IsCombinedSubscrLine := false;
                     Clear(CombinedSubscrDescription);
+                    Clear(CombinedSubscrItemNo);
                     Clear(CombinedSubscrAmount);
                     Clear(CombinedSubscrAmountInclVAT);
                     Clear(CombinedSubscrLineAmount);
@@ -841,37 +858,37 @@ report 70312 "TURFTank Contract S. Invoice"
                     Clear(SubscrTaxGroupAmountsExclVAT);
                     Clear(SubscrTaxGroupAmountsInclVAT);
                     Clear(SubscrTaxGroupRepLineNo);
-                    Clear(SubscrTaxGroupRepLineAmt);
+
+                    // Find the robot item no. from the subscription lines
+                    SubscrRobotItemNo := GetSubscrRobotItemNo(Header."TURFSubscription No.");
 
                     SalesInvLine2.SetRange("Document No.", Header."No.");
                     SalesInvLine2.SetRange("TURFCombine Line", true);
                     if SalesInvLine2.FindSet() then
                         repeat
-                            // Accumulate per tax group
-                            if SubscrTaxGroupLineAmounts.ContainsKey(SalesInvLine2."Tax Group Code") then begin
-                                SubscrTaxGroupLineAmounts.Set(SalesInvLine2."Tax Group Code",
-                                    SubscrTaxGroupLineAmounts.Get(SalesInvLine2."Tax Group Code") + SalesInvLine2."Line Amount");
-                                SubscrTaxGroupAmountsExclVAT.Set(SalesInvLine2."Tax Group Code",
-                                    SubscrTaxGroupAmountsExclVAT.Get(SalesInvLine2."Tax Group Code") + SalesInvLine2.Amount);
-                                SubscrTaxGroupAmountsInclVAT.Set(SalesInvLine2."Tax Group Code",
-                                    SubscrTaxGroupAmountsInclVAT.Get(SalesInvLine2."Tax Group Code") + SalesInvLine2."Amount Including VAT");
+                            // Accumulate per tax group + Ava Tax Code to keep lines with different AvaTax codes separate
+                            if SubscrTaxGroupLineAmounts.ContainsKey(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code")) then begin
+                                SubscrTaxGroupLineAmounts.Set(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code"),
+                                    SubscrTaxGroupLineAmounts.Get(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code")) + SalesInvLine2."Line Amount");
+                                SubscrTaxGroupAmountsExclVAT.Set(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code"),
+                                    SubscrTaxGroupAmountsExclVAT.Get(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code")) + SalesInvLine2.Amount);
+                                SubscrTaxGroupAmountsInclVAT.Set(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code"),
+                                    SubscrTaxGroupAmountsInclVAT.Get(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code")) + SalesInvLine2."Amount Including VAT");
                             end else begin
-                                SubscrTaxGroupLineAmounts.Add(SalesInvLine2."Tax Group Code", SalesInvLine2."Line Amount");
-                                SubscrTaxGroupAmountsExclVAT.Add(SalesInvLine2."Tax Group Code", SalesInvLine2.Amount);
-                                SubscrTaxGroupAmountsInclVAT.Add(SalesInvLine2."Tax Group Code", SalesInvLine2."Amount Including VAT");
+                                SubscrTaxGroupLineAmounts.Add(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code"), SalesInvLine2."Line Amount");
+                                SubscrTaxGroupAmountsExclVAT.Add(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code"), SalesInvLine2.Amount);
+                                SubscrTaxGroupAmountsInclVAT.Add(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code"), SalesInvLine2."Amount Including VAT");
                             end;
-                            // Track the representative line (highest Line Amount) per tax group
-                            if not SubscrTaxGroupRepLineNo.ContainsKey(SalesInvLine2."Tax Group Code") or
-                               (SalesInvLine2."Line Amount" > SubscrTaxGroupRepLineAmt.Get(SalesInvLine2."Tax Group Code"))
-                            then begin
-                                if SubscrTaxGroupRepLineNo.ContainsKey(SalesInvLine2."Tax Group Code") then begin
-                                    SubscrTaxGroupRepLineNo.Set(SalesInvLine2."Tax Group Code", SalesInvLine2."Line No.");
-                                    SubscrTaxGroupRepLineAmt.Set(SalesInvLine2."Tax Group Code", SalesInvLine2."Line Amount");
-                                end else begin
-                                    SubscrTaxGroupRepLineNo.Add(SalesInvLine2."Tax Group Code", SalesInvLine2."Line No.");
-                                    SubscrTaxGroupRepLineAmt.Add(SalesInvLine2."Tax Group Code", SalesInvLine2."Line Amount");
-                                end;
-                            end;
+                            // Track the representative line: prefer the robot item line; fall back to first line seen
+                            // Match on Phantom Sku (original item no.) if available, otherwise fall back to No.
+                            if not SubscrTaxGroupRepLineNo.ContainsKey(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code")) then
+                                SubscrTaxGroupRepLineNo.Add(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code"), SalesInvLine2."Line No.")
+                            else
+                                if (SubscrRobotItemNo <> '') and
+                                   ((SalesInvLine2."TURFPhantom Sku" = SubscrRobotItemNo) or
+                                    ((SalesInvLine2."TURFPhantom Sku" = '') and (SalesInvLine2."No." = SubscrRobotItemNo)))
+                                then
+                                    SubscrTaxGroupRepLineNo.Set(GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code"), SalesInvLine2."Line No.");
                         until SalesInvLine2.Next() = 0;
 
                     OnAfterLineOnPreDataItem(Header, Line);
@@ -1508,18 +1525,18 @@ report 70312 "TURFTank Contract S. Invoice"
         TotalAmountExclInclVATValue: Decimal;
         CurrCode: Text[10];
         CurrSymbol: Text[10];
-        // Subscription line combining - per tax group
+        // Subscription line combining - per tax group + VAT identifier
         IsCombinedSubscrLine: Boolean;
         CombinedSubscrDescription: Text;
+        CombinedSubscrItemNo: Code[20];
         CombinedSubscrAmount: Decimal;
         CombinedSubscrAmountInclVAT: Decimal;
         CombinedSubscrLineAmount: Decimal;
-        SubscrTaxGroupLineAmounts: Dictionary of [Code[20], Decimal];
-        SubscrTaxGroupAmountsExclVAT: Dictionary of [Code[20], Decimal];
-        SubscrTaxGroupAmountsInclVAT: Dictionary of [Code[20], Decimal];
-        SubscrTaxGroupRepLineNo: Dictionary of [Code[20], Integer];
-        SubscrTaxGroupRepLineAmt: Dictionary of [Code[20], Decimal];
-        SubscrPeriodLbl: Label 'Subscription %1 – %2', Comment = '%1 = Period From Date, %2 = Period To Date';
+        SubscrTaxGroupLineAmounts: Dictionary of [Text, Decimal];
+        SubscrTaxGroupAmountsExclVAT: Dictionary of [Text, Decimal];
+        SubscrTaxGroupAmountsInclVAT: Dictionary of [Text, Decimal];
+        SubscrTaxGroupRepLineNo: Dictionary of [Text, Integer];
+        SubscrRobotItemNo: Code[20];
 
         SalespersonLbl: Label 'Salesperson';
         CompanyInfoBankAccNoLbl: Label 'Account No.';
@@ -1927,20 +1944,94 @@ report 70312 "TURFTank Contract S. Invoice"
             FormatDocument.SetSalesInvoiceLine(CurrLine, FormattedQuantity, FormattedUnitPrice, FormattedVATPct, FormattedLineAmount);
     end;
 
-    local procedure GetSubscrCombinedDescription(InvoiceNo: Code[20]): Text
+    local procedure GetSubscrCombinedDescription(InvoiceNo: Code[20]; TaxKey: Text): Text
     var
-        SubscrInvoiceLog: Record "TURFSubscr Invoice Log";
-        PeriodFromDate: Date;
-        PeriodToDate: Date;
+        SalesInvLine2: Record "Sales Invoice Line";
+        SalesInvLine3: Record "Sales Invoice Line";
+        SubscrInvoiceDescMap: Record "TURFSubscr Invoice Desc. Map";
+        SecondItemNo: Code[20];
+        BestDescription: Text;
+        BestItemNo: Code[20];
     begin
-        SubscrInvoiceLog.SetRange("Invoice No.", InvoiceNo);
-        SubscrInvoiceLog.SetRange("Line Type", "TURFSubscr Line Type"::Period);
-        if SubscrInvoiceLog.FindFirst() then begin
-            PeriodFromDate := SubscrInvoiceLog."Period From Date";
-            PeriodToDate := SubscrInvoiceLog."Period To Date";
+        // Find the mapping entry whose Item No. 1 matches the Phantom Sku of a combine line
+        // that belongs to the same tax group + VAT % as the current representative line (TaxKey).
+        // "Phantom Sku" holds the original robot item no. from the subscription contract
+        // (e.g. 600100, 600107) which is the key used in TURFSubscr Invoice Desc. Map.
+        // Only searching within the same tax group prevents other groups' items (e.g. Processing Fee)
+        // from leaking their mapping description onto the wrong representative line.
+        SalesInvLine2.SetRange("Document No.", InvoiceNo);
+        SalesInvLine2.SetRange("TURFCombine Line", true);
+        if not SalesInvLine2.FindSet() then
+            exit('');
+
+        repeat
+            // Only process lines that belong to the same tax group + Ava Tax Code as the representative line
+            if GetSubscrTaxKey(SalesInvLine2."Tax Group Code", SalesInvLine2."Ava Tax Code") <> TaxKey then
+                Continue;
+
+            // Use Phantom Sku as the primary lookup key; fall back to No. if Phantom Sku is blank
+            if SalesInvLine2."TURFPhantom Sku" <> '' then
+                SubscrInvoiceDescMap.SetRange("Item No. 1", SalesInvLine2."TURFPhantom Sku")
+            else
+                SubscrInvoiceDescMap.SetRange("Item No. 1", SalesInvLine2."No.");
+            if SubscrInvoiceDescMap.FindSet() then begin
+                repeat
+                    SecondItemNo := SubscrInvoiceDescMap."Item No. 2";
+                    if SecondItemNo <> '' then begin
+                        // Check if Item No. 2 matches another combine line's Phantom Sku (or No.)
+                        // Use a separate record variable to avoid corrupting the outer loop
+                        SalesInvLine3.SetRange("Document No.", InvoiceNo);
+                        SalesInvLine3.SetRange("TURFCombine Line", true);
+                        if SalesInvLine3.FindSet() then
+                            repeat
+                                if (SalesInvLine3."TURFPhantom Sku" = SecondItemNo) or
+                                   ((SalesInvLine3."TURFPhantom Sku" = '') and (SalesInvLine3."No." = SecondItemNo))
+                                then begin
+                                    // Best match: both Item No. 1 and Item No. 2 found – use this description
+                                    if SubscrInvoiceDescMap.Description <> '' then begin
+                                        CombinedSubscrItemNo := SubscrInvoiceDescMap."Item No. 1";
+                                        exit(SubscrInvoiceDescMap.Description);
+                                    end;
+                                end;
+                            until SalesInvLine3.Next() = 0;
+                    end else begin
+                        // Item No. 2 is blank – this is a base entry; keep as fallback
+                        if (BestDescription = '') and (SubscrInvoiceDescMap.Description <> '') then begin
+                            BestDescription := SubscrInvoiceDescMap.Description;
+                            BestItemNo := SubscrInvoiceDescMap."Item No. 1";
+                        end;
+                    end;
+                until SubscrInvoiceDescMap.Next() = 0;
+            end;
+        until SalesInvLine2.Next() = 0;
+
+        // Return the best fallback description found (Item No. 1 match, no Item No. 2 required)
+        if BestDescription <> '' then begin
+            CombinedSubscrItemNo := BestItemNo;
+            exit(BestDescription);
         end;
-        if (PeriodFromDate <> 0D) and (PeriodToDate <> 0D) then
-            exit(StrSubstNo(SubscrPeriodLbl, Format(PeriodFromDate, 0, 4), Format(PeriodToDate, 0, 4)));
+
+        exit('');
+    end;
+
+    local procedure GetSubscrTaxKey(TaxGroupCode: Code[20]; AvaTaxCode: Code[20]): Text
+    begin
+        exit(TaxGroupCode + '|' + AvaTaxCode);
+    end;
+
+    local procedure GetSubscrRobotItemNo(SubscriptionNo: Code[20]): Code[20]
+    var
+        SubscrLine: Record "TURFSubscr Line";
+    begin
+        if SubscriptionNo = '' then
+            exit('');
+        SubscrLine.SetRange("Subscription No.", SubscriptionNo);
+        SubscrLine.SetRange("Line Type", "TURFSubscr Line Type"::Period);
+        SubscrLine.SetRange("Is Paint", false);
+        SubscrLine.SetRange("Is Processing Fee", false);
+        SubscrLine.SetRange("Is Implementation Fee", false);
+        if SubscrLine.FindFirst() then
+            exit(SubscrLine."Item No.");
         exit('');
     end;
 

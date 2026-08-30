@@ -8262,9 +8262,6 @@
         <Field Name="RemainingAmount">
           <DataField>RemainingAmount</DataField>
         </Field>
-        <Field Name="RemainingAmountFormat">
-          <DataField>RemainingAmountFormat</DataField>
-        </Field>
         <Field Name="RemainingAmountText">
           <DataField>RemainingAmountText</DataField>
         </Field>
